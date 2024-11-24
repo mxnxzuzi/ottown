@@ -1,31 +1,36 @@
-package model.domain;
+package model.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Content {
-    private Long contentId;
-    private String title;
-    private String type;
-    private String genre;
-    private String image; 
-    private Date publishDate;
-    
-    public Content() {}
+    private int contentId;         // 콘텐츠 ID
+    private String title;          // 제목
+    private String type;           // 타입 (드라마, TV프로그램)
+    private String genre;          // 장르 (초기값: 없음)
+    private String image;          // 이미지 (URL 또는 Base64 인코딩 문자열)
+    private Date publishDate;      // 출시 날짜
 
-    public Content(Long contentId, String title, String type, String genre, String image, Date publishDate) {
+    // 기본 생성자 (genre를 "없음"으로 초기화)
+    public Content() {
+        this.genre = "없음";
+    }
+
+    // 매개변수 생성자
+    public Content(int contentId, String title, String type, String genre, String image, Date publishDate) {
         this.contentId = contentId;
         this.title = title;
         this.type = type;
-        this.genre = genre;
+        this.genre = genre == null || genre.isEmpty() ? "없음" : genre;
         this.image = image;
         this.publishDate = publishDate;
     }
 
-    public Long getContentId() {
+    // Getter and Setter
+    public int getContentId() {
         return contentId;
     }
 
-    public void setContentId(Long contentId) {
+    public void setContentId(int contentId) {
         this.contentId = contentId;
     }
 
@@ -50,7 +55,7 @@ public class Content {
     }
 
     public void setGenre(String genre) {
-        this.genre = genre;
+        this.genre = genre == null || genre.isEmpty() ? "없음" : genre;
     }
 
     public String getImage() {
@@ -81,4 +86,3 @@ public class Content {
                 '}';
     }
 }
-

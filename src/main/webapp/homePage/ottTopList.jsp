@@ -21,7 +21,7 @@
 				<li><a href="">영화</a></li>
 				<li><a href="">드라마</a></li>
 				<li><a href="">애니메이션</a></li>
-				<li style="margin-top: 3px;"><a href="ottTopList.jsp">OTT</a></li>
+				<li style="margin-top: 3px;"><a href="<%= request.getContextPath() %>/homePage/ottTopList.jsp">OTT</a></li>
 			</ul>
 			<ul class="nav-user">
 				<li><a href="">공동구매</a></li>

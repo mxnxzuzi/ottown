@@ -1,55 +1,150 @@
 package model.dao.content;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import model.dto.Content;
+import model.dao.JDBCUtil;
 
 public class ContentDao {
+	private JDBCUtil jdbcUtil = null;
 
-    // 넷플릭스 Top10 콘텐츠 가져오기
-    public List<Map<String, String>> getNetflixTop10WithImages() {
-        List<Map<String, String>> netflixTop10 = new ArrayList<>();
-        try {
-            // URL 연결 및 HTML 파싱
-            Document doc = Jsoup.connect("https://m.kinolights.com/ranking/netflix")
-                    .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-                    .timeout(5000)
-                    .get();
+	public ContentDao() {
+		jdbcUtil = new JDBCUtil(); // JDBCUtil 객체 생성
+	}
 
-            // 콘텐츠 항목 선택
-            Elements items = doc.select("a.ranking__info"); // 각 콘텐츠 항목
+	// 데이터 삽입 (Create)
+	public int insertContent(Content content) throws SQLException {
+		String sql = "INSERT INTO Content (content_id, title, type, genre, image, publishDate) "
+				+ "VALUES (seq_content.NEXTVAL, ?, ?, ?, ?, ?)";
+		Object[] param = new Object[] { content.getTitle(), content.getType(), content.getGenre(), content.getImage(),
+				content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime()) : null };
 
-            // 크롤링된 항목 수 확인
-            System.out.println("크롤링된 항목 수: " + items.size());
+		jdbcUtil.setSqlAndParameters(sql, param);
 
-            for (Element item : items) {
-                if (netflixTop10.size() >= 10) break; // 최대 10개까지만 가져옴
+		try {
+			int result = jdbcUtil.executeUpdate();
+			return result; // 삽입 성공 시 1 반환
+		} catch (Exception ex) {
+			jdbcUtil.rollback();
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.commit();
+			jdbcUtil.close();
+		}
+		return 0;
+	}
 
-                // 이미지 URL 추출
-                String imageUrl = item.select(".info__poster img").attr("data-src");
+	public void insertContents(List<Content> contents) throws Exception {
+		String sql = "INSERT INTO Content (content_id, title, type, genre, image, publishDate) "
+				+ "VALUES (seq_content.NEXTVAL, ?, ?, ?, ?, ?)";
 
-                // 콘텐츠 제목 추출
-                String title = item.select(".info__title").text();
+		try {
+			for (Content content : contents) {
+				Object[] param = new Object[] { content.getTitle(), content.getType(), content.getGenre(),
+						content.getImage(),
+						content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime())
+								: null };
 
-                // 디버깅용 출력
-                System.out.println("Title: " + title + ", Image URL: " + imageUrl);
+				jdbcUtil.setSqlAndParameters(sql, param);
+				jdbcUtil.executeUpdate(); // 한 개씩 삽입 실행
+			}
+			System.out.println("모든 Content 데이터가 성공적으로 삽입되었습니다.");
+		} catch (SQLException e) {
+			System.err.println("Content 데이터를 삽입하는 중 오류 발생: " + e.getMessage());
+			jdbcUtil.rollback(); // 예외 발생 시 롤백
+			throw e;
+		} finally {
+			jdbcUtil.commit(); // 작업 완료 후 커밋
+			jdbcUtil.close(); // 리소스 해제
+		}
+	}
 
-                // 데이터를 Map에 저장
-                Map<String, String> contentData = new HashMap<>();
-                contentData.put("title", title);
-                contentData.put("imageUrl", imageUrl);
+	// 데이터 조회 (Read)
+	public List<Content> getAllContents() throws SQLException {
+		String sql = "SELECT * FROM Content";
+		jdbcUtil.setSqlAndParameters(sql, null);
 
-                netflixTop10.add(contentData);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return netflixTop10;
-    }
+		List<Content> contentList = new ArrayList<>();
+
+		try {
+			ResultSet rs = jdbcUtil.executeQuery();
+			while (rs.next()) {
+				Content content = new Content();
+				content.setContentId(rs.getInt("content_id"));
+				content.setTitle(rs.getString("title"));
+				content.setType(rs.getString("type"));
+				content.setGenre(rs.getString("genre"));
+				content.setImage(rs.getString("image"));
+				content.setPublishDate(rs.getDate("publishDate"));
+				contentList.add(content);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.close();
+		}
+		return contentList;
+	}
+
+	// 데이터 수정 (Update)
+	public int updateContent(Content content) throws SQLException {
+		String sql = "UPDATE Content SET title = ?, type = ?, genre = ?, image = ?, publishDate = ? WHERE content_id = ?";
+		Object[] param = new Object[] { content.getTitle(), content.getType(), content.getGenre(), content.getImage(),
+				content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime()) : null,
+				content.getContentId() };
+
+		jdbcUtil.setSqlAndParameters(sql, param);
+
+		try {
+			int result = jdbcUtil.executeUpdate();
+			return result; // 수정 성공 시 1 반환
+		} catch (Exception ex) {
+			jdbcUtil.rollback();
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.commit();
+			jdbcUtil.close();
+		}
+		return 0;
+	}
+
+	// 데이터 삭제 (Delete)
+	public int deleteContent(int contentId) throws SQLException {
+		String sql = "DELETE FROM Content WHERE content_id = ?";
+		Object[] param = new Object[] { contentId };
+
+		jdbcUtil.setSqlAndParameters(sql, param);
+
+		try {
+			int result = jdbcUtil.executeUpdate();
+			return result; // 삭제 성공 시 1 반환
+		} catch (Exception ex) {
+			jdbcUtil.rollback();
+			ex.printStackTrace();
+		} finally {
+			jdbcUtil.commit();
+			jdbcUtil.close();
+		}
+		return 0;
+	}
+	public void deleteAllContents() throws SQLException {
+	    String sql = "DELETE FROM Content";
+
+	    jdbcUtil.setSqlAndParameters(sql, null); // 파라미터가 없으므로 null 설정
+
+	    try {
+	        int result = jdbcUtil.executeUpdate();
+	        System.out.println(result + "개의 데이터가 삭제되었습니다.");
+	    } catch (Exception ex) {
+	        jdbcUtil.rollback();
+	        ex.printStackTrace();
+	    } finally {
+	        jdbcUtil.commit();
+	        jdbcUtil.close();
+	    }
+	}
+
 }

@@ -21,10 +21,10 @@
 				<li><a href="">영화</a></li>
 				<li><a href="">드라마</a></li>
 				<li><a href="">애니메이션</a></li>
-				<li style="margin-top: 3px;"><a href="">OTT</a></li>
+				<li style="margin-top: 3px;"><a href="ottTopList.jsp">OTT</a></li>
 			</ul>
 			<ul class="nav-user">
-				<li><a href="" style="color: #000000;">공동구매</a></li>
+				<li><a href="">공동구매</a></li>
 				<li><a href="">찜</a></li>
 				<li><a href="">마이페이지</a></li>
 			</ul>

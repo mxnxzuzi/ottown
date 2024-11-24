@@ -3,6 +3,7 @@ package model.dao.content;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import model.dto.Content;
@@ -43,14 +44,22 @@ public class ContentDao {
 
 		try {
 			for (Content content : contents) {
-				Object[] param = new Object[] { content.getTitle(), content.getType(), content.getGenre(),
-						content.getImage(),
-						content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime())
-								: null };
+			    Object[] param = new Object[] {
+			        content.getTitle(),
+			        content.getType(),
+			        content.getGenre(),
+			        content.getImage(),
+			        content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime()) : null
+			    };
 
-				jdbcUtil.setSqlAndParameters(sql, param);
-				jdbcUtil.executeUpdate(); // 한 개씩 삽입 실행
+			    // 디버깅 로그 추가
+			    System.out.println("실행할 SQL: " + sql);
+			    System.out.println("매개변수: " + Arrays.toString(param));
+
+			    jdbcUtil.setSqlAndParameters(sql, param);
+			    jdbcUtil.executeUpdate();
 			}
+
 			System.out.println("모든 Content 데이터가 성공적으로 삽입되었습니다.");
 		} catch (SQLException e) {
 			System.err.println("Content 데이터를 삽입하는 중 오류 발생: " + e.getMessage());

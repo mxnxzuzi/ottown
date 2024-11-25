@@ -39,6 +39,9 @@ public class DispatcherServlet extends HttpServlet {
             
             if (uri == null) return;	// Ajax request 처리 완료
             
+            logger.debug("Request Query String: {}", request.getQueryString());
+            logger.debug("Consumer ID from request: {}", request.getParameter("consumerId"));
+            
  			// 반환된 uri에 따라 forwarding 또는 redirection 여부를 결정하고 이동 
             if (uri.startsWith("redirect:")) {	
             	// redirection 지시

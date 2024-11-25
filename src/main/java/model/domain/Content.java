@@ -80,5 +80,6 @@ public class Content {
                 ", publishDate=" + publishDate +
                 '}';
     }
+
 }
 

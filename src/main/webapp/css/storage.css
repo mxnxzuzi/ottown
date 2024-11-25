@@ -1,0 +1,85 @@
+main {
+    margin-top: 100px;
+}
+
+.menu {
+	display: flex; /* 메뉴를 가로 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: space-between; /* 양쪽 정렬 (보관함/OTT 분석과 필터 박스 분리) */
+    padding: 0 50px;
+    color: #727272;
+    font-weight: bold; 
+    margin-top: 30px;  
+    /*margin-left: 50px; */
+}
+
+.menu-link {
+    padding: 0.5rem 1rem;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    /*justify-content: flex-end;  내부 요소 오른쪽 정렬 */
+    gap: 10px; /* 필터 요소 간의 간격 */
+    margin-left: auto;
+}
+
+.filter-box select,
+.filter-box input,
+.filter-box button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.filter-box button {
+    background-color: #fcb900;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.filter-box button:hover {
+    background-color: #e0a800;
+}
+
+.storage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* 각 컨텐츠 간의 간격 */
+    padding: 20px; /* 내부 여백 */
+    justify-content: flex-start; /* 왼쪽 정렬 */
+}
+
+.storage-list {
+    width: 200px; /* 개별 카드의 너비 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    border: 1px solid #ddd; /* 카드 테두리 */
+    border-radius: 10px; /* 카드 모서리 둥글게 */
+    overflow: hidden; /* 내용 넘칠 경우 숨기기 */
+    background-color: #fff; /* 카드 배경색 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* hover 효과 애니메이션 */
+}
+
+.storage-list:hover {
+    transform: translateY(-5px); /* 살짝 위로 올라가는 효과 */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* hover 시 더 강한 그림자 */
+}
+
+.storage-list img {
+    width: 100%; /* 이미지가 카드 너비에 맞게 */
+    height: 150px; /* 이미지 고정 높이 */
+    object-fit: cover; /* 이미지 비율 유지하며 잘림 */
+}
+
+.storage-list p {
+    margin: 10px 0; /* 텍스트 상하 간격 */
+    font-size: 1rem; /* 텍스트 크기 */
+    font-weight: bold; /* 텍스트 두께 */
+    color: #333; /* 텍스트 색상 */
+}

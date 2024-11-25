@@ -18,6 +18,7 @@ public class RequestMapping {
         mappings.put("/", new ForwardController("index.jsp"));
         
         // 보관함 기능
+        mappings.put("/storage/recommend", new StorageOTTRecommendationController());
         mappings.put("/storage/view/filter", new StorageFilterController());
         mappings.put("/storage/add", new AddFavController());
         mappings.put("/storage/delete", new DeleteFavController());

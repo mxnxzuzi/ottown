@@ -4,16 +4,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import model.dto.Content;
 import model.dao.JDBCUtil;
 
 public class ContentDao {
 	private JDBCUtil jdbcUtil = null;
-
+	private Map<String, String> koreanToEnglishMap;
+	
 	public ContentDao() {
 		jdbcUtil = new JDBCUtil(); // JDBCUtil 객체 생성
+        koreanToEnglishMap = new HashMap<>();
+        koreanToEnglishMap.put("넷플릭스", "netflix");
+        koreanToEnglishMap.put("티빙", "tving");
+        koreanToEnglishMap.put("쿠팡플레이", "coupangplay");
+        koreanToEnglishMap.put("디즈니+", "disneyplus");
+        koreanToEnglishMap.put("웨이브", "wavve");
+        koreanToEnglishMap.put("왓챠", "watcha");
 	}
 
 	// 데이터 삽입 (Create)
@@ -139,6 +149,7 @@ public class ContentDao {
 		}
 		return 0;
 	}
+	//데이터 전체 삭제
 	public void deleteAllContents() throws SQLException {
 	    String sql = "DELETE FROM Content";
 
@@ -154,6 +165,92 @@ public class ContentDao {
 	        jdbcUtil.commit();
 	        jdbcUtil.close();
 	    }
+	}
+	public void deleteAllOTTContents() throws SQLException {
+	    String sql = "DELETE FROM OTT_Content";
+
+	    jdbcUtil.setSqlAndParameters(sql, null); // 파라미터가 없으므로 null 설정
+
+	    try {
+	        int result = jdbcUtil.executeUpdate();
+	        System.out.println(result + "개의 데이터가 삭제되었습니다.");
+	    } catch (Exception ex) {
+	        jdbcUtil.rollback();
+	        ex.printStackTrace();
+	    } finally {
+	        jdbcUtil.commit();
+	        jdbcUtil.close();
+	    }
+	}
+	// OTT 서비스를 저장하기 위한 메서드 추가
+	public void saveOttContent(int contentId, List<String> ottServices) throws Exception {
+	    String sql = "INSERT INTO ott_content (content_id, service_id) VALUES (?, ?)";
+
+	    try {
+	        for (String ottService : ottServices) {
+	            // service_name을 기반으로 service_id를 조회
+	            String englishServiceName = koreanToEnglishMap.getOrDefault(ottService, ottService);
+	            int serviceId = getServiceIdByName(englishServiceName);
+	            if (serviceId != -1) { // 유효한 service_id인 경우에만 삽입
+	                Object[] param = new Object[]{contentId, serviceId};
+	                jdbcUtil.setSqlAndParameters(sql, param);
+	                jdbcUtil.executeUpdate();
+	                jdbcUtil.commit(); // 각 삽입 후 커밋
+	                System.out.println("OTT Content 저장 성공: content_id=" + contentId + ", service_id=" + serviceId);
+	            } else {
+	                System.out.println("OTT 서비스 매칭 실패: " + ottService);
+	            }
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("OTT Content 저장 중 오류 발생: " + e.getMessage());
+	        jdbcUtil.rollback(); // 오류 발생 시 롤백
+	    } finally {
+	        jdbcUtil.close(); // 리소스 해제
+	    }
+	}
+
+	private int getServiceIdByName(String serviceName) {
+		String sql = "SELECT SERVICE_ID FROM OTTSERVICE WHERE LOWER(SERVICE_NAME) = LOWER(?)";
+        Object[] param = new Object[] { serviceName.trim() };
+	    jdbcUtil.setSqlAndParameters(sql, param);
+	    
+	    try {
+	        System.out.println("매칭 시도 중 (쿼리 실행): " + serviceName); // 크롤링된 값 출력
+	        ResultSet rs = jdbcUtil.executeQuery();
+	        
+	        if (rs != null && rs.next()) {
+	            int serviceId = rs.getInt("service_id");
+	            System.out.println("매칭 성공: " + serviceName + " (서비스 ID: " + serviceId + ")");
+	            return serviceId;
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("service_name 조회 중 오류 발생: " + e.getMessage());
+	    } finally {
+	        jdbcUtil.close();
+	    }
+	    
+	    System.out.println("매칭 실패 (쿼리 실패): " + serviceName); // 매칭 실패한 값 출력
+	    return -1;
+	}
+
+
+	public int getContentIdByName(Content content) throws SQLException {
+	    String sql = "SELECT content_id FROM Content WHERE title = ?";
+	    Object[] param = new Object[]{content.getTitle()};
+
+	    jdbcUtil.setSqlAndParameters(sql, param);
+
+	    try {
+	        ResultSet rs = jdbcUtil.executeQuery();
+	        if (rs.next()) {
+	            return rs.getInt("content_id");
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("Content ID 조회 중 오류 발생: " + e.getMessage());
+	    } finally {
+	        jdbcUtil.close(); // 리소스 해제
+	    }
+	    return -1; // content_id를 찾지 못한 경우
 	}
 
 }

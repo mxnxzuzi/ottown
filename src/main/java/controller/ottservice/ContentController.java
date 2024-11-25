@@ -29,6 +29,8 @@ public class ContentController {
 
 	public void crawlAndSaveMovies() {
 		try {
+			contentManager.deleteAllOTTContents();
+			contentManager.deleteAllContents();
 			driver.get("https://m.kinolights.com/discover/explore");
 
 			// 영화 필터 버튼 클릭
@@ -151,14 +153,25 @@ public class ContentController {
 					Content content = new Content(0, title, "영화", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
 					contentList.add(content);
 
+					
+					contentManager.insertContent(content);
+					int contentId = contentManager.getContentIdByName(content);
+					if (contentId != -1) {
+						System.out.println(contentId);
+						contentManager.saveOttContent(contentId,ottServices);
+					} else {
+					    System.err.println("유효한 콘텐츠 ID를 찾지 못했습니다: " + content.getTitle());
+					}
+
 				} catch (Exception e) {
 					System.out.println("데이터 크롤링 중 오류 발생: " + e.getMessage());
 				}
 			}
 
 			// 기존 데이터 삭제 및 저장
-			contentManager.deleteAllContents();
-			contentManager.saveContents(contentList);
+			/*
+			 * contentManager.deleteAllContents(); contentManager.saveContents(contentList);
+			 */
 
 		} catch (Exception e) {
 			e.printStackTrace();

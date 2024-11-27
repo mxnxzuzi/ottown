@@ -14,7 +14,7 @@
         </ul>
         <ul class="nav-user">
             <li><a href="/room/list">공동구매</a></li>
-            <li><a href="/storage/view">찜</a></li>
+            <li><a href="<c:url value='/storage/view' />">찜</a></li>
             <li><a href="/user/mypage">마이페이지</a></li>
         </ul>
     </nav>

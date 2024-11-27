@@ -21,7 +21,7 @@
 	  		<c:forEach items="${recommendations}" var="recommendation">
 	  			<div class="ott-rec">
 	  				<div class="ott-rec-div">
-	  					<br><img src="${recommendation.image}">
+	  					<br><img src="${recommendation.image}" style="<c:if test='${recommendation.id == 4}'>width: 25%;</c:if>">
 	  					<p>선택한 작품 ${recommendation.count}개 </p>
 	                </div>
 	                <!-- 공동구매방 리스트 조회 uri 참고해서 수정하기 -->

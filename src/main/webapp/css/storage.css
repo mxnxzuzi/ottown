@@ -83,3 +83,7 @@ main {
     font-weight: bold; /* 텍스트 두께 */
     color: #333; /* 텍스트 색상 */
 }
+
+.nav-user li:nth-child(2) a {
+    color: #000000 !important;
+}

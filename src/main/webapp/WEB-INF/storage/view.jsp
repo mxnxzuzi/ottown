@@ -15,16 +15,16 @@
         <div class="menu">
 	        <div>
 	            <!-- 보관함 전체 조회 -->
-	            <a href="/ottown/storage/view" class="menu-link" style="color: #000000;">보관함</a>
+	            <a href="<c:url value='/storage/view' />" class="menu-link" style="color: #000000;">보관함</a>
 	            <!-- OTT 추천 -->
-	            <a href="/storage/recommend" class="menu-link">OTT 분석</a>
+	            <a href="<c:url value='/storage/recommend' />" class="menu-link">OTT 분석</a>
 	        </div>
             <!-- 필터 -->
-            <form action="/storage/view/filter" method="get" class="filter-box">
+            <form action="<c:url value='/storage/view/filter' />" method="get" class="filter-box">
                 <select name="filter">
                     <option value="">필터</option>
                     <option value="genre">장르</option>
-                    <option value="ottService">OTT</option>
+                    <option value="ott">OTT</option>
                 </select>
                 <input type="text" name="filterKey" placeholder="필터 키워드">
                 <button type="submit">적용</button>

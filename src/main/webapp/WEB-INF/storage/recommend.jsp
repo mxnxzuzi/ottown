@@ -13,8 +13,8 @@
     <jsp:include page="../common/header.jsp" />
     <main>
     	<div class="menu">
-            <a href="/ottown/storage/view" class="menu-link">보관함</a>
-            <a href="/storage/recommend" class="menu-link" style="color: #000000;">OTT 추천</a>
+            <a href="<c:url value='/storage/view' />" class="menu-link">보관함</a>
+            <a href="<c:url value='/storage/recommend' />" class="menu-link" style="color: #000000;">OTT 추천</a>
             <p>&nbsp;&nbsp;&nbsp;선택한 작품 <strong>${totalCount}</strong>개</p>
         </div>
 	    <div class="ott-list">
@@ -25,7 +25,7 @@
 	  					<p>선택한 작품 ${recommendation.count}개 </p>
 	                </div>
 	                <!-- 공동구매방 리스트 조회 uri 참고해서 수정하기 -->
-	                <input type="button" value="공동구매" onclick="location.href='/room/view?ottServiceId=${recommendation.id}'">
+	                <input type="button" value="공동구매" onclick="location.href='<c:url value='/OTTGroupList/view?ottServiceId=${recommendation.id}' />'">
 	                <br>
 	            </div>
 	        </c:forEach>

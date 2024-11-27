@@ -33,10 +33,10 @@ public class StorageManager {
     }
     
     public List<Content> filterContent(String consumerId, String filter, String filterKey) throws SQLException{
-        if (filter == "genre") {
+        if (filter.equals("genre")) {
             return storageDao.getContentsByGenre(Long.parseLong(consumerId), filterKey);
         }
-        else if (filter == "ott") {
+        else if (filter.equals("ott")) {
             return storageDao.getContentsByOTTService(Long.parseLong(consumerId), filterKey);
         }
         return null;

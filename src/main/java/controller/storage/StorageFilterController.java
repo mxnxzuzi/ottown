@@ -19,7 +19,7 @@ public class StorageFilterController implements Controller{
         
         String consumerId = request.getParameter("consumerId");
         String filter = request.getParameter("filter");
-        String filterKey = request.getParameter(filter);
+        String filterKey = request.getParameter("filterKey");
         
         StorageManager manager = StorageManager.getInstance();
         List<Content> contentList = manager.filterContent(consumerId, filter, filterKey);

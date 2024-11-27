@@ -78,8 +78,9 @@ public class StorageDao {
 
     // OTT별로 보관함 조회
     public List<Content> getContentsByOTTService(Long consumerId, String ottServiceName) {
-        String query = "SELECT content_id, title, type, genre, image, publish_date ";
-        query += "FROM content JOIN storage USING (content_id) JOIN OTTcontent USING (content_id) JOIN OTTService USING (service_id)";
+        System.out.println("확인 " + consumerId + ", " + ottServiceName);
+        String query = "SELECT content_id, title, type, genre, c.image, publishdate ";
+        query += "FROM CONTENT c JOIN STORAGE USING (content_id) JOIN OTT_CONTENT USING (content_id) JOIN OTTService USING (service_id)";
         query += "WHERE consumer_id = ? AND service_name = ?";
         
         jdbcUtil.setSqlAndParameters(query, new Object[] {consumerId, ottServiceName});
@@ -94,7 +95,7 @@ public class StorageDao {
                     rs.getString("type"),
                     rs.getString("genre"),
                     rs.getString("image"),
-                    rs.getDate("publish_date")
+                    rs.getDate("publishdate")
                 );
                 contentList.add(content);
             }

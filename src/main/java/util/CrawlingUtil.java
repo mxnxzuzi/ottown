@@ -13,41 +13,24 @@ public class CrawlingUtil {
             Document doc = Jsoup.connect(url).get();
             Elements rankingList = doc.select("a[id=contentDailyRankingList]");
             int count = 0;
+
             for (Element ranking : rankingList) {
                 if (count >= 10) break;
-                // info_title 크롤링
+
+                // 제목 크롤링
                 String title = ranking.select("p.info__title").text();
-                
-                // info_poster 크롤링 - 가능한 모든 속성 시도
-                String imgSrc = ranking.select("div.info__poster img").attr("data-src");
-                if (imgSrc == null || imgSrc.isEmpty()) {
-                    imgSrc = ranking.select("div.info__poster img").attr("src");
+
+                // 이미지 URL 크롤링
+                String imgSrc = extractImageSrc(ranking.select("div.info__poster img"));
+
+                // 기본 이미지 설정 (이미지가 유효하지 않을 경우 사용)
+                if (imgSrc == null || imgSrc.isEmpty() || isImageAccessDenied(imgSrc)) {
+                    imgSrc = "/images/movie.png"; // 기본 이미지 경로
                 }
-                if (imgSrc == null || imgSrc.isEmpty()) {
-                    String srcset = ranking.select("div.info__poster img").attr("data-srcset");
-                    if (srcset != null && !srcset.isEmpty()) {
-                        imgSrc = srcset.split(",")[0].trim();
-                    }
-                }
-                if (imgSrc == null || imgSrc.isEmpty()) {
-                    imgSrc = ranking.select("div.info__poster img").attr("data-original");
-                }
-                if (imgSrc == null || imgSrc.isEmpty()) {
-                    imgSrc = ranking.select("div.info__poster img").attr("data-lazy");
-                }
-                
-                // 절대 경로로 변환 (만약 상대 경로인 경우)
-                if (imgSrc != null && !imgSrc.startsWith("http")) {
-                    imgSrc = "https://m.kinolights.com" + imgSrc;
-                }
-                
-                // 결과 출력
+
+                // 결과 HTML 생성
                 htmlOutput.append("<div class='content-item'>");
-                if (imgSrc != null && !imgSrc.isEmpty()) {
-                    htmlOutput.append("<img src='" + imgSrc + "' alt='poster'/>");
-                } else {
-                    htmlOutput.append("<p>이미지 없음</p>");
-                }
+                htmlOutput.append("<img src='" + imgSrc + "' alt='poster'/>");
                 htmlOutput.append("<div class='number-overlay'>" + (count + 1) + "</div>");
                 htmlOutput.append("<h3 class='content-title'>" + title + "</h3>");
                 htmlOutput.append("</div>");
@@ -57,5 +40,38 @@ public class CrawlingUtil {
             e.printStackTrace();
         }
         return htmlOutput.toString();
+    }
+
+    private static String extractImageSrc(Elements imgElements) {
+        String imgSrc = "";
+
+        // 우선순위별로 이미지 URL 추출
+        if (imgElements.attr("data-src") != null && !imgElements.attr("data-src").isEmpty()) {
+            imgSrc = imgElements.attr("data-src");
+        } else if (imgElements.attr("src") != null && !imgElements.attr("src").isEmpty()) {
+            imgSrc = imgElements.attr("src");
+        } else if (imgElements.attr("data-srcset") != null && !imgElements.attr("data-srcset").isEmpty()) {
+            imgSrc = imgElements.attr("data-srcset").split(",")[0].trim();
+        } else if (imgElements.attr("data-original") != null && !imgElements.attr("data-original").isEmpty()) {
+            imgSrc = imgElements.attr("data-original");
+        } else if (imgElements.attr("data-lazy") != null && !imgElements.attr("data-lazy").isEmpty()) {
+            imgSrc = imgElements.attr("data-lazy");
+        }
+
+        // 절대 경로로 변환 (만약 상대 경로인 경우)
+        if (imgSrc != null && !imgSrc.startsWith("http")) {
+            imgSrc = "https://m.kinolights.com" + imgSrc;
+        }
+
+        return imgSrc;
+    }
+
+    private static boolean isImageAccessDenied(String imgSrc) {
+        try {
+            Connection.Response response = Jsoup.connect(imgSrc).ignoreContentType(true).execute();
+            return response.statusCode() != 200; // 200이 아닌 상태 코드는 접근 실패로 간주
+        } catch (IOException e) {
+            return true; // 예외 발생 시 접근 불가로 간주
+        }
     }
 }

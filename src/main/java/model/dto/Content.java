@@ -1,6 +1,7 @@
 package model.dto;
 
 import java.util.Date;
+import java.util.List;
 
 public class Content {
     private int contentId;         // 콘텐츠 ID
@@ -9,7 +10,8 @@ public class Content {
     private String genre;          // 장르 (초기값: 없음)
     private String image;          // 이미지 (URL 또는 Base64 인코딩 문자열)
     private Date publishDate;      // 출시 날짜
-
+    private List<String> ottServices;
+    
     // 기본 생성자 (genre를 "없음"으로 초기화)
     public Content() {
         this.genre = "없음";
@@ -26,6 +28,14 @@ public class Content {
     }
 
     // Getter and Setter
+    public List<String> getOttServices() {
+        return ottServices;
+    }
+
+    public void setOttServices(List<String> ottServices) {
+        this.ottServices = ottServices;
+    }
+    
     public int getContentId() {
         return contentId;
     }

@@ -64,4 +64,15 @@ public class ContentManager {
 	}
 
 
+	public List<Content> showContentList(String type) throws SQLException {
+	    List<Content> contents = contentDao.findAllByType(type);
+
+	    for (Content content : contents) {
+	        // 콘텐츠 ID로 OTT 정보를 가져와서 설정
+	        List<String> ottServices = contentDao.findOTTByContentId(content.getContentId());
+	        content.setOttServices(ottServices);
+	    }
+	    return contents;
+	}
+
 }

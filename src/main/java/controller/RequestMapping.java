@@ -5,6 +5,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import controller.homepage.ViewContentController;
 import controller.mainPage.MainpageController;
 import controller.ottservice.OttTopListController;
 
@@ -17,8 +18,11 @@ public class RequestMapping {
     public void initMapping() {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
     	mappings.put("/", new MainpageController());
-        mappings.put("/ott/list", new OttTopListController());
         
+    	//content
+    	mappings.put("/content/top10", new OttTopListController());
+    	mappings.put("/content/view", new ViewContentController());
+     
 
         
         

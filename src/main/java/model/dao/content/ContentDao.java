@@ -82,31 +82,41 @@ public class ContentDao {
 	}
 
 	// 데이터 조회 (Read)
-	public List<Content> getAllContents() throws SQLException {
-		String sql = "SELECT * FROM Content";
-		jdbcUtil.setSqlAndParameters(sql, null);
+	public List<Content> findAllByType(String type) throws SQLException {
+	    String sql = "SELECT content_id, title, type, genre, image, publishDate FROM Content WHERE type = ?";
+	    jdbcUtil.setSqlAndParameters(sql, new Object[] { type });
 
-		List<Content> contentList = new ArrayList<>();
+	    List<Content> contentList = new ArrayList<>();
 
-		try {
-			ResultSet rs = jdbcUtil.executeQuery();
-			while (rs.next()) {
-				Content content = new Content();
-				content.setContentId(rs.getInt("content_id"));
-				content.setTitle(rs.getString("title"));
-				content.setType(rs.getString("type"));
-				content.setGenre(rs.getString("genre"));
-				content.setImage(rs.getString("image"));
-				content.setPublishDate(rs.getDate("publishDate"));
-				contentList.add(content);
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		} finally {
-			jdbcUtil.close();
-		}
-		return contentList;
+	    try {
+	        ResultSet rs = jdbcUtil.executeQuery();
+	        if (rs == null) {
+	            System.err.println("ResultSet is null. Query execution failed.");
+	            return contentList; // 빈 리스트 반환
+	        }
+
+	        while (rs.next()) {
+	            Content content = new Content();
+	            content.setContentId(rs.getInt("content_id"));
+	            content.setTitle(rs.getString("title"));
+	            content.setType(rs.getString("type"));
+	            content.setGenre(rs.getString("genre"));
+	            content.setImage(rs.getString("image"));
+	            content.setPublishDate(rs.getDate("publishDate"));
+
+	            contentList.add(content);
+	            System.err.println(content);
+	        }
+	    } catch (SQLException e) {
+	        System.err.println("콘텐츠 조회 중 오류 발생: " + e.getMessage());
+	        throw e;
+	    } finally {
+	        jdbcUtil.close();
+	    }
+
+	    return contentList;
 	}
+
 
 	// 데이터 수정 (Update)
 	public int updateContent(Content content) throws SQLException {
@@ -251,6 +261,29 @@ public class ContentDao {
 	        jdbcUtil.close(); // 리소스 해제
 	    }
 	    return -1; // content_id를 찾지 못한 경우
+	}
+
+	public List<String> findOTTByContentId(int contentId) throws SQLException {
+	    String sql = "SELECT o.SERVICE_NAME " +
+	                 "FROM OTT_CONTENT oc " +
+	                 "JOIN OTTSERVICE o ON oc.SERVICE_ID = o.SERVICE_ID " +
+	                 "WHERE oc.CONTENT_ID = ?";
+	    Object[] param = new Object[] { contentId };
+
+	    jdbcUtil.setSqlAndParameters(sql, param);
+
+	    List<String> ottServices = new ArrayList<>();
+	    try {
+	        ResultSet rs = jdbcUtil.executeQuery();
+	        while (rs.next()) {
+	            ottServices.add(rs.getString("SERVICE_NAME"));
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        jdbcUtil.close();
+	    }
+	    return ottServices;
 	}
 
 }

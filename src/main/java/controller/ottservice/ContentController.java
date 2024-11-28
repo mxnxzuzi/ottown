@@ -53,7 +53,7 @@ public class ContentController {
 
 			// 상세 페이지 URL 리스트를 저장
 			List<String> detailLinks = new ArrayList<>();
-			int maxMovies = 3;
+			int maxMovies = 20;
 
 			while (detailLinks.size() < maxMovies) {
 				List<WebElement> movieElements = wait
@@ -150,7 +150,7 @@ public class ContentController {
 					System.out.println("OTT 서비스: " + ottServices);
 
 					// Content 객체 생성 및 리스트에 추가
-					Content content = new Content(0, title, "영화", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
+					Content content = new Content(0, title, "movie", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
 					contentList.add(content);
 
 					

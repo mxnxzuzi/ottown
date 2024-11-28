@@ -4,7 +4,7 @@
 	<!-- 수정된 url 참고해서 다시 수정하기 -->
 	<nav class="navbar">
 		<div class="logo">
-			<a href="/home">OTTown</a>
+			<a href="<%= request.getContextPath() %>/">OTTown</a>
 		</div>
 		<ul class="nav-content">
 			<li><a

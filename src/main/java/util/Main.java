@@ -9,6 +9,8 @@ public class Main {
     	ContentController contentController = new ContentController();
 
         // Selenium 크롤링 메서드 실행
-        contentController.crawlAndSaveMovies();
+        //contentController.crawlAndSaveMovies();
+        //contentController.crawlAndSaveDramas();
+        contentController.crawlAndSaveAnimations();
     }
 }

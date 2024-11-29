@@ -19,7 +19,7 @@ public class RecommendationDao {
  // 보관함 내 작품의 OTT 서비스별 개수를 집계하여 정렬
     public Map<Integer, Integer> getContentCountByOtt(String consumerId){
         String query = "SELECT service_id, service_name, COUNT(*) AS count ";
-        query += "FROM storage JOIN Content_OTTService USING (content_id) JOIN OTTService (service_id) ";
+        query += "FROM storage JOIN OTT_CONTENT USING (content_id) JOIN OTTService (service_id) ";
         query += "WHERE consumer_id = ? GROUP BY service_id, service_name";
         
         jdbcUtil.setSqlAndParameters(query, new Object[] {consumerId});
@@ -57,9 +57,9 @@ public class RecommendationDao {
         return rankMap;
     }
  // 보관함 내 작품의 OTT 서비스별 개수를 집계하여 정렬
-    public Map<Integer, Integer> getRecommendationsByOTT(String consumerId) {
+    public LinkedHashMap<Integer, Integer> getRecommendationsByOTT(Long consumerId) {
         String query = "SELECT service_id, service_name, COUNT(*) AS count ";
-        query += "FROM storage JOIN Content_OTTService USING (content_id) JOIN OTTService (service_id) ";
+        query += "FROM STORAGE JOIN OTT_CONTENT USING (content_id) JOIN OTTService USING (service_id) ";
         query += "WHERE consumer_id = ? GROUP BY service_id, service_name";
 
         jdbcUtil.setSqlAndParameters(query, new Object[] {consumerId});
@@ -77,15 +77,13 @@ public class RecommendationDao {
             List<Map.Entry<Integer, Integer>> countList = new ArrayList<>(contentCountMap.entrySet());
             countList.sort((entry1, entry2) -> Integer.compare(entry2.getValue(), entry1.getValue())); // 내림차순 정렬
         
-             // 랭킹 부여
-            Map<Integer, Integer> rankMap = new LinkedHashMap<>();
-            int rank = 1;
+            // 정렬된 데이터를 LinkedHashMap으로 반환
+            LinkedHashMap<Integer, Integer> sortedContentCountMap = new LinkedHashMap<>();
             for (Map.Entry<Integer, Integer> entry : countList) {
-                rankMap.put(entry.getKey(), rank);  // service_id에 랭킹을 매핑
-                rank++;
+                sortedContentCountMap.put(entry.getKey(), entry.getValue());
             }
         
-           return rankMap;
+            return sortedContentCountMap;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -123,11 +121,25 @@ public class RecommendationDao {
     }
 
     // service_id로 OTTService의 세부 정보를 가져오는 메소드
-    private OTTService getServiceDetailsByServiceId(int serviceId) {
-        for (OTTService service : OTTService.values()) {
-            if (service.getId() == serviceId) {
-                return service;
+    public OTTService getServiceDetailsByServiceId(int serviceId) {
+        String query = "SELECT image FROM OTTSERVICE WHERE service_id = ?";
+
+        jdbcUtil.setSqlAndParameters(query, new Object[] {serviceId});
+        
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();
+            for (OTTService service : OTTService.values()) {
+                if (service.getId() == serviceId) {
+                    if (rs.next()) {
+                        service.setImage(rs.getString("image"));
+                    }
+                    return service;
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            jdbcUtil.close();
         }
         return null;
     }

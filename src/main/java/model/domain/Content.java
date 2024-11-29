@@ -28,7 +28,11 @@ public class Content {
         this.publishDate = publishDate;
     }
 
-    // Getter and Setter
+    public Content(int i, String title2, String string, String string2, String imageUrl, Object object) {
+		// TODO Auto-generated constructor stub
+	}
+
+	// Getter and Setter
     public List<String> getOttServices() {
         return ottServices;
     }

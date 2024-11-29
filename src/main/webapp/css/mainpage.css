@@ -1,0 +1,104 @@
+.nav-user {
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+.signupButton {
+    background-color: white;
+    color: #1E1E1E;
+    padding: 8px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s; /* 부드러운 변화 효과 추가 */
+}
+
+.signupButton:hover {
+    background-color: #fcb900; /* 마우스 오버 시 배경색 변화 */
+    color: white; /* 마우스 오버 시 글자색 변화 */
+}
+
+.signupButton:active {
+    background-color: #d6a600; /* 클릭 시 배경색 변화 */
+    color: white; /* 클릭 시 글자색 변화 */
+    transform: scale(0.95); /* 클릭 시 버튼 크기를 줄임 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* 클릭 시 그림자 감소 */
+}
+.title {
+    padding-top: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.button-container {
+    display: flex; /* Flexbox 활성화 */
+    justify-content: center; /* 가로 가운데 정렬 */
+    gap: 10px; /* 버튼 간 간격 */
+    margin-top: 50px; /* 버튼 위 여백 */
+}
+
+.startButton, .checkContentButton {
+    padding: 20px 60px;
+    margin: 30px;
+    background-color: #fcb900;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s;
+    font-weight: bold;
+}
+
+.startButton:hover, .checkContentButton:hover {
+    background-color: #fcb900; /* 마우스 오버 시 배경색 변화 */
+    color: white; /* 마우스 오버 시 글자색 변화 */
+}
+
+.startButton:active, .checkContentButton:active {
+    background-color: #d6a600; /* 클릭 시 배경색 변화 */
+    color: white; /* 클릭 시 글자색 변화 */
+    transform: scale(0.95); /* 클릭 시 버튼 크기를 줄임 */
+}
+
+.conveyor-belt {
+    margin-top: 50px;
+    display: flex;
+    white-space: nowrap; /* 가로로 늘어나도록 설정 */
+    animation: move 20s linear infinite; /* 무한으로 움직이게 설정 */
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px 0 30px;
+    width: 350px; /* 박스 넓이를 더 크게 */
+    height: 200px; /* 박스 높이를 더 크게 */
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    /*overflow: hidden; /* 이미지가 박스를 넘지 않도록 */
+}
+
+.box img {
+    width: inherit;
+}
+@keyframes move {
+    0% {
+        transform: translateX(0); /* 시작 지점 */
+    }
+    100% {
+        transform: translateX(-100%); /* 전체 박스 너비만큼 이동 */
+    }
+}
+
+.conveyor-belt .box:nth-child(2) img {
+    height: 150px;
+
+}

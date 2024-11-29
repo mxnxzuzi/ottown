@@ -1,6 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    String type = request.getParameter("type");
+    if (type == null) {
+        type = "movie"; // 기본 값 설정
+    }
+
+    // 필요한 데이터 처리 로직 추가
+    String title;
+    switch (type) {
+        case "movie":
+            title = "영화 페이지";
+            break;
+        case "drama":
+            title = "드라마 페이지";
+            break;
+        case "animation":
+            title = "애니메이션 페이지";
+            break;
+        default:
+            title = "기본 페이지";
+            break;
+    }
+%>
 
 <!DOCTYPE html>
 <html lang="ko">

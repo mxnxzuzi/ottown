@@ -23,12 +23,13 @@ public class Content {
         this.contentId = contentId;
         this.title = title;
         this.type = type;
-        this.genre = genre == null || genre.isEmpty() ? "없음" : genre;
+        this.genre = genre;
         this.image = image;
         this.publishDate = publishDate;
     }
 
-    // Getter and Setter
+
+	// Getter and Setter
     public List<String> getOttServices() {
         return ottServices;
     }

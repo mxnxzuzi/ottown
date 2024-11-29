@@ -1,1 +1,1 @@
-<% response.sendRedirect(request.getContextPath() + "/storage/view"); %>
+<% response.sendRedirect(request.getContextPath() + "/mainpage"); %>

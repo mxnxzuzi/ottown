@@ -22,12 +22,13 @@ public class ViewContentController implements Controller {
         }
 
         HttpSession session = request.getSession();
-        String consumerId;
+        String consumerId = "1";
       //UserSessionUtils 수정하기
-        if (!UserSessionUtils.hasLogined(session)) {
-            consumerId = null;
-        }
-        consumerId = UserSessionUtils.getLoginUserId(session);
+		/*
+		 * if (!UserSessionUtils.hasLogined(session)) { consumerId = null; } consumerId
+		 * = UserSessionUtils.getLoginUserId(session);
+		 */
+        
         
         // 2. ContentManager를 사용하여 콘텐츠 리스트 가져오기
         ContentManager contentManager = new ContentManager();
@@ -38,16 +39,14 @@ public class ViewContentController implements Controller {
         request.setAttribute("type", type);
 
         // 4. type에 따라 적절한 JSP 페이지로 반환
-        switch (type) {
-            case "movie":
-                return "/homePage/movieView.jsp"; // 경로 수정
-            case "drama":
-                return "/homePage/dramaView.jsp"; // 필요 시 추가
-            case "animation":
-                return "/homePage/animationView.jsp"; // 필요 시 추가
-            default:
-                return "/homePage/movieView.jsp"; // 기본 경로 수정
-        }
+		switch (type) {
+		case "movie":
+		case "drama":
+		case "animation":
+			return "/homePage/movieView.jsp?type=" + type; 
+		default:
+			return "/homePage/movieView.jsp?type=movie"; 
+		}
     }
 
 }

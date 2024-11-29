@@ -10,6 +10,7 @@ import controller.Controller;
 import controller.user.UserSessionUtils;
 import model.domain.Content;
 import model.service.StorageManager;
+import model.service.UserManager;
 
 public class AddFavController implements Controller{
 
@@ -25,11 +26,23 @@ public class AddFavController implements Controller{
         
         String consumerId = UserSessionUtils.getLoginUserId(session);
         String contentId = request.getParameter("contentId");
+        String type = request.getParameter("type");
         
         StorageManager manager = StorageManager.getInstance();
         int count = manager.addFav(contentId, consumerId);
         
-        return null;
+        if (type == null) {
+            return "redirect:/content/view"; 
+        }
+        switch (type) {
+            case "movie":
+                return "redirect:/content/view?type=movie";
+            case "drama":
+                return "redirect:/content/view?type=movie";
+            case "animation":
+                return "redirect:/content/view?type=movie";
+            default:
+                return "redirect:/content/view";
+        }
     }
-    
 }

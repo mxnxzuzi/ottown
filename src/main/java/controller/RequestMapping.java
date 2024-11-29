@@ -5,6 +5,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import controller.homepage.ViewContentController;
 import controller.storage.*;
 
 public class RequestMapping {
@@ -24,6 +25,8 @@ public class RequestMapping {
         mappings.put("/storage/delete", new DeleteFavController());
         mappings.put("/storage/view", new ViewStorageController());
         
+      //content
+        mappings.put("/content/view", new ViewContentController());
         
         logger.info("Initialized Request Mapping!");
     }

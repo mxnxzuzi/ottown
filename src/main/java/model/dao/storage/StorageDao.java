@@ -16,11 +16,13 @@ public class StorageDao {
     }
     
     public int addFav(Long contentId, Long consumerId) {
-        String query = "INSERT INTO storage (content_id, consumer_id) VALUES (?, ?)";
+        String query = "INSERT INTO storage (storage_id, content_id, consumer_id) VALUES (SEQ_STORAGE.NEXTVAL, ?, ?)";
         jdbcUtil.setSqlAndParameters(query, new Object[] {contentId, consumerId});
 
         try {
-            return jdbcUtil.executeUpdate();
+            int result = jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -37,7 +39,9 @@ public class StorageDao {
         jdbcUtil.setSqlAndParameters(query, new Object[] {contentId, consumerId});
 
         try {
-            return jdbcUtil.executeUpdate();
+            int result =  jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

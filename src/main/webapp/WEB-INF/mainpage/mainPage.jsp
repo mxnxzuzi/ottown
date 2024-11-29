@@ -26,14 +26,14 @@
 			<button class="checkContentButton" type="button" id="confirmContent">컨텐츠
 				확인하기</button>
 		</div>
-		<%-- <div class="conveyor-belt" id="belt">
+		<div class="conveyor-belt" id="belt">
 			<div class="box"><img src="<%= request.getContextPath() %>/images/coupang.webp"></div>
             <div class="box"><img src="<%= request.getContextPath() %>/images/disney.svg"></div>
             <div class="box"><img src="<%= request.getContextPath() %>/images/laftel.webp"></div>
             <div class="box"><img src="<%= request.getContextPath() %>/images/netflix.png"></div>
             <div class="box"><img src="<%= request.getContextPath() %>/images/tving.svg"></div>
             <div class="box"><img src="<%= request.getContextPath() %>/images/wavve.png"></div>
-		</div> --%>
+		</div> 
 	</main>
 	<script>
         const button = document.getElementById('startNow');

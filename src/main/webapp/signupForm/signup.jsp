@@ -28,7 +28,7 @@
 </form>
 
 <div class="signup-section">
-  <p>이미 가입하셨나요? <a href="<%= request.getContextPath() %>/loginForm/login.jsp'/>">로그인</a></p>
+  <p>이미 가입하셨나요?<a href="<c:url value='/loginForm/login.jsp' />">로그인</a></p>
 </div>
 
 <div style="display: flex; align-items: center; justify-content: center;">

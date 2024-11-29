@@ -12,7 +12,7 @@
 */
 
 /**
-  * Object Object()
+  * Object()
   * @constructor
   * @since Standard ECMA-262 3rd. Edition
   * @since Level 2 Document Object Model Core Definition.

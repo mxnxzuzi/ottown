@@ -112,8 +112,6 @@ public class ConsumerDao {
     }
 
 
-
-
 //    // 비밀번호 수정
 //    public int updatePassword(Consumer consumer) throws SQLException {
 //        String sql = "UPDATE ACCOUNT " +

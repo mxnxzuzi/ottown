@@ -7,9 +7,9 @@
             <a href="/home">OTTown</a>
         </div>
         <ul class="nav-content">
-            <li><a href="/movie/list">영화</a></li>
-            <li><a href="/drama/list">드라마</a></li>
-            <li><a href="/animation/list">애니메이션</a></li>
+            <li><a href="<c:url value='/content/view?type=movie' />">영화</a></li>
+            <li><a href="<c:url value='/content/view?type=drama' />">드라마</a></li>
+            <li><a href="<c:url value='/content/view?type=animation' />">애니메이션</a></li>
             <li style="margin-top: 3px;"><a href="/ott/list">OTT</a></li>
         </ul>
         <ul class="nav-user">

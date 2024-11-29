@@ -23,14 +23,11 @@ public class Content {
         this.contentId = contentId;
         this.title = title;
         this.type = type;
-        this.genre = genre == null || genre.isEmpty() ? "없음" : genre;
+        this.genre = genre;
         this.image = image;
         this.publishDate = publishDate;
     }
 
-    public Content(int i, String title2, String string, String string2, String imageUrl, Object object) {
-		// TODO Auto-generated constructor stub
-	}
 
 	// Getter and Setter
     public List<String> getOttServices() {

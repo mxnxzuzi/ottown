@@ -28,11 +28,21 @@ public class ContentDao {
 
     // 데이터 삽입 (Create)
     public int insertContent(Content content) throws SQLException {
+        if (content.getTitle() == null || content.getTitle().isEmpty()) {
+            System.err.println("Invalid Title for Content: " + content);
+            throw new IllegalArgumentException("Title cannot be null or empty");
+        }
+        
         String sql = "INSERT INTO Content (content_id, title, type, genre, image, publishDate) "
                 + "VALUES (seq_content.NEXTVAL, ?, ?, ?, ?, ?)";
-        Object[] param = new Object[] { content.getTitle(), content.getType(), content.getGenre(), content.getImage(),
-                content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime()) : null };
-
+        Object[] param = new Object[] {
+            content.getTitle(),
+            content.getType(),
+            content.getGenre(),
+            content.getImage(),
+            content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime()) : null
+        };
+        
         jdbcUtil.setSqlAndParameters(sql, param);
 
         try {

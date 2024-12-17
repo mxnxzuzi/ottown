@@ -5,7 +5,6 @@ import model.domain.Consumer;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 
 public class ConsumerDao {
     private JDBCUtil jdbcUtil = null;
@@ -73,17 +72,23 @@ public class ConsumerDao {
 
     //로그인
     public Consumer findByLoginIdAndPassword(String loginId, String password) throws SQLException {
-        // 1. ACCOUNT 테이블에서 로그인 정보 확인
-        String accountSql = "SELECT CONSUMER_ID, LOGIN_PASSWORD, CONSUMER_EMAIL " +
-                "FROM ACCOUNT WHERE LOGIN_ID = ? AND LOGIN_PASSWORD = ?";
+        // 1. ACCOUNT 테이블에서 이메일과 비밀번호 확인
+        String accountSql = "SELECT CONSUMER_ID " +
+                "FROM ACCOUNT WHERE CONSUMER_EMAIL = ? AND LOGIN_PASSWORD = ?";
 
+        // 입력된 loginId를 CONSUMER_EMAIL, password를 LOGIN_PASSWORD와 비교
         Object[] accountParam = {loginId, password};
         jdbcUtil.setSqlAndParameters(accountSql, accountParam);
 
         try (ResultSet rs = jdbcUtil.executeQuery()) {
+            if(rs == null) {
+                System.out.println("rs is null");
+            }
             if (rs.next()) {
+                // 로그인 정보가 일치하면 CONSUMER_ID를 가져옴
                 long consumerId = rs.getLong("CONSUMER_ID");
-                // 로그인 정보가 일치하면 CONSUMER_ID를 사용해 CONSUMER 정보를 가져옴
+
+                // CONSUMER_ID를 사용해 CONSUMER 정보를 가져옴
                 return getConsumerById(consumerId);
             }
             return null; // 일치하는 로그인 정보가 없으면 null 반환
@@ -92,7 +97,7 @@ public class ConsumerDao {
 
     // CONSUMER_ID를 통해 CONSUMER 정보를 가져오는 메서드
     private Consumer getConsumerById(long consumerId) throws SQLException {
-        String consumerSql = "SELECT CONSUMER_ID, CONSUMER_NAME, LOGIN_TYPE, CONSUMER_EMAIL " +
+        String consumerSql = "SELECT CONSUMER_ID, CONSUMER_NAME, JOIN_DATE, UPDATE_DATE, LOGIN_TYPE " +
                 "FROM CONSUMER WHERE CONSUMER_ID = ?";
 
         Object[] consumerParam = {consumerId};
@@ -100,16 +105,23 @@ public class ConsumerDao {
 
         try (ResultSet rs = jdbcUtil.executeQuery()) {
             if (rs.next()) {
+                // Consumer 객체 생성
                 Consumer consumer = new Consumer();
+
+                // CONSUMER 정보를 Consumer 객체에 세팅
                 consumer.setConsumerId(rs.getLong("CONSUMER_ID"));
                 consumer.setConsumerName(rs.getString("CONSUMER_NAME"));
+                consumer.setJoinDate(rs.getDate("JOIN_DATE"));
+                consumer.setUpdateDate(rs.getDate("UPDATE_DATE"));
                 consumer.setLoginType(rs.getInt("LOGIN_TYPE"));
-                consumer.setEmail(rs.getString("CONSUMER_EMAIL"));
+
+                // 세팅된 Consumer 객체 반환
                 return consumer;
             }
             return null; // 일치하는 CONSUMER 정보가 없으면 null 반환
         }
     }
+
 
 
 //    // 비밀번호 수정

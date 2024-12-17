@@ -1,5 +1,6 @@
 package model.domain;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Consumer {
@@ -8,14 +9,14 @@ public class Consumer {
     private String password;
     private String consumerName;
     private int loginType;
-    private Timestamp updateDate;
-    private Timestamp joinDate;
+    private Date updateDate;
+    private Date joinDate;
 
     // 기본 생성자
     public Consumer() {
         // 생성 시점에 현재 시간을 초기화
-        this.updateDate = new Timestamp(System.currentTimeMillis());
-        this.joinDate = new Timestamp(System.currentTimeMillis());
+        this.updateDate = new Date(System.currentTimeMillis());
+        this.joinDate = new Date(System.currentTimeMillis());
     }
 
     // 매개변수 생성자
@@ -24,8 +25,8 @@ public class Consumer {
         this.email = email;
         this.password = password;
         // 생성 시점에 현재 시간을 초기화
-        this.updateDate = new Timestamp(System.currentTimeMillis());
-        this.joinDate = new Timestamp(System.currentTimeMillis());
+        this.updateDate = new Date(System.currentTimeMillis());
+        this.joinDate = new Date(System.currentTimeMillis());
     }
 
     // Getter and Setter for consumerId
@@ -56,19 +57,19 @@ public class Consumer {
     }
 
     // Getter and Setter for updateDate
-    public Timestamp getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Timestamp updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
-    public Timestamp getJoinDate() {
+    public Date getJoinDate() {
         return joinDate;
     }
 
-    public void setJoinDate(Timestamp joinDate) {
+    public void setJoinDate(Date joinDate) {
         this.joinDate = joinDate;
     }
 

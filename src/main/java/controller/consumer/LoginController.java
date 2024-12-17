@@ -39,7 +39,7 @@ public class LoginController implements Controller {
             Consumer consumer = consumerDao.findByLoginIdAndPassword(loginId, password);
             if (consumer != null) {
                 // 로그인 성공 처리
-                System.out.println("Login successful for user: " + loginId);
+                System.out.println("로그인 성공: " + loginId);
 
                 // 세션에 사용자 ID 저장
                 HttpSession session = request.getSession();
@@ -65,7 +65,7 @@ public class LoginController implements Controller {
 
     // 로그인 실패 처리
     private void handleLoginError(HttpServletRequest request, HttpServletResponse response, String loginId) throws ServletException, IOException {
-        System.out.println("Login failed for user: " + loginId);
+        System.out.println("로그인 실패: " + loginId);
         request.setAttribute("loginError", true);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/loginForm/login.jsp");
         dispatcher.forward(request, response);

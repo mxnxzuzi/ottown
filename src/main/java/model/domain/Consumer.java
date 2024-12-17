@@ -1,7 +1,6 @@
 package model.domain;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class Consumer {
     private Long consumerId;

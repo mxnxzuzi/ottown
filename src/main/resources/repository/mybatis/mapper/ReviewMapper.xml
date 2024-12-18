@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="repository.mybatis.mapper.ReviewMapper">
+
+    <!-- 리뷰 추가 -->
+    <insert id="addReview" parameterType="Review" useGeneratedKeys="true" keyProperty="reviewId">
+        INSERT INTO review (consumer_id, content_id, review_text, rating, review_date)
+        VALUES (#{consumerId}, #{contentId}, #{reviewText}, #{rating}, #{reviewDate})
+    </insert>
+
+    <!-- 특정 콘텐츠의 리뷰 조회 -->
+    <select id="getReviewsByContentId" parameterType="long" resultType="Review">
+        SELECT review_id AS reviewId, consumer_id AS consumerId, content_id AS contentId, 
+               review_text AS reviewText, rating, review_date AS reviewDate
+        FROM review
+        WHERE content_id = #{contentId}
+    </select>
+    
+    <!-- 특정 유저의 리뷰 조회 -->
+    <select id="getReviewsByConsumerId" parameterType="long" resultType="Review">
+        SELECT review_id AS reviewId, consumer_id AS consumerId, content_id AS contentId, 
+               review_text AS reviewText, rating, review_date AS reviewDate
+        FROM review
+        WHERE consumer_id = #{consumerId}
+    </select>
+
+    <!-- 리뷰 수정 -->
+    <update id="updateReview" parameterType="Review">
+        UPDATE review
+        SET review_text = #{reviewText}, rating = #{rating}
+        WHERE review_id = #{reviewId}
+    </update>
+
+    <!-- 리뷰 삭제 -->
+    <delete id="deleteReview" parameterType="long">
+        DELETE FROM review WHERE review_id = #{reviewId}
+    </delete>
+
+</mapper>

@@ -1,18 +1,20 @@
 package model.dto;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Review {
+@SuppressWarnings("serial")
+public class Review implements Serializable{
     private Long reviewId;
     private Long contentId;
     private Long consumerId;
     private String reviewText;
-    private int rating;
+    private float rating;
     private Date reviewDate;
     
     public Review() {}
     
-    public Review(Long reviewId, Long contentId, Long consumerId, String reviewText, int rating, Date reviewDate) {
+    public Review(Long reviewId, Long contentId, Long consumerId, String reviewText, float rating, Date reviewDate) {
         super();
         this.reviewId = reviewId;
         this.contentId = contentId;
@@ -54,11 +56,11 @@ public class Review {
         this.reviewText = reviewText;
     }
 
-    public int getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 

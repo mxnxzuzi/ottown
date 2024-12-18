@@ -5,6 +5,7 @@
 <configuration>
 	<settings>
 		<setting name="logImpl" value="LOG4J" />
+		<setting name="cacheEnabled" value="false"/>
 	</settings>
 	<typeAliases>
 		<typeAlias type="model.dto.Review" alias="Review" />
@@ -21,7 +22,6 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="repository/mybatis/mapper/ReviewMapper.xml" />
 		<mapper resource="model/dao/mapper/ReviewMapper.xml" />
 	</mappers>
 </configuration>

@@ -15,14 +15,11 @@ public class DeleteFavController implements Controller{
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         
         HttpSession session = request.getSession();
-      //UserSessionUtils 수정하기
-		/*
-		 * if (!UserSessionUtils.hasLogined(session)) { return
-		 * "redirect:/user/login/form"; // login form 요청으로 redirect(uri 수정하기) }
-		 */
+        
+        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/user/login/form"; }
+        
         request.setCharacterEncoding("utf-8");
         
-        //String consumerId = "1";
         String consumerId = UserSessionUtils.getLoginUserId(session);
         String contentId = request.getParameter("contentId");
         String type = request.getParameter("type");

@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.homepage.ViewContentController;
+import controller.homepage.ViewContentReviewController;
 import controller.mainPage.MainpageController;
 import controller.ottservice.OttTopListController;
 import controller.storage.*;
@@ -38,6 +39,9 @@ public class RequestMapping {
     	//content
     	mappings.put("/content/top10", new OttTopListController());
     	mappings.put("/content/view", new ViewContentController());
+    	
+    	//리뷰
+    	mappings.put("/review/view", new ViewContentReviewController());
     	
         logger.info("Initialized Request Mapping!");
     }

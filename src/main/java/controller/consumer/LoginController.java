@@ -43,7 +43,7 @@ public class LoginController implements Controller {
 
                 // 세션에 사용자 ID 저장
                 HttpSession session = request.getSession();
-                session.setAttribute(UserSessionUtils.USER_SESSION_KEY, consumer.getConsumerId());
+                session.setAttribute(UserSessionUtils.USER_SESSION_KEY, String.valueOf(consumer.getConsumerId()));
 
                 // 로그인 에러 메시지 제거
                 request.removeAttribute("loginError");

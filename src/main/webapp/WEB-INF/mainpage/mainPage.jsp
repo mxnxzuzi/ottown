@@ -33,15 +33,13 @@
             <div class="box"><img src="<%= request.getContextPath() %>/images/netflix.png"></div>
             <div class="box"><img src="<%= request.getContextPath() %>/images/tving.svg"></div>
             <div class="box"><img src="<%= request.getContextPath() %>/images/wavve.png"></div>
-		</div> 
+		</div>
 	</main>
 	<script>
-        const button = document.getElementById('startNow');
-    
-        button.addEventListener('click', function() {
-            window.location.href = '<%=request.getContextPath()%>
-		/login/login.jsp';
-						});
+		const button = document.getElementById('startNow');
+		button.addEventListener('click', function() {
+			window.location.href = '<%= request.getContextPath() %>/consumer/login';
+		});
 	</script>
 </body>
 </html>

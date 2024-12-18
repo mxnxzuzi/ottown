@@ -9,11 +9,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7abd98c-7668-4c4a-b081-63c3c7ddabc7" name="변경" comment="" />
+    <list default="true" id="e7abd98c-7668-4c4a-b081-63c3c7ddabc7" name="변경" comment="로그인 기능 수정">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RequestMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RequestMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/AddFavController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/AddFavController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/DeleteFavController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/DeleteFavController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/StorageFilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/StorageFilterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/StorageOTTRecommendationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/StorageOTTRecommendationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/ViewStorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/ViewStorageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/domain/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/domain/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mainpage/mainPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mainpage/mainPage.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -23,22 +43,22 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Gongkirby"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Gongkirby&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/seoyoungbyun/ottown.git",
-    "accountId": "8c043b08-0df8-4051-8270-691c924ef913"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/seoyoungbyun/ottown.git&quot;,
+    &quot;accountId&quot;: &quot;8c043b08-0df8-4051-8270-691c924ef913&quot;
   }
-}]]></component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -46,10 +66,13 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2qL1vYHzaINwERXn654KTEX9Uan" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,6 +84,7 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/kirby/work/ottown",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -186,10 +210,16 @@
       <option name="presentableId" value="Default" />
       <updated>1734427272574</updated>
       <workItem from="1734427273628" duration="2422000" />
+      <workItem from="1734431724387" duration="10282000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <MESSAGE value="로그인 기능 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="로그인 기능 수정" />
   </component>
 </project>

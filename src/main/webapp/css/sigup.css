@@ -1,0 +1,152 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    flex-direction: column; /* 위에서 아래로 정렬 */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    height: 80px;
+}
+
+main {
+    margin-top: 100px;
+    margin-bottom: 10vh;
+}
+
+a {
+    text-decoration: none;
+    color: #727272;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.logo a {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fcb900;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.nav-content, .nav-user {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.nav-content a, .nav-user a {
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-content li, .nav-user li {
+    display: inline-block;
+}
+
+.nav-content a:hover, .nav-user a:hover, .menu a:hover{
+    color: #fcb900;
+}
+
+.nav-content a:active, .nav-user a:active, .menu a:active {
+    color: #000000;
+}
+
+.nav-content a:focus, .nav-user a:focus, .menu a:focus {
+    color: #000000;
+}
+
+.loginButton {
+    padding: 10px 100px;
+    margin: 30px;
+    background-color: #fcb900;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, transform 0.1s;
+}
+
+.loginButton:hover {
+    background-color: #fcb900; /* 마우스 오버 시 배경색 변화 */
+    color: white; /* 마우스 오버 시 글자색 변화 */
+}
+
+.loginButton:active {
+    background-color: #d6a600; /* 클릭 시 배경색 변화 */
+    color: white; /* 클릭 시 글자색 변화 */
+    transform: scale(0.95); /* 클릭 시 버튼 크기를 줄임 */
+}
+
+.title {
+    display: flex;
+    flex-direction: column; /* 세로로 정렬 */
+    align-items: center; /* 가운데 정렬 */
+    margin-bottom: 1rem;
+}
+
+.title h1 {
+    font-size: 2rem; /* 버튼과 비슷한 크기로 설정 */
+    font-weight: normal; /* 볼드 제거 */
+    margin: 10px 0; /* 위아래 여백 조정 */
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+}
+.form-group input{
+    width: 300px; /* 원하는 너비 설정 */
+    padding: 10px; /* 안쪽 여백 */
+    font-size: 1rem; /* 글자 크기 */
+    border: 1px solid #ccc; /* 테두리 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    margin-bottom: 15px; /* 아래쪽 여백 */
+}
+
+.socialLogin button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 10px; /* 버튼 내부 여백 추가 */
+}
+
+.socialLogin img {
+    width: 50px; /* 이미지 너비 */
+    height: 50px; /* 이미지 높이 */
+}

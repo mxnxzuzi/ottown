@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 //import controller.user.UserSessionUtils;
+import controller.consumer.UserSessionUtils;
 import model.domain.Content;
 import model.service.StorageManager;
 
@@ -25,8 +26,8 @@ public class StorageFilterController implements Controller{
 		 */
         request.setCharacterEncoding("utf-8");
         
-        //String consumerId = UserSessionUtils.getLoginUserId(session);
-        String consumerId = "1";
+        String consumerId = UserSessionUtils.getLoginUserId(session);
+        //String consumerId = "1";
         String filter = request.getParameter("filter");
         String filterKey = request.getParameter("filterKey");
         

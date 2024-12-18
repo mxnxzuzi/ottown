@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 //import controller.user.UserSessionUtils;
+import controller.consumer.UserSessionUtils;
 import model.service.StorageManager;
 
 public class DeleteFavController implements Controller{
@@ -21,8 +22,8 @@ public class DeleteFavController implements Controller{
 		 */
         request.setCharacterEncoding("utf-8");
         
-        String consumerId = "1";
-        //String consumerId = UserSessionUtils.getLoginUserId(session);
+        //String consumerId = "1";
+        String consumerId = UserSessionUtils.getLoginUserId(session);
         String contentId = request.getParameter("contentId");
         String type = request.getParameter("type");
         

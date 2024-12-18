@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.content-container {
+    display: flex;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-poster {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.content-details {
+    margin-left: 20px;
+}
+
+.content-details h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #000;
+}
+
+.rating {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #ff9500;
+}
+
+.review-section {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+}
+
+.review-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.review-box {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-weight: bold;
+}
+
+.review-rating {
+    color: #ff9500;
+    font-weight: bold;
+}
+
+.review-text {
+    font-size: 1rem;
+    line-height: 1.5;
+}

@@ -40,9 +40,9 @@ public class AddFavController implements Controller{
             case "movie":
                 return "redirect:/content/view?type=movie";
             case "drama":
-                return "redirect:/content/view?type=movie";
+                return "redirect:/content/view?type=drama";
             case "animation":
-                return "redirect:/content/view?type=movie";
+                return "redirect:/content/view?type=animation";
             default:
                 return "redirect:/content/view";
         }

@@ -44,33 +44,35 @@
 		<div class="movie-grid">
 			<c:forEach var="movie" items="${contents}">
 				<div class="movie-card">
-					<img src="${movie.image}" alt="${movie.title}" />
-					<!-- 좋아요 폼 -->
-                    <c:if test="${movie.isLiked}">
-					    <form action="<c:url value='/storage/delete' />" method="post" style="display: inline;">
-					        <input type="hidden" name="contentId" value="${movie.contentId}" />
-					        <input type="hidden" name="consumerId" value="${sessionScope.consumerId}" />
-					        <input type="hidden" name="type" value="${type}" />
-					        <button type="submit" class="like-button">♥</button>
-					    </form>
-					</c:if>
-					<c:if test="${!movie.isLiked}">
-					    <form action="<c:url value='/storage/add' />" method="post" style="display: inline;">
-					        <input type="hidden" name="contentId" value="${movie.contentId}" />
-					        <input type="hidden" name="consumerId" value="${sessionScope.consumerId}" />
-					        <input type="hidden" name="type" value="${type}" />
-					        <button type="submit" class="like-button">♡</button>
-					    </form>
-					</c:if>
-
-					<div class="movie-info">
-						<p class="title">${movie.title}</p>
-						<p class="platforms">
-							<c:forEach var="platform" items="${movie.ottServices}">
-								<span>${platform}</span>
-							</c:forEach>
-						</p>
-					</div>
+					<a href="<c:url value='/review/view?contentId=${movie.contentId}' />">
+						<img src="${movie.image}" alt="${movie.title}" />
+						<!-- 좋아요 폼 -->
+	                    <c:if test="${movie.isLiked}">
+						    <form action="<c:url value='/storage/delete' />" method="post" style="display: inline;">
+						        <input type="hidden" name="contentId" value="${movie.contentId}" />
+						        <input type="hidden" name="consumerId" value="${sessionScope.consumerId}" />
+						        <input type="hidden" name="type" value="${type}" />
+						        <button type="submit" class="like-button">♥</button>
+						    </form>
+						</c:if>
+						<c:if test="${!movie.isLiked}">
+						    <form action="<c:url value='/storage/add' />" method="post" style="display: inline;">
+						        <input type="hidden" name="contentId" value="${movie.contentId}" />
+						        <input type="hidden" name="consumerId" value="${sessionScope.consumerId}" />
+						        <input type="hidden" name="type" value="${type}" />
+						        <button type="submit" class="like-button">♡</button>
+						    </form>
+						</c:if>
+	
+						<div class="movie-info">
+							<p class="title">${movie.title}</p>
+							<p class="platforms">
+								<c:forEach var="platform" items="${movie.ottServices}">
+									<span>${platform}</span>
+								</c:forEach>
+							</p>
+						</div>
+					</a>
 				</div>
 
 			</c:forEach>

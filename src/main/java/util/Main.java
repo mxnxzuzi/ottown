@@ -7,7 +7,8 @@ public class Main {
         // ContentController 인스턴스 생성
         // 영화 Selenium & DB 저장
     	ContentController contentController = new ContentController();
-
+    	
+    	
         // Selenium 크롤링 메서드 실행
     	// 3개 한꺼번에 돌리면 안돌아감
         //contentController.crawlAndSaveMovies();

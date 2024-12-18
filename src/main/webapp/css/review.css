@@ -78,3 +78,29 @@ body {
     font-size: 1rem;
     line-height: 1.5;
 }
+.hidden-form {
+            display: none; /* 초기에는 폼 숨김 */
+        }
+        .review-form {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .review-form textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        .review-form button {
+            background-color: #fcb900;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .review-form button:hover {
+            background-color: #e0a800;
+        }

@@ -20,7 +20,7 @@
 		<ul class="nav-user">
 			<li><a href="<%= request.getContextPath() %>/room/list">공동구매</a></li>
 			<li><a href="<c:url value='/storage/view' />">찜</a></li>
-			<li><a href="<%= request.getContextPath() %>/user/mypage">마이페이지</a></li>
+			<li><a href="<%= request.getContextPath() %>/mypage/mypage">마이페이지</a></li>
 		</ul>
 	</nav>
 </header>

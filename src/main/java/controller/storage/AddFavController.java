@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 //import controller.user.UserSessionUtils;
+import controller.consumer.UserSessionUtils;
 import model.domain.Content;
 import model.service.StorageManager;
 //import model.service.UserManager;
@@ -25,8 +26,8 @@ public class AddFavController implements Controller{
 		 */
         request.setCharacterEncoding("utf-8");
         
-        //String consumerId = UserSessionUtils.getLoginUserId(session);
-        String consumerId = "1";
+        String consumerId = UserSessionUtils.getLoginUserId(session);
+        //String consumerId = "1";
         String contentId = request.getParameter("contentId");
         String type = request.getParameter("type");
         

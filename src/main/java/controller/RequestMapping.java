@@ -2,6 +2,9 @@ package controller;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import controller.consumer.LoginController;
+import controller.consumer.SignUpController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,7 +24,11 @@ public class RequestMapping {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
     	mappings.put("/", new ForwardController("index.jsp"));
     	mappings.put("/mainpage", new MainpageController());
-        
+
+        //consumer
+        mappings.put("/consumer/signup", new SignUpController());
+        mappings.put("/consumer/login", new LoginController());
+
         // 보관함 기능
         mappings.put("/storage/recommend", new StorageOTTRecommendationController());
         mappings.put("/storage/view/filter", new StorageFilterController());

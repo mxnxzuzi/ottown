@@ -97,8 +97,17 @@ public class ConsumerDao {
 
     // CONSUMER_ID를 통해 CONSUMER 정보를 가져오는 메서드
     public Consumer getConsumerById(long consumerId) throws SQLException {
-        String consumerSql = "SELECT CONSUMER_ID, CONSUMER_NAME, JOIN_DATE, UPDATE_DATE, LOGIN_TYPE " +
-                "FROM CONSUMER WHERE CONSUMER_ID = ?";
+        String consumerSql = "SELECT " +
+                "C.CONSUMER_ID, " +
+                "C.CONSUMER_NAME, " +
+                "C.JOIN_DATE, " +
+                "C.UPDATE_DATE, " +
+                "C.LOGIN_TYPE, " +
+                "A.CONSUMER_EMAIL, " +
+                "A.LOGIN_PASSWORD " +
+                "FROM CONSUMER C " +
+                "JOIN ACCOUNT A ON C.CONSUMER_ID = A.CONSUMER_ID " +
+                "WHERE C.CONSUMER_ID = ?";
 
         Object[] consumerParam = {consumerId};
         jdbcUtil.setSqlAndParameters(consumerSql, consumerParam);
@@ -115,11 +124,16 @@ public class ConsumerDao {
                 consumer.setUpdateDate(rs.getDate("UPDATE_DATE"));
                 consumer.setLoginType(rs.getInt("LOGIN_TYPE"));
 
+                // ACCOUNT 정보도 추가 세팅
+                consumer.setEmail(rs.getString("CONSUMER_EMAIL"));  // 이메일
+                consumer.setPassword(rs.getString("LOGIN_PASSWORD"));  // 비밀번호
+
                 // 세팅된 Consumer 객체 반환
                 return consumer;
             }
             return null; // 일치하는 CONSUMER 정보가 없으면 null 반환
         }
     }
+
 
 }

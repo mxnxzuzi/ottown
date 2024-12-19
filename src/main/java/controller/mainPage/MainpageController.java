@@ -9,7 +9,7 @@ public class MainpageController implements Controller{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+
 		return "/mainpage/mainPage.jsp";
 	}
 

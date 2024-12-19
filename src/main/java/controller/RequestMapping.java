@@ -3,8 +3,7 @@ package controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import controller.consumer.LoginController;
-import controller.consumer.SignUpController;
+import controller.consumer.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,6 +32,8 @@ public class RequestMapping {
         //consumer
         mappings.put("/consumer/signup", new SignUpController());
         mappings.put("/consumer/login", new LoginController());
+        mappings.put("/consumer/logout", new LogoutController());
+
 
         // 보관함 기능
         mappings.put("/storage/recommend", new StorageOTTRecommendationController());

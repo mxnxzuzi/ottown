@@ -32,18 +32,32 @@ public class LoginController implements Controller {
         String loginId = request.getParameter("email");
         String password = request.getParameter("password");
 
-        System.out.println("Login ID: " + loginId);
-        System.out.println("Password: " + password);
-
         try {
+            // 로그인 시, Consumer 객체를 찾고 이메일을 설정
             Consumer consumer = consumerDao.findByLoginIdAndPassword(loginId, password);
+
             if (consumer != null) {
                 // 로그인 성공 처리
                 System.out.println("로그인 성공: " + loginId);
 
-                // 세션에 사용자 ID 저장
-                HttpSession session = request.getSession();
-                session.setAttribute(UserSessionUtils.USER_SESSION_KEY, String.valueOf(consumer.getConsumerId()));
+                // 세션 객체를 요청에서 가져오기
+                HttpSession session = request.getSession(true);  // 세션이 없으면 새로 생성
+
+                // 세션에 사용자 정보 저장
+                session.setAttribute(UserSessionUtils.USER_SESSION_KEY, consumer.getConsumerId());
+                session.setAttribute(UserSessionUtils.CONSUMER_NAME_KEY, consumer.getConsumerName());
+                session.setAttribute(UserSessionUtils.CONSUMER_EMAIL_KEY, consumer.getEmail());
+                session.setAttribute(UserSessionUtils.CONSUMER_PASSWORD_KEY, consumer.getPassword());
+
+                // 세션 상태 확인 (세션 객체가 제대로 생성되었는지 확인)
+                if (session == null) {
+                    System.out.println("세션이 존재하지 않습니다.");
+                } else {
+                    System.out.println("세션 ID: " + session.getId());
+                    System.out.println("세션에 저장된 userId: " + session.getAttribute(UserSessionUtils.USER_SESSION_KEY));
+                    System.out.println("세션에 저장된 이름: " + session.getAttribute(UserSessionUtils.CONSUMER_NAME_KEY));
+                    System.out.println("세션에 저장된 이메일: " + session.getAttribute(UserSessionUtils.CONSUMER_EMAIL_KEY));
+                }
 
                 // 로그인 에러 메시지 제거
                 request.removeAttribute("loginError");

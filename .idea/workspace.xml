@@ -12,14 +12,13 @@
     <list default="true" id="e7abd98c-7668-4c4a-b081-63c3c7ddabc7" name="변경" comment="로그인 기능 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/RequestMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RequestMapping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/AddFavController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/AddFavController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/DeleteFavController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/DeleteFavController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/StorageFilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/StorageFilterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/StorageOTTRecommendationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/StorageOTTRecommendationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/storage/ViewStorageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/storage/ViewStorageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/UserSessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/UserSessionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/mainPage/MainpageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/mainPage/MainpageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/consumer/ConsumerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/consumer/ConsumerDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/domain/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/domain/Consumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mainpage/mainPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mainpage/mainPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/signup" />
+        <entry key="$PROJECT_DIR$" value="feature/storage" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,7 +82,7 @@
     "Tomcat 서버.Tomcat 9.0.95.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/kirby/work/ottown",
+    "last_opened_file_path": "/Users/kirby/Desktop/ottown",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -94,17 +93,6 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 9.0.95" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.95" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -211,11 +199,24 @@
       <updated>1734427272574</updated>
       <workItem from="1734427273628" duration="2422000" />
       <workItem from="1734431724387" duration="10282000" />
+      <workItem from="1734537456654" duration="1057000" />
+      <workItem from="1734592764445" duration="13055000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />

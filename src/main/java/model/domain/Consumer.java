@@ -28,38 +28,26 @@ public class Consumer {
         this.joinDate = new Date(System.currentTimeMillis());
     }
 
-    // Getter and Setter for consumerId
     public Long getConsumerId() {
         return consumerId;
     }
-
     public void setConsumerId(Long consumerId) {
         this.consumerId = consumerId;
     }
 
-    // Getter and Setter for consumerName
-    public String getConsumerName() {
-        return consumerName;
-    }
-
+    public String getConsumerName() { return consumerName; }
     public void setConsumerName(String consumerName) {
         this.consumerName = consumerName;
     }
 
-    // Getter and Setter for loginType
     public int getLoginType() {
         return loginType;
     }
-
     public void setLoginType(int loginType) {
         this.loginType = loginType;
     }
 
-    // Getter and Setter for updateDate
-    public Date getUpdateDate() {
-        return updateDate;
-    }
-
+    public Date getUpdateDate() { return updateDate; }
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
@@ -67,24 +55,18 @@ public class Consumer {
     public Date getJoinDate() {
         return joinDate;
     }
-
     public void setJoinDate(Date joinDate) {
         this.joinDate = joinDate;
     }
 
-    // Getter and Setter for password
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
+    public String getEmail() { return email; }
     public void setEmail(String email) {
         this.email = email;
     }

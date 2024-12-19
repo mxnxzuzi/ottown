@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.Controller;
+import controller.consumer.UserSessionUtils;
 import model.domain.Content;
 import model.service.ContentManager;
 
@@ -22,12 +23,10 @@ public class ViewContentController implements Controller {
         }
 
         HttpSession session = request.getSession();
-        String consumerId = "1";
+        String consumerId;
       //UserSessionUtils 수정하기
-		/*
-		 * if (!UserSessionUtils.hasLogined(session)) { consumerId = null; } consumerId
-		 * = UserSessionUtils.getLoginUserId(session);
-		 */
+		if (!UserSessionUtils.hasLogined(session)) { consumerId = null; } 
+		consumerId = UserSessionUtils.getLoginUserId(session);
         
         
         // 2. ContentManager를 사용하여 콘텐츠 리스트 가져오기

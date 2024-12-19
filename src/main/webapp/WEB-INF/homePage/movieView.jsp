@@ -44,7 +44,7 @@
 		<div class="movie-grid">
 			<c:forEach var="movie" items="${contents}">
 				<div class="movie-card">
-					<a href="<c:url value='/review/view?contentId=${movie.contentId}' />">
+					<a href="<c:url value='/content/review/view?contentId=${movie.contentId}' />">
 						<img src="${movie.image}" alt="${movie.title}" />
 						<!-- 좋아요 폼 -->
 	                    <c:if test="${movie.isLiked}">

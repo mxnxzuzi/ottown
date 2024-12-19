@@ -6,6 +6,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -29,7 +30,7 @@ public class ReviewDao {
         }
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     }
-    
+       
     public int addReview(Review review) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
@@ -55,7 +56,16 @@ public class ReviewDao {
     public List<Review> getReviewsByConsumerId(long consumerId) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
-            return sqlSession.getMapper(ReviewMapper.class).getReviewsByContentId(consumerId);          
+            return sqlSession.getMapper(ReviewMapper.class).getReviewsByConsumerId(consumerId);          
+        } finally {
+            sqlSession.close();
+        }
+    }
+    
+    public Map getMeanRatingAndCount(long contentId) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            return sqlSession.getMapper(ReviewMapper.class).getMeanRatingAndCount(contentId);          
         } finally {
             sqlSession.close();
         }

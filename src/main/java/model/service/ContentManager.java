@@ -82,5 +82,14 @@ public class ContentManager {
         }
         return contents;
     }
+	
+	public Content getContentById(String contentId) throws SQLException {
+	    try {
+            return contentDao.getContentById(Long.parseLong(contentId));
+        } catch (Exception e) {
+            System.err.println("ContentManager - Content ID 조회 중 오류 발생: " + e.getMessage());
+        }
+	    return null;
+	}
 
 }

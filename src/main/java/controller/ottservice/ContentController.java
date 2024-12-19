@@ -22,8 +22,11 @@ public class ContentController {
 	int maxMovies = 10;
 
 	public ContentController() {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\iaki1\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+		/*
+		 * System.setProperty("webdriver.chrome.driver",
+		 * "C:\\Users\\iaki1\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe"
+		 * );
+		 */
 		this.driver = new ChromeDriver();
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	}

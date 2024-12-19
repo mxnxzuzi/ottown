@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="model.dao.mapper.ReviewMapper">
+
+    <!-- 리뷰 추가 -->
+    <insert id="addReview" parameterType="Review">
+    	<selectKey keyProperty="reviewId" resultType="long" order="BEFORE">
+    		SELECT SEQ_REVIEW.nextval AS reviewId FROM DUAL
+    	</selectKey>
+        INSERT INTO review (review_id, consumer_id, content_id, review_text, rating, review_date)
+        VALUES (#{reviewId}, #{consumerId}, #{contentId}, #{reviewText}, #{rating}, SYSDATE)
+    </insert>
+    
+    <resultMap id="reviewResultMap" type="Review">
+    	<id column="review_id" jdbcType="NUMERIC" property="reviewId"/>
+    	<result column="consumer_id" jdbcType="NUMERIC" property="consumerId"/>
+    	<result column="content_id" jdbcType="NUMERIC" property="contentId"/>
+    	<result column="review_text" jdbcType="VARCHAR" property="reviewText"/>
+    	<result column="rating" jdbcType="NUMERIC" property="rating"/>
+    	<result column="review_date" jdbcType="DATE" property="reviewDate"/>
+    	<association column="consumer_id" property="consumer" javaType="Consumer">
+    		<id column="consumer_id" property="consumerId"/>
+    		<result column="consumer_name" property="consumerName"/>
+    	</association>
+    	<association column="content_id" property="content" javaType="Content">
+    		<id column="content_id" property="contentId"/>
+    		<result column="title" property="title"/>
+    		<result column="image" property="image"/>
+    		<result column="publishdate" property="publishDate"/>
+    	</association>
+    </resultMap>
+
+    <!-- 특정 콘텐츠의 리뷰 조회 -->
+    <select id="getReviewsByContentId" parameterType="long" resultMap="reviewResultMap">
+        SELECT r.review_id, r.consumer_id, r.content_id, r.review_text, r.rating, r.review_date, 
+        cs.consumer_name, ct.title, ct.image, ct.publishdate
+        FROM Review r, Consumer cs, Content ct
+        WHERE r.consumer_id = cs.consumer_id AND r.content_id = ct.content_id AND r.content_id = #{contentId}
+    </select>
+    
+    <!-- 특정 유저의 리뷰 조회 -->
+    <select id="getReviewsByConsumerId" parameterType="long" resultMap="reviewResultMap">
+        SELECT r.review_id, r.consumer_id, r.content_id, r.review_text, r.rating, r.review_date, 
+        cs.consumer_name, ct.title, ct.image, ct.publishdate
+        FROM Review r, Consumer cs, Content ct
+        WHERE r.consumer_id = cs.consumer_id AND r.content_id = ct.content_id AND r.consumer_id = #{consumerId}
+    </select>
+    
+    <!-- 특정 콘텐츠의 리뷰 정보 조회 -->
+    <select id="getMeanRatingAndCount" parameterType="long" resultType="hashMap">
+        SELECT CAST(ROUND(NVL(AVG(rating), 0), 1) AS FLOAT) AS mean, COUNT(*) AS count
+        FROM Review r
+        WHERE content_id = #{contentId}
+    </select>
+
+    <!-- 리뷰 수정 -->
+    <update id="updateReview" parameterType="Review">
+        UPDATE review
+        SET review_text = #{reviewText}, rating = #{rating}
+        WHERE review_id = #{reviewId}
+    </update>
+
+    <!-- 리뷰 삭제 -->
+    <delete id="deleteReview" parameterType="long">
+        DELETE FROM review WHERE review_id = #{reviewId}
+    </delete>
+
+</mapper>

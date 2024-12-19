@@ -314,5 +314,30 @@ public class ContentDao {
         }
         return false;
     }
+    
+    public Content getContentById(Long contentId) {
+        String sql = "SELECT content_id, title, type, genre, image, publishDate FROM Content WHERE content_id = ?";
+        
+        jdbcUtil.setSqlAndParameters(sql, new Object[]{contentId});
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();
+            if (rs.next()) {
+                Content content = new Content();
+                content.setContentId(rs.getLong("content_id"));
+                content.setTitle(rs.getString("title"));
+                content.setType(rs.getString("type"));
+                content.setGenre(rs.getString("genre"));
+                content.setImage(rs.getString("image"));
+                content.setPublishDate(rs.getDate("publishDate"));
+
+                return content;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            jdbcUtil.close();
+        }
+        return null;
+    }
 
 }

@@ -96,7 +96,7 @@ public class ConsumerDao {
     }
 
     // CONSUMER_ID를 통해 CONSUMER 정보를 가져오는 메서드
-    private Consumer getConsumerById(long consumerId) throws SQLException {
+    public Consumer getConsumerById(long consumerId) throws SQLException {
         String consumerSql = "SELECT CONSUMER_ID, CONSUMER_NAME, JOIN_DATE, UPDATE_DATE, LOGIN_TYPE " +
                 "FROM CONSUMER WHERE CONSUMER_ID = ?";
 

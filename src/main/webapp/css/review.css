@@ -1,106 +1,190 @@
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Noto Sans KR', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #FDF6E3; /* 부드러운 배경색 */
     color: #333;
+}
+
+main {
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 800px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+main:hover {
+    transform: translateY(-5px);
 }
 
 .content-container {
     display: flex;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 1200px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 30px;
 }
 
 .content-poster {
-    width: 300px;
+    width: 180px;
     height: auto;
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.content-details {
-    margin-left: 20px;
+.content-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.content-details h1 {
-    margin: 0;
+.content-title {
     font-size: 2rem;
-    color: #000;
+    font-weight: bold;
+    color: #FFB400;
+    margin-bottom: 10px;
 }
 
-.rating {
-    font-size: 1.2rem;
-    margin: 10px 0;
-    color: #ff9500;
+.content-rating,
+.content-publishdate {
+    font-size: 1rem;
+    color: #777;
 }
 
 .review-section {
-    margin: 20px auto;
-    width: 90%;
-    max-width: 800px;
+    margin-top: 30px;
 }
 
 .review-section h2 {
     font-size: 1.8rem;
+    color: #FFB400;
+    border-bottom: 2px solid #FFB400;
     margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+.write-review-btn {
+    display: inline-block;
+    background-color: #FFB400;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.write-review-btn:hover {
+    background-color: #FF9900;
+    transform: scale(1.05);
+}
+
+.hidden-form {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.review-form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #FFF8E7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-form label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fdfdfd;
+}
+
+.review-form input:focus,
+.review-form textarea:focus {
+    outline: none;
+    border-color: #FFB400;
+}
+
+.review-form button {
+    background-color: #FFB400;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.review-form button:hover {
+    background-color: #FF9900;
 }
 
 .review-box {
-    background: #fff;
-    margin-bottom: 20px;
-    padding: 15px;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: #FDF6E3;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .review-header {
     display: flex;
-    justify-content: space-between;
-    font-size: 1.1rem;
+    justify-content: space-between; /* 왼쪽과 오른쪽 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
     margin-bottom: 10px;
 }
 
-.review-author {
-    font-weight: bold;
+.review-left {
+    display: flex;
+    gap: 10px; /* title과 rating 간격 */
+    align-items: center;
 }
 
-.review-rating {
-    color: #ff9500;
+.review-right {
+    display: flex;
+    gap: 15px; /* 수정과 삭제 간격 */
+    align-items: center;
+}
+
+.review-author, .content-title, .review-content-title{
     font-weight: bold;
+    color: #555;
+}
+
+.review-rating{
+    font-size: 1.2rem;
+    color: #FFB400;
 }
 
 .review-text {
     font-size: 1rem;
-    line-height: 1.5;
+    color: #333;
 }
-.hidden-form {
-            display: none; /* 초기에는 폼 숨김 */
-        }
-        .review-form {
-            margin: 20px 0;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .review-form textarea {
-            width: 100%;
-            height: 100px;
-            margin-bottom: 10px;
-        }
-        .review-form button {
-            background-color: #fcb900;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .review-form button:hover {
-            background-color: #e0a800;
-        }
+
+.review-rating, .review-update, .review-delete{
+	margin-left: 5px;
+}
+
+.review-update, .review-delete{
+	font-weight: bold;
+    font-size: 1rem;
+    color: #555;
+}

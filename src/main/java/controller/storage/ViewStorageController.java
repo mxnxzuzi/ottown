@@ -24,7 +24,6 @@ public class ViewStorageController implements Controller{
         
         String consumerId = UserSessionUtils.getLoginUserId(session);
         StorageManager manager = StorageManager.getInstance();
-        System.out.println("확인 test");
         List<Content> contentList = manager.showStorage(consumerId);
         
         // contentList 객체를 request에 저장하여 커뮤니티 보관함 화면으로 이동

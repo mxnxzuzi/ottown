@@ -9,9 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import controller.homepage.ViewContentController;
-import controller.homepage.ViewContentReviewController;
 import controller.mainPage.MainpageController;
 import controller.ottservice.OttTopListController;
+import controller.review.AddReviewController;
+import controller.review.DeleteReviewController;
+import controller.review.UpdateReviewController;
+import controller.review.ViewConsumerReviewController;
+import controller.review.ViewContentReviewController;
+import controller.review.ViewMyReviewController;
 import controller.storage.*;
 
 public class RequestMapping {
@@ -41,7 +46,12 @@ public class RequestMapping {
     	mappings.put("/content/view", new ViewContentController());
     	
     	//리뷰
-    	mappings.put("/review/view", new ViewContentReviewController());
+    	mappings.put("/content/review/view", new ViewContentReviewController());
+    	mappings.put("/review/add", new AddReviewController());
+    	mappings.put("/consumer/review/view", new ViewConsumerReviewController());
+    	mappings.put("/mypage/review/view", new ViewMyReviewController());
+    	mappings.put("/review/delete", new DeleteReviewController());
+    	mappings.put("/review/update", new UpdateReviewController());
     	
         logger.info("Initialized Request Mapping!");
     }

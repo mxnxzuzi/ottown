@@ -33,12 +33,11 @@ public class ContentDao {
             throw new IllegalArgumentException("Title cannot be null or empty");
         }
         
-        String sql = "INSERT INTO Content (content_id, title, type, genre, image, publishDate) "
-                + "VALUES (seq_content.NEXTVAL, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Content (content_id, title, type, image, publishDate) "
+                + "VALUES (seq_content.NEXTVAL, ?, ?, ?, ?)";
         Object[] param = new Object[] {
             content.getTitle(),
             content.getType(),
-            content.getGenre(),
             content.getImage(),
             content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime()) : null
         };
@@ -59,15 +58,14 @@ public class ContentDao {
     }
 
     public void insertContents(List<Content> contents) throws Exception {
-        String sql = "INSERT INTO Content (content_id, title, type, genre, image, publishDate) "
-                + "VALUES (seq_content.NEXTVAL, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Content (content_id, title, type, image, publishDate) "
+                + "VALUES (seq_content.NEXTVAL, ?, ?, ?, ?)";
 
         try {
             for (Content content : contents) {
                 Object[] param = new Object[] {
                     content.getTitle(),
                     content.getType(),
-                    content.getGenre(),
                     content.getImage(),
                     content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime()) : null
                 };
@@ -93,7 +91,7 @@ public class ContentDao {
 
     // 데이터 조회 (Read)
     public List<Content> findAllByType(String type) throws SQLException {
-        String sql = "SELECT content_id, title, type, genre, image, publishDate FROM Content WHERE type = ?";
+        String sql = "SELECT content_id, title, type, image, publishDate FROM Content WHERE type = ?";
         jdbcUtil.setSqlAndParameters(sql, new Object[] { type });
 
         List<Content> contentList = new ArrayList<>();
@@ -110,7 +108,6 @@ public class ContentDao {
                 content.setContentId(rs.getLong("content_id"));
                 content.setTitle(rs.getString("title"));
                 content.setType(rs.getString("type"));
-                content.setGenre(rs.getString("genre"));
                 content.setImage(rs.getString("image"));
                 content.setPublishDate(rs.getDate("publishDate"));
 
@@ -130,8 +127,8 @@ public class ContentDao {
 
     // 데이터 수정 (Update)
     public int updateContent(Content content) throws SQLException {
-        String sql = "UPDATE Content SET title = ?, type = ?, genre = ?, image = ?, publishDate = ? WHERE content_id = ?";
-        Object[] param = new Object[] { content.getTitle(), content.getType(), content.getGenre(), content.getImage(),
+        String sql = "UPDATE Content SET title = ?, type = ?, image = ?, publishDate = ? WHERE content_id = ?";
+        Object[] param = new Object[] { content.getTitle(), content.getType(), content.getImage(),
                 content.getPublishDate() != null ? new java.sql.Date(content.getPublishDate().getTime()) : null,
                 content.getContentId() };
 
@@ -316,7 +313,7 @@ public class ContentDao {
     }
     
     public Content getContentById(Long contentId) {
-        String sql = "SELECT content_id, title, type, genre, image, publishDate FROM Content WHERE content_id = ?";
+        String sql = "SELECT content_id, title, type, image, publishDate FROM Content WHERE content_id = ?";
         
         jdbcUtil.setSqlAndParameters(sql, new Object[]{contentId});
         try {
@@ -326,7 +323,6 @@ public class ContentDao {
                 content.setContentId(rs.getLong("content_id"));
                 content.setTitle(rs.getString("title"));
                 content.setType(rs.getString("type"));
-                content.setGenre(rs.getString("genre"));
                 content.setImage(rs.getString("image"));
                 content.setPublishDate(rs.getDate("publishDate"));
 

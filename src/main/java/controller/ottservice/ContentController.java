@@ -169,7 +169,8 @@ public class ContentController {
 					    throw new RuntimeException("Image URL cannot be null or empty.");
 					}
 
-					Content content = new Content(0L, title, "movie", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
+					//Content content = new Content(0L, title, "movie", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
+					Content content = new Content(0L, title, "movie", imageUrl, formattedDate != null ? formattedDate : new Date());
 					System.out.println("Content Created: " + content);
 
 					
@@ -325,7 +326,8 @@ public class ContentController {
 					System.out.println("OTT 서비스: " + ottServices);
 
 					// Content 객체 생성 및 리스트에 추가
-					Content content = new Content(0L, title, "drama", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
+					//Content content = new Content(0L, title, "drama", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
+					Content content = new Content(0L, title, "drama", imageUrl, formattedDate != null ? formattedDate : new Date());
 					contentList.add(content);
 
 					
@@ -478,7 +480,8 @@ public class ContentController {
 					System.out.println("OTT 서비스: " + ottServices);
 
 					// Content 객체 생성 및 리스트에 추가
-					Content content = new Content(0L, title, "animation", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
+					//Content content = new Content(0L, title, "animation", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
+					Content content = new Content(0L, title, "animation", imageUrl, formattedDate != null ? formattedDate : new Date());
 					contentList.add(content);
 
 					

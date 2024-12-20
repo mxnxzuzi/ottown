@@ -51,8 +51,9 @@ public class UserSessionUtils {
     }
 
     /* 로그인한 사용자 정보를 세션에 저장 */
-    public static void setConsumerInfo(HttpSession session, String consumerName, String consumerEmail) {
+    public static void setConsumerInfo(HttpSession session, String consumerName, String consumerEmail, String consumerPassword) {
         session.setAttribute(CONSUMER_NAME_KEY, consumerName);  // 세션에 이름 저장
         session.setAttribute(CONSUMER_EMAIL_KEY, consumerEmail);  // 세션에 이메일 저장
+        session.setAttribute(CONSUMER_PASSWORD_KEY, consumerPassword);
     }
 }

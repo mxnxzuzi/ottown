@@ -1,1 +1,1 @@
-<% response.sendRedirect(request.getContextPath() + "/startpage/startpage.jsp"); %>
+<% response.sendRedirect(request.getContextPath() + "/mainpage"); %>

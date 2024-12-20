@@ -96,9 +96,18 @@ public class ConsumerDao {
     }
 
     // CONSUMER_ID를 통해 CONSUMER 정보를 가져오는 메서드
-    private Consumer getConsumerById(long consumerId) throws SQLException {
-        String consumerSql = "SELECT CONSUMER_ID, CONSUMER_NAME, JOIN_DATE, UPDATE_DATE, LOGIN_TYPE " +
-                "FROM CONSUMER WHERE CONSUMER_ID = ?";
+    public Consumer getConsumerById(long consumerId) throws SQLException {
+        String consumerSql = "SELECT " +
+                "C.CONSUMER_ID, " +
+                "C.CONSUMER_NAME, " +
+                "C.JOIN_DATE, " +
+                "C.UPDATE_DATE, " +
+                "C.LOGIN_TYPE, " +
+                "A.CONSUMER_EMAIL, " +
+                "A.LOGIN_PASSWORD " +
+                "FROM CONSUMER C " +
+                "JOIN ACCOUNT A ON C.CONSUMER_ID = A.CONSUMER_ID " +
+                "WHERE C.CONSUMER_ID = ?";
 
         Object[] consumerParam = {consumerId};
         jdbcUtil.setSqlAndParameters(consumerSql, consumerParam);
@@ -115,6 +124,10 @@ public class ConsumerDao {
                 consumer.setUpdateDate(rs.getDate("UPDATE_DATE"));
                 consumer.setLoginType(rs.getInt("LOGIN_TYPE"));
 
+                // ACCOUNT 정보도 추가 세팅
+                consumer.setEmail(rs.getString("CONSUMER_EMAIL"));  // 이메일
+                consumer.setPassword(rs.getString("LOGIN_PASSWORD"));  // 비밀번호
+
                 // 세팅된 Consumer 객체 반환
                 return consumer;
             }
@@ -123,94 +136,4 @@ public class ConsumerDao {
     }
 
 
-
-//    // 비밀번호 수정
-//    public int updatePassword(Consumer consumer) throws SQLException {
-//        String sql = "UPDATE ACCOUNT " +
-//                "SET LOGIN_PASSWORD = ? " +
-//                "WHERE CONSUMER_ID = ?";
-//        Object[] param = new Object[] {
-//                consumer.getPassword(),
-//                consumer.getConsumerId()
-//        };
-//        jdbcUtil.setSqlAndParameters(sql, param);
-//
-//        try {
-//            int result = jdbcUtil.executeUpdate(); // UPDATE 문 실행
-//            return result;
-//        } catch (SQLException e) {
-//            jdbcUtil.rollback();
-//            throw e; // 예외를 상위 호출자에게 전달
-//        } catch (Exception ex) {
-//            throw new RuntimeException(ex);
-//        } finally {
-//            jdbcUtil.commit();
-//            jdbcUtil.close(); // 리소스 반환
-//        }
-//    }
-//
-//    // 회원 삭제
-//    public int remove(String consumerId) throws SQLException {
-//        String sql = "DELETE FROM CONSUMER WHERE CONSUMER_ID = ?";
-//        jdbcUtil.setSqlAndParameters(sql, new Object[] { consumerId }); // DELETE 문과 매개 변수 설정
-//
-//        try {
-//            int result = jdbcUtil.executeUpdate(); // DELETE 문 실행
-//            return result;
-//        } catch (Exception ex) {
-//            jdbcUtil.rollback();
-//            ex.printStackTrace();
-//        } finally {
-//            jdbcUtil.commit();
-//            jdbcUtil.close(); // 리소스 반환
-//        }
-//        return 0;
-//    }
-//
-//    // 회원 ID로 회원 정보 조회
-//    public Consumer findConsumer(String consumerId) throws SQLException {
-//        String query = "SELECT * FROM CONSUMER WHERE CONSUMER_ID = ?";
-//        jdbcUtil.setSqlAndParameters(query, new Object[] { consumerId });
-//
-//        try {
-//            ResultSet rs = jdbcUtil.executeQuery();
-//            while (rs.next()) {
-//                Consumer consumer = new Consumer(
-//                        rs.getLong("CONSUMER_ID"),  // 오라클 컬럼명에 맞게 수정
-//                        rs.getString("EMAIL"),      // 오라클 컬럼명에 맞게 수정
-//                        rs.getString("PASSWORD")    // 오라클 컬럼명에 맞게 수정
-//                );
-//                return consumer;
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace(); // 오류 처리
-//        } finally {
-//            jdbcUtil.close(); // 리소스 반환
-//        }
-//        return null;
-//    }
-//
-//    // 마이페이지 정보 조회
-//    public Consumer findProfile(String consumerId) throws SQLException {
-//        String query = "SELECT CONSUMER_NAME, EMAIL, PASSWORD FROM CONSUMER WHERE CONSUMER_ID = ?";
-//        jdbcUtil.setSqlAndParameters(query, new Object[] { consumerId });
-//
-//        try {
-//            ResultSet rs = jdbcUtil.executeQuery();
-//            if (rs.next()) {
-//                // Consumer 객체 생성 및 필드 설정
-//                Consumer consumer = new Consumer();
-//                consumer.setConsumerName(rs.getString("CONSUMER_NAME")); // 컬럼명 수정
-//                consumer.setEmail(rs.getString("EMAIL"));                // 컬럼명 수정
-//                consumer.setPassword(rs.getString("PASSWORD"));          // 컬럼명 수정
-//
-//                return consumer;
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace(); // 예외 처리
-//        } finally {
-//            jdbcUtil.close(); // 리소스 반환
-//        }
-//        return null; // 정보가 없을 경우 null 반환
-//    }
 }

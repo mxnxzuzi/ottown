@@ -48,18 +48,18 @@ public class SignUpController implements Controller {
 
         if (isSuccess) {
             // 회원가입 성공 시 로그인 페이지로 리다이렉트
-            response.sendRedirect(request.getContextPath() + "/loginForm/login.jsp");
+            response.sendRedirect(request.getContextPath() + "/consumer/login");
         } else {
             // 실패 시 회원가입 폼으로 돌아가도록 처리 (포워드 사용)
             request.setAttribute("signUpError", true);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/signupForm/signup.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/consumer/signup");
             dispatcher.forward(request, response);
         }
     }
 
     // GET 방식 처리 (회원가입 폼 페이지로 이동)
     private void handleGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/signupForm/signup.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/signupForm/signup.jsp");
         dispatcher.forward(request, response);
     }
 }

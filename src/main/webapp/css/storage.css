@@ -1,0 +1,92 @@
+main {
+    margin-top: 100px;
+}
+
+.menu {
+	display: flex; /* 메뉴를 가로 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: space-between; /* 양쪽 정렬 (보관함/OTT 분석과 필터 박스 분리) */
+    padding: 0 50px;
+    color: #727272;
+    font-weight: bold; 
+    margin-top: 30px;  
+    /*margin-left: 50px; */
+}
+
+.menu-link {
+    padding: 0.5rem 1rem;
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    /*justify-content: flex-end;  내부 요소 오른쪽 정렬 */
+    gap: 10px; /* 필터 요소 간의 간격 */
+    margin-left: auto;
+}
+
+.filter-box select,
+.filter-box input,
+.filter-box button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.filter-box button {
+    background-color: #fcb900;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.filter-box button:hover {
+    background-color: #e0a800;
+}
+
+.storage {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 45px;
+    margin: 3vh 3vw;
+}
+
+.storage-list {
+    position: relative; /* 하트 버튼 위치를 이미지 위에 배치 */
+    width: 200px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s ease;
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+.storage-list:hover {
+    transform: translateY(-5px);
+}
+
+.storage-list img {
+    width: auto;
+    height: 250px;
+    object-fit: cover;
+}
+
+.storage-list p {
+    padding: 10px;
+    font-size: 14px; 
+    font-weight: bold;
+    margin: 5px 0;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: block; 
+}
+
+.nav-user li:nth-child(2) a {
+    color: #000000 !important;
+}

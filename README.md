@@ -5,6 +5,21 @@
 **OTTown**은 사용자들이 OTT별 인기 콘텐츠를 확인하고, 공동 구매 방을 통해 경제적으로 OTT 서비스를 이용할 수 있도록 돕는 **웹 애플리케이션**입니다.  
 OTT 콘텐츠 검색, 리뷰 작성, 공동 구매 방 관리 등 다양한 기능을 통해 사용자에게 최적화된 OTT 경험을 제공합니다.
 
+---
+
+### 💻 UI 미리보기
+- 아래는 OTTown의 주요 화면 예시입니다.
+
+#### 📋 메인 페이지
+![메인 페이지](https://github.com/user-attachments/assets/9c9e15a4-0586-47bc-b867-0a8f934ee20d)
+
+#### 📋 콘텐츠 화면
+![콘텐츠 화면](https://via.placeholder.com/800x400)
+
+#### 📋 공동 구매 방 관리
+![공동 구매 방 관리 화면](https://via.placeholder.com/800x400)
+
+
 ### ✨ 주요 기능
 - 🔐 **사용자 관리**: 회원가입, 로그인, 개인정보 수정
 - 📋 **관심 목록**: 선호 콘텐츠 추가 및 관리
@@ -34,6 +49,7 @@ OTT 콘텐츠 검색, 리뷰 작성, 공동 구매 방 관리 등 다양한 기�
 - **Oracle 데이터베이스** 설정
 - **Eclipse IDE** 설치
 - **Git** 설치
+- **Selenium, ChromeDriver** 설치
 
 ## 🛠️ 프로젝트 실행
 
@@ -63,7 +79,10 @@ cd OTTown
 
 ### 1️⃣ 회원가입 및 로그인
 - **회원가입**: 새로운 계정을 생성하여 서비스에 접속합니다.
+![회원가입 화면](https://github.com/user-attachments/assets/893ad6dc-89ef-4aaa-80b4-8c21776a2b5e)
+
 - **로그인**: 생성한 계정을 통해 로그인하고 기능을 이용합니다.
+![로그 화면](https://github.com/user-attachments/assets/80e33386-b3c4-481f-ab2b-594b760f248e)
 
 ---
 

@@ -9,14 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7abd98c-7668-4c4a-b081-63c3c7ddabc7" name="변경" comment="로그인 기능 수정">
+    <list default="true" id="e7abd98c-7668-4c4a-b081-63c3c7ddabc7" name="변경" comment="FIX : 마이 페이지 구현 및 네비 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/RequestMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RequestMapping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/UserSessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/UserSessionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/mainPage/MainpageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/mainPage/MainpageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/consumer/ConsumerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/consumer/ConsumerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/domain/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/domain/Consumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" afterDir="false" />
     </list>
@@ -76,22 +71,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Tomcat 서버.Tomcat 9.0.95.executor": "Run",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/kirby/Desktop/ottown",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat 서버.Tomcat 9.0.95.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kirby/Desktop/ottown&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.95" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.95" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -200,8 +195,18 @@
       <workItem from="1734427273628" duration="2422000" />
       <workItem from="1734431724387" duration="10282000" />
       <workItem from="1734537456654" duration="1057000" />
-      <workItem from="1734592764445" duration="13055000" />
+      <workItem from="1734592764445" duration="13147000" />
+      <workItem from="1734673926528" duration="1285000" />
     </task>
+    <task id="LOCAL-00001" summary="FIX : 마이 페이지 구현 및 네비 수정">
+      <option name="closed" value="true" />
+      <created>1734638877680</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734638877680</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +226,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="로그인 기능 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="로그인 기능 수정" />
+    <MESSAGE value="FIX : 마이 페이지 구현 및 네비 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX : 마이 페이지 구현 및 네비 수정" />
   </component>
 </project>

@@ -33,6 +33,7 @@ public class RequestMapping {
         mappings.put("/consumer/signup", new SignUpController());
         mappings.put("/consumer/login", new LoginController());
         mappings.put("/consumer/logout", new LogoutController());
+        mappings.put("/consumer/mypage", new MypageController());
 
 
         // 보관함 기능

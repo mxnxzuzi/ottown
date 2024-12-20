@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import controller.homepage.ViewContentController;
 import controller.mainPage.MainpageController;
+import controller.notification.NotificationListController;
 import controller.ottservice.OttTopListController;
 import controller.review.AddReviewController;
 import controller.review.DeleteReviewController;
@@ -54,6 +55,10 @@ public class RequestMapping {
     	mappings.put("/mypage/review/view", new ViewMyReviewController());
     	mappings.put("/review/delete", new DeleteReviewController());
     	mappings.put("/review/update", new UpdateReviewController());
+    	
+    	//알림 
+    	mappings.put("/notification", new NotificationListController());
+
     	
         logger.info("Initialized Request Mapping!");
     }

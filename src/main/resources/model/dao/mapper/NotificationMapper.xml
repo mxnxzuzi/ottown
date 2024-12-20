@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="controller.notification.NotificationMapper">
+
+	<!-- 1. 29일 경과 알림 -->
+	<select id="selectGroupsFor29DaysNotification" resultType="int">
+		SELECT group_id
+		FROM ott_group
+		WHERE TRUNC(period) + 29 = TRUNC(SYSDATE)
+	</select>
+
+	<!-- 그룹 방장 ID 조회 -->
+	<select id="selectGroupLeader" parameterType="int"
+		resultType="int">
+		SELECT consumer_id
+		FROM group_member
+		WHERE group_id =
+		#{groupId} AND role = 1 AND is_removed = 0
+	</select>
+
+	<!-- 2. 모든 멤버 결제 완료 알림 -->
+	<select id="selectGroupsWithAllPaidMembers" resultType="int">
+		SELECT
+		gm.group_id
+		FROM group_member gm
+		JOIN ott_group og ON gm.group_id =
+		og.group_id
+		WHERE gm.is_paid = 1 AND gm.is_removed = 0
+		GROUP BY
+		gm.group_id
+		HAVING COUNT(gm.consumer_id) =
+		(SELECT og2.current_members
+		FROM ott_group og2 WHERE og2.group_id =
+		gm.group_id)
+	</select>
+
+	<resultMap id="NotificationResultMap"
+		type="model.domain.Notification">
+		<id column="notification_id" property="notificationId"
+			javaType="java.lang.Long" />
+		<result column="message" property="message"
+			javaType="java.lang.String" />
+		<result column="is_checked" property="isChecked"
+			javaType="java.lang.Boolean" />
+		<result column="consumer_id" property="consumerId"
+			javaType="java.lang.Long" />
+	</resultMap>
+
+	<select id="getNotificationsByUserId" parameterType="long"
+		resultMap="NotificationResultMap">
+		SELECT notification_id, message, is_checked, consumer_id
+		FROM notification
+		WHERE consumer_id = #{userId}
+		ORDER BY notification_id
+		DESC
+	</select>
+
+	<select id="selectGroupMembers" parameterType="int"
+		resultType="int">
+		SELECT consumer_id
+		FROM group_member
+		WHERE group_id = #{groupId} AND is_removed = 0
+	</select>
+
+
+
+
+
+	<!-- 알림 생성 -->
+	<insert id="insertNotification">
+		INSERT INTO notification (message, is_checked,
+		consumer_id)
+		VALUES (#{message}, 0, #{consumerId})
+	</insert>
+
+</mapper>

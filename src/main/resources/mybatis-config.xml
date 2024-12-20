@@ -18,8 +18,8 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
 				<property name="url" value="jdbc:oracle:thin:@dblab.dongduk.ac.kr:1521/orclpdb" />
-				<property name="username" value="{username}" />
-				<property name="password" value="{password}" />
+				<property name="username" value="dbp240202" />
+				<property name="password" value="75340" />
 			</dataSource>
 		</environment>
 	</environments>

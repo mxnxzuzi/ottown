@@ -2,110 +2,119 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem 4rem;
-    background-color: #f9f9f9;
-    border-radius: 10px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    padding: 2rem 3rem;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 80%;
 }
 
 .content-container {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
-    gap: 40px;
+    gap: 30px;
     overflow-x: auto;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: thin;  /* Firefox */
-    scrollbar-color: #fcb90057 transparent;  /* Scrollbar 색상 (트랙: 투명, 스크롤바: #fcb900) */
+    scrollbar-color: #fcb900 transparent;
     white-space: nowrap;
     padding: 1rem 0;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .content-container::-webkit-scrollbar {
-    height: 6px;  /* 스크롤바 높이 조정 */
+    height: 8px;
 }
 
 .content-container::-webkit-scrollbar-thumb {
-    background-color: #fcb900;  /* 스크롤바 색상 */
-    border-radius: 10px;  /* 스크롤바 모서리 둥글게 */
+    background-color: #fcb900;
+    border-radius: 10px;
     border: 2px solid transparent;
     background-clip: padding-box;
 }
 
 .content-container::-webkit-scrollbar-track {
-    background: #e0e0e0;  /* 스크롤바 트랙 색상 */
+    background: #e6e6e6;
     border-radius: 10px;
 }
 
 .content-item {
-    width: 220px;
+    width: 200px;
     text-align: center;
     flex: 0 0 auto;
     position: relative;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow: hidden;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .content-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .content-item img {
-    width: 220px;
-    height: 300px;
-    border-radius: 10px;
+    width: auto;
+    height: 250px;
     object-fit: cover;
 }
 
 .number-overlay {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    background: rgba(0, 0, 0, 0.75);
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(145deg, #fcb900, #6dcd92);
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 8px;
+    padding: 5px 12px;
+    border-radius: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     text-align: left;
     width: 100%;
-    font-size: 3rem;
-    font-weight: 300;
-    margin-bottom: 4vh;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
     color: #333;
-    border-bottom: 2px solid #fcb900;
+    border-bottom: 4px solid #fcb900;
     padding-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .content-title {
-    text-align: left;
+    text-align: center;
     word-wrap: break-word;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #555;
-    margin-top: 15px;
+    margin-top: 10px;
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {
     .ott-container {
-        margin: 0 4vw;
-        padding: 1rem;
+        margin: 0 5vw;
+        padding: 1.5rem;
     }
 
     .content-item {
-        width: 180px;
+        width: 200px;
     }
 
     .content-item img {
-        width: 180px;
         height: 250px;
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 } 
 
@@ -115,15 +124,14 @@ h1 {
     }
 
     .content-item {
-        width: 150px;
+        width: 160px;
     }
 
     .content-item img {
-        width: 150px;
-        height: 210px;
+        height: 200px;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-} 
+}

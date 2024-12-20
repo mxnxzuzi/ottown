@@ -135,5 +135,103 @@ public class ConsumerDao {
         }
     }
 
+    //회원 탈퇴
+    public boolean deleteConsumerById(long consumerId) throws SQLException {
+        // GROUP_MEMBER 테이블에서 CONSUMER_ID에 해당하는 데이터 삭제
+        String deleteGroupMemberSql = "DELETE FROM GROUP_MEMBER WHERE CONSUMER_ID = ?";
+        Object[] groupMemberParam = {consumerId};
+
+        // ACCOUNT 테이블에서 CONSUMER_ID에 해당하는 데이터 삭제
+        String deleteAccountSql = "DELETE FROM ACCOUNT WHERE CONSUMER_ID = ?";
+        Object[] accountParam = {consumerId};
+
+        // CONSUMER 테이블에서 CONSUMER_ID에 해당하는 데이터 삭제
+        String deleteConsumerSql = "DELETE FROM CONSUMER WHERE CONSUMER_ID = ?";
+        Object[] consumerParam = {consumerId};
+
+        try {
+            // GROUP_MEMBER 삭제
+            jdbcUtil.setSqlAndParameters(deleteGroupMemberSql, groupMemberParam);
+            int groupMemberResult = jdbcUtil.executeUpdate();
+
+            // ACCOUNT 삭제
+            jdbcUtil.setSqlAndParameters(deleteAccountSql, accountParam);
+            int accountResult = jdbcUtil.executeUpdate();
+
+            // ACCOUNT 삭제 성공 시 CONSUMER 삭제
+            if (groupMemberResult > 0 && accountResult > 0) {
+                jdbcUtil.setSqlAndParameters(deleteConsumerSql, consumerParam);
+                int consumerResult = jdbcUtil.executeUpdate();
+
+                // CONSUMER 삭제 성공 여부 반환
+                if (consumerResult > 0) {
+                    jdbcUtil.commit(); // 성공 시 트랜잭션 커밋
+                    return true;
+                } else {
+                    jdbcUtil.rollback(); // 실패 시 트랜잭션 롤백
+                    return false;
+                }
+            } else {
+                jdbcUtil.rollback(); // 실패 시 롤백
+                return false;
+            }
+        } catch (SQLException e) {
+            jdbcUtil.rollback(); // 예외 발생 시 롤백
+            throw e;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            jdbcUtil.close(); // JDBC 리소스 정리
+        }
+    }
+
+    //회원 정보 수정
+    public boolean updateAccountInfo(long consumerId, String newLoginId, String newPassword, String newEmail) throws SQLException {
+        String sql = "UPDATE ACCOUNT SET LOGIN_ID = ?, LOGIN_PASSWORD = ?, CONSUMER_EMAIL = ? WHERE CONSUMER_ID = ?";
+        Object[] param = {
+                newLoginId,     // LOGIN_ID
+                newPassword,    // LOGIN_PASSWORD
+                newEmail,       // CONSUMER_EMAIL
+                consumerId      // CONSUMER_ID
+        };
+
+        try {
+            jdbcUtil.setSqlAndParameters(sql, param);
+            int result = jdbcUtil.executeUpdate();
+            return result > 0; // 업데이트 성공 여부 반환
+        } catch (SQLException e) {
+            jdbcUtil.rollback();
+            throw e;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();
+        }
+    }
+
+    // CONSUMER 테이블 수정
+    public boolean updateConsumerName(long consumerId, String newConsumerName) throws SQLException {
+        String sql = "UPDATE CONSUMER SET CONSUMER_NAME = ? WHERE CONSUMER_ID = ?";
+        Object[] param = {
+                newConsumerName,
+                consumerId
+        };
+
+        try {
+            jdbcUtil.setSqlAndParameters(sql, param);
+            int result = jdbcUtil.executeUpdate();
+            return result > 0; // 업데이트 성공 여부 반환
+        } catch (SQLException e) {
+            jdbcUtil.rollback();
+            throw e;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        } finally {
+            jdbcUtil.commit();
+            jdbcUtil.close();
+        }
+    }
+
 
 }

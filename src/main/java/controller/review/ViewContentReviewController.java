@@ -30,7 +30,6 @@ public class ViewContentReviewController implements Controller {
         
         //콘텐츠 리뷰 정보 조회
         Map contentReview = reviewManager.getMeanRatingAndCount(contentId);
-        System.out.println("rating " + contentReview.toString());
         Float mean = ((Double) contentReview.get("MEAN")).floatValue();
         Long count = Long.parseLong(String.valueOf(contentReview.get("COUNT")));
         

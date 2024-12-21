@@ -21,12 +21,15 @@
 	        </div>
             <!-- 필터 -->
             <form action="<c:url value='/storage/view/filter' />" method="get" class="filter-box">
-                <select name="filter">
-                    <option value="">필터</option>
-                    <option value="genre">장르</option>
-                    <option value="ott">OTT</option>
+                <select name="filterkey">
+                    <option value="">OTT</option>
+                    <option value="netflix">넷플릭스</option>
+                    <option value="tving">티빙</option>
+                    <option value="coupangplay">쿠팡플레이</option>
+                    <option value="disneyplus">디즈니플러스</option>
+                    <option value="wavve">웨이브</option>
+                    <option value="watcha">왓챠</option>
                 </select>
-                <input type="text" name="filterKey" placeholder="필터 키워드">
                 <button type="submit">적용</button>
             </form>
         </div>
@@ -43,7 +46,7 @@
                 </c:when>
                 <c:otherwise>
                     <!-- 컨텐츠가 없을 경우 -->
-                    <p>보관함에 컨텐츠가 없습니다.</p>
+                    <p>보관함에 작품이 없습니다.</p>
                 </c:otherwise>
             </c:choose>
         </div>

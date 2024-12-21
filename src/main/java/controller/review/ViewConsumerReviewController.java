@@ -21,7 +21,7 @@ public class ViewConsumerReviewController implements Controller {
 
         HttpSession session = request.getSession();
         
-        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/user/login/form"; }
+        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
         
         // 리뷰 목록 조회
         ReviewManager reviewManager = ReviewManager.getInstance();

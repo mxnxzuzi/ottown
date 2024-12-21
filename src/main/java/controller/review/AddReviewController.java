@@ -16,7 +16,7 @@ public class AddReviewController implements Controller{
         
         HttpSession session = request.getSession();
         
-        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/user/login/form"; }
+        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
         
         String type = request.getParameter("type");
         String contentId = request.getParameter("contentId");
@@ -31,11 +31,22 @@ public class AddReviewController implements Controller{
         Review review = new Review();
         review.setConsumerId(Long.parseLong(consumerId));
         review.setContentId(Long.parseLong(contentId));
-        review.setRating(Float.parseFloat(rating));
-        review.setReviewText(reviewText);
-        
-        ReviewManager manager = ReviewManager.getInstance();
-        manager.addReview(review);
+        if (rating != null && !rating.trim().isEmpty() && reviewText != null && !reviewText.trim().isEmpty()) {
+            try {
+                float ratingValue = Float.parseFloat(rating);
+                if (ratingValue < 0.0 || ratingValue > 5.0) {
+                    throw new IllegalArgumentException("평점은 0.0과 5.0 사이여야 합니다.");
+                }
+                review.setRating(ratingValue);
+            } catch (NumberFormatException e) {
+                return "redirect:/content/review/view?contentId=" + contentId;
+            }
+            review.setReviewText(reviewText);
+
+            
+            ReviewManager manager = ReviewManager.getInstance();
+            manager.addReview(review);
+        }
         
         return "redirect:/content/review/view?contentId=" + contentId; // 리뷰 페이지로 이동
     }

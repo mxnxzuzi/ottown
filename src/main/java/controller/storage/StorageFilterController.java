@@ -20,20 +20,23 @@ public class StorageFilterController implements Controller{
         
         HttpSession session = request.getSession();
         
-        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/user/login/form"; }
+        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
         
         request.setCharacterEncoding("utf-8");
         
         String consumerId = UserSessionUtils.getLoginUserId(session);
-        //String consumerId = "1";
-        String filter = request.getParameter("filter");
-        String filterKey = request.getParameter("filterKey");
+
+        String filterKey = request.getParameter("filterkey");
+        System.out.println("filterKey" + filterKey);
         
-        StorageManager manager = StorageManager.getInstance();
-        List<Content> contentList = manager.filterContent(consumerId, filter, filterKey);
-        
-        request.setAttribute("storage", contentList);
-        return "/storage/view.jsp";
+        if (filterKey != null) {
+            StorageManager manager = StorageManager.getInstance();
+            List<Content> contentList = manager.getContentsByOTTService(consumerId, filterKey);
+            
+            request.setAttribute("storage", contentList);
+            return "/storage/view.jsp";
+        }
+        return "redirect:/storage/view";
     }
 
 }

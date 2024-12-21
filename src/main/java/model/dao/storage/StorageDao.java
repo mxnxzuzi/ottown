@@ -51,38 +51,9 @@ public class StorageDao {
         return 0;
     }
 
-    // 장르별로 보관함 조회
-    public List<Content> getContentsByGenre(Long consumerId, String genre) {
-        String query = "SELECT content_id, title, type, genre, image, publish_date FROM content JOIN storage USING (content_id) WHERE consumer_id = ? AND genre = ?";
-
-        jdbcUtil.setSqlAndParameters(query, new Object[] {consumerId, genre});
-        try {
-            ResultSet rs = jdbcUtil.executeQuery();
-            List<Content> contentList = new ArrayList<>();
-
-            while (rs.next()) {
-                Content content = new Content(
-                    rs.getLong("content_id"),
-                    rs.getString("title"),
-                    rs.getString("type"),
-                    rs.getString("genre"),
-                    rs.getString("image"),
-                    rs.getDate("publishDate")
-                );
-                contentList.add(content);
-            }
-            return contentList;
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            jdbcUtil.close();
-        }
-        return null;
-    }
-
     // OTT별로 보관함 조회
     public List<Content> getContentsByOTTService(Long consumerId, String ottServiceName) {
-        String query = "SELECT content_id, title, type, genre, c.image, publishdate ";
+        String query = "SELECT content_id, title, type, c.image, publishdate ";
         query += "FROM CONTENT c JOIN STORAGE USING (content_id) JOIN OTT_CONTENT USING (content_id) JOIN OTTService USING (service_id)";
         query += "WHERE consumer_id = ? AND service_name = ?";
         
@@ -96,7 +67,6 @@ public class StorageDao {
                     rs.getLong("content_id"),
                     rs.getString("title"),
                     rs.getString("type"),
-                    rs.getString("genre"),
                     rs.getString("image"),
                     rs.getDate("publishdate")
                 );

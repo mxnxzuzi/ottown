@@ -14,7 +14,7 @@
     <main>
     	<div class="menu">
             <a href="<c:url value='/storage/view' />" class="menu-link">보관함</a>
-            <a href="<c:url value='/storage/recommend' />" class="menu-link" style="color: #000000;">OTT 추천</a>
+            <a href="<c:url value='/storage/recommend' />" class="menu-link" style="color: #000000;">OTT 분석</a>
             <p>&nbsp;&nbsp;&nbsp;선택한 작품 <strong>${totalCount}</strong>개</p>
         </div>
 	    <div class="ott-list">

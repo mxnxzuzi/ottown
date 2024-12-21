@@ -21,16 +21,16 @@ public class ViewMyReviewController implements Controller {
 
         HttpSession session = request.getSession();
         
-        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/user/login/form"; }
+        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
         
         // 리뷰 목록 조회
         ReviewManager reviewManager = ReviewManager.getInstance();
         String consumerId = UserSessionUtils.getLoginUserId(session);
+        
         List<Review> reviewList = reviewManager.getReviewsByConsumerId(consumerId);
         String consumerName = consumerDao.getConsumerById(Long.parseLong(consumerId)).getConsumerName();
         
         request.setAttribute("consumerName", consumerName);
-        
         request.setAttribute("reviewList", reviewList);
         
         return "/review/myView.jsp";

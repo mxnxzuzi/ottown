@@ -20,20 +20,20 @@ public class AddFavController implements Controller{
         
         HttpSession session = request.getSession();
         
-        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/user/login/form"; }
+        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
         
         request.setCharacterEncoding("utf-8");
         
         String consumerId = UserSessionUtils.getLoginUserId(session);
         String contentId = request.getParameter("contentId");
         String type = request.getParameter("type");
-        
-        StorageManager manager = StorageManager.getInstance();
-        int count = manager.addFav(contentId, consumerId);
-        
         if (type == null) {
             return "redirect:/content/view"; 
         }
+        
+        StorageManager manager = StorageManager.getInstance();
+        manager.addFav(contentId, consumerId);
+
         switch (type) {
             case "movie":
                 return "redirect:/content/view?type=movie";

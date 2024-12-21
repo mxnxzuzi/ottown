@@ -20,13 +20,14 @@ public class StorageFilterController implements Controller{
         
         HttpSession session = request.getSession();
         
-        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/user/login/form"; }
+        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
         
         request.setCharacterEncoding("utf-8");
         
         String consumerId = UserSessionUtils.getLoginUserId(session);
 
-        String filterKey = request.getParameter("filterKey");
+        String filterKey = request.getParameter("filterkey");
+        System.out.println("filterKey" + filterKey);
         
         if (filterKey != null) {
             StorageManager manager = StorageManager.getInstance();

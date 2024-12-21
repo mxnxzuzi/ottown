@@ -16,7 +16,7 @@ public class UpdateReviewController implements Controller{
         
         HttpSession session = request.getSession();
         
-        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/user/login/form"; }
+        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
         
         String reviewId = request.getParameter("reviewId");
         String rating = request.getParameter("rating");

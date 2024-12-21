@@ -16,12 +16,9 @@ public class AddReviewController implements Controller{
         
         HttpSession session = request.getSession();
         
-        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/user/login/form"; }
+        if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
         
         String type = request.getParameter("type");
-        if (type == null) {
-            return "redirect:/content/view"; 
-        }
         String contentId = request.getParameter("contentId");
         if (contentId == null) {
             return "redirect:/content/view?type=" + type; // 기본 페이지로 리디렉션

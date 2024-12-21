@@ -17,9 +17,6 @@ public class ViewContentReviewController implements Controller {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String type = request.getParameter("type");
-        if (type == null) {
-            return "redirect:/content/view"; 
-        }
         String contentId = request.getParameter("contentId");
         if (contentId == null) {
             return "redirect:/content/view?type=" + type;

@@ -150,20 +150,21 @@ public class ConsumerDao {
         Object[] consumerParam = {consumerId};
 
         try {
-            // GROUP_MEMBER 삭제
+            // GROUP_MEMBER 삭제 (결과를 체크하지 않고 계속 진행)
             jdbcUtil.setSqlAndParameters(deleteGroupMemberSql, groupMemberParam);
-            int groupMemberResult = jdbcUtil.executeUpdate();
+            jdbcUtil.executeUpdate();
 
             // ACCOUNT 삭제
             jdbcUtil.setSqlAndParameters(deleteAccountSql, accountParam);
             int accountResult = jdbcUtil.executeUpdate();
+            System.out.println("ACCOUNT 삭제 결과: " + accountResult);
 
             // ACCOUNT 삭제 성공 시 CONSUMER 삭제
-            if (groupMemberResult > 0 && accountResult > 0) {
+            if (accountResult > 0) {
                 jdbcUtil.setSqlAndParameters(deleteConsumerSql, consumerParam);
                 int consumerResult = jdbcUtil.executeUpdate();
+                System.out.println("CONSUMER 삭제 결과: " + consumerResult);
 
-                // CONSUMER 삭제 성공 여부 반환
                 if (consumerResult > 0) {
                     jdbcUtil.commit(); // 성공 시 트랜잭션 커밋
                     return true;
@@ -172,7 +173,7 @@ public class ConsumerDao {
                     return false;
                 }
             } else {
-                jdbcUtil.rollback(); // 실패 시 롤백
+                jdbcUtil.rollback(); // ACCOUNT 삭제 실패 시 롤백
                 return false;
             }
         } catch (SQLException e) {
@@ -180,8 +181,6 @@ public class ConsumerDao {
             throw e;
         } catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
-            jdbcUtil.close(); // JDBC 리소스 정리
         }
     }
 

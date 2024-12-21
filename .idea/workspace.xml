@@ -11,11 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e7abd98c-7668-4c4a-b081-63c3c7ddabc7" name="변경" comment="FIX : 회원 탈퇴 및 정보 수정 구현">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/ConsumerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/ConsumerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/mypage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/DeleteUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/DeleteUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/consumer/ConsumerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/consumer/ConsumerDao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature/mypage" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -77,7 +74,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Tomcat 서버.Tomcat 9.0.95.executor": "Run",
-    "git-widget-placeholder": "feature/mypage",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/kirby/Desktop/ottown",
     "list.type.of.created.stylesheet": "CSS",

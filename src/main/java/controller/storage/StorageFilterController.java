@@ -27,7 +27,6 @@ public class StorageFilterController implements Controller{
         String consumerId = UserSessionUtils.getLoginUserId(session);
 
         String filterKey = request.getParameter("filterkey");
-        System.out.println("filterKey" + filterKey);
         
         if (filterKey != null) {
             StorageManager manager = StorageManager.getInstance();

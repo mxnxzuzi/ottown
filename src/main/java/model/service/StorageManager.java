@@ -21,9 +21,8 @@ public class StorageManager {
     public static StorageManager getInstance() {
         return storageMan;
     }
-    //Exception 추가하기
-    public int addFav(String contentId, String consumerId) throws SQLException{
-        
+    
+    public int addFav(String contentId, String consumerId) throws SQLException{     
         return storageDao.addFav(Long.parseLong(contentId), Long.parseLong(consumerId));
     }
     public int deleteFav(String contentId, String consumerId) throws SQLException{

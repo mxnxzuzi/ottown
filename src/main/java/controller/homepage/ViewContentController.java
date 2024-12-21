@@ -42,9 +42,9 @@ public class ViewContentController implements Controller {
 		case "movie":
 		case "drama":
 		case "animation":
-			return "/homePage/movieView.jsp?type=" + type; 
+			return "/homePage/content.jsp?type=" + type; 
 		default:
-			return "/homePage/movieView.jsp?type=movie"; 
+			return "/homePage/content.jsp?type=movie"; 
 		}
     }
 

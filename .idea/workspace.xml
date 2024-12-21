@@ -9,22 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7abd98c-7668-4c4a-b081-63c3c7ddabc7" name="변경" comment="FIX : 마이 페이지 구현 및 네비 수정">
+    <list default="true" id="e7abd98c-7668-4c4a-b081-63c3c7ddabc7" name="변경" comment="FIX : 회원 탈퇴 및 정보 수정 구현">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RequestMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RequestMapping.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/DeleteUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/DeleteUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/StartPageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/UserInfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/UserSessionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/UserSessionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/UserUpdateController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/consumer/ConsumerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/consumer/ConsumerDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/ConsumerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/ConsumerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/login_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/signup_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/start_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginForm/login.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/signupForm/signup.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/startpage/startpage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/mypage.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,6 +200,7 @@
       <workItem from="1734592764445" duration="13147000" />
       <workItem from="1734673926528" duration="1285000" />
       <workItem from="1734676039961" duration="8661000" />
+      <workItem from="1734781996211" duration="3379000" />
     </task>
     <task id="LOCAL-00001" summary="FIX : 마이 페이지 구현 및 네비 수정">
       <option name="closed" value="true" />
@@ -239,6 +231,7 @@
     <MESSAGE value="commit" />
     <MESSAGE value="로그인 기능 수정" />
     <MESSAGE value="FIX : 마이 페이지 구현 및 네비 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX : 마이 페이지 구현 및 네비 수정" />
+    <MESSAGE value="FIX : 회원 탈퇴 및 정보 수정 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX : 회원 탈퇴 및 정보 수정 구현" />
   </component>
 </project>

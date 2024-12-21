@@ -1,6 +1,7 @@
 package model.service;
 
 import model.dao.consumer.ConsumerDao;
+import model.domain.Consumer;
 
 import java.sql.SQLException;
 
@@ -9,10 +10,30 @@ public class ConsumerManager {
     private ConsumerDao consumerDao;
 
     public ConsumerManager() {
-        consumerDao = new ConsumerDao(); // ConsumerDao 객체 생성
+        consumerDao = new ConsumerDao();
     }
 
-    // 회원 삭제 서비스 메서드
+    // 회원 가입
+    public boolean registerConsumer(Consumer consumer) {
+        try {
+            return consumerDao.create(consumer);
+        } catch (SQLException e) {
+            System.err.println("회원 가입 중 오류가 발생했습니다: " + e.getMessage());
+            return false;
+        }
+    }
+
+    // 로그인
+    public Consumer authenticateConsumer(String email, String password) {
+        try {
+            return consumerDao.findByLoginIdAndPassword(email, password);
+        } catch (SQLException e) {
+            System.err.println("로그인 중 오류가 발생했습니다: " + e.getMessage());
+            return null;
+        }
+    }
+
+    // 회원 삭제
     public boolean deleteConsumer(long consumerId) {
         try {
             // ConsumerDao의 delete 메서드를 호출하여 회원 삭제
@@ -24,7 +45,7 @@ public class ConsumerManager {
         }
     }
 
-    // 회원 정보 수정 서비스 메서드
+    // 회원 정보 수정
     public boolean updateConsumerInfo(long consumerId, String newName, String newEmail, String newPassword) {
         try {
             // ConsumerDao의 updateAccount 메서드를 호출하여 ACCOUNT 테이블 수정

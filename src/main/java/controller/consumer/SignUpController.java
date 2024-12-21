@@ -1,20 +1,18 @@
 package controller.consumer;
 
 import controller.Controller;
-import model.dao.consumer.ConsumerDao;
 import model.domain.Consumer;
+import model.service.ConsumerManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class SignUpController implements Controller {
-    private final ConsumerDao consumerDao = new ConsumerDao();
+    private final ConsumerManager consumerManager = new ConsumerManager();
 
-    // execute 메서드로 GET과 POST 처리를 분리
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String method = request.getMethod();
@@ -39,12 +37,7 @@ public class SignUpController implements Controller {
         consumer.setPassword(password);
         consumer.setEmail(email);
 
-        boolean isSuccess = false;
-        try {
-            isSuccess = consumerDao.create(consumer);
-        } catch (SQLException e) {
-            throw new ServletException("Database error during user registration", e);
-        }
+        boolean isSuccess = consumerManager.registerConsumer(consumer);
 
         if (isSuccess) {
             // 회원가입 성공 시 로그인 페이지로 리다이렉트

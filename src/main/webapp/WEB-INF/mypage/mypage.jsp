@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>마이페이지</title>
+    <link rel=stylesheet href="<c:url value='/css/base.css' />" type="text/css">
     <style>
         /* 모달 스타일 */
         .modal {
@@ -26,7 +27,16 @@
             max-width: 600px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h2 {
             text-align: center;
+        }
+
+        .modal-content p,
+        .modal-content label,
+        .modal-content form {
+            text-align: left;
         }
 
         /* 버튼 스타일 */

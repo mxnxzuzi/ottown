@@ -1,0 +1,14 @@
+<!DOCTYPE Context>
+<Context>
+	<Resource name="jdbc/OracleDS"
+		auth = "Container"
+		driverClassName = "oracle.jdbc.driver.OracleDriver"
+		type="javax.sql.DataSource"
+		url="jdbc:oracle:thin:@dblab.dongduk.ac.kr:1521/orclpdb" 
+		username="dbp240202"
+		password="75340"
+		maxActive="20"
+		maxIdle="10"
+		maxWait="-1"
+		/>
+</Context>

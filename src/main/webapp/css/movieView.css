@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.movie-list-container {
+    margin: 0px 3vw;
+    margin-top: 13vh;
+    margin-bottom: 5vh;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 45px;
+    margin-top: 20px;
+}
+
+.movie-card {
+    position: relative; /* 하트 버튼 위치를 이미지 위에 배치 */
+    width: 200px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s ease;
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+}
+
+.movie-card img {
+    width: auto;
+    height: 250px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 10px;
+}
+
+.movie-info .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.movie-info .platform {
+    font-size: 14px;
+    color: #777;
+}
+.movie-info .platforms {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555;
+}
+
+.movie-info .title {
+    font-size: 14px; 
+    font-weight: bold;
+    margin: 5px 0;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: block; 
+}
+
+.movie-info .platforms span {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 2px 5px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    font-size: 12px;
+}
+.platforms span {
+	margin-bottom: 10px;
+}
+
+.like-button {
+    position: absolute; /* 버튼을 이미지 위로 이동 */
+    top: 10px; /* 이미지 상단에서 간격 */
+    right: 10px; /* 이미지 오른쪽에서 간격 */
+    background: rgba(255, 255, 255, 0.8); /* 반투명 배경 */
+    border: none;
+    font-size: 24px; /* 버튼 크기 */
+    color: #000000;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%; /* 동그란 버튼 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.like-button:hover {
+    background: rgba(255, 255, 255, 1); /* 배경을 더 밝게 */
+    transform: scale(1.1); /* 버튼 크기 확대 */
+}
+
+.like-button.liked {
+    color: red;
+}

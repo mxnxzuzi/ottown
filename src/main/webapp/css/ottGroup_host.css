@@ -1,0 +1,105 @@
+.room-top {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    padding-top: 30px;
+}
+
+.room-top img {
+    height: 50px;
+    width: auto;
+}
+
+.room-top-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 15px;
+    padding: 1.5rem;
+    font-size: 13pt;
+    background-color: #f0f0f0;
+    border: 1px solid #f0f0f0;
+    border-radius: 15px;
+    color: #9C9C9C;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.room-middle {
+    display: flex;
+    justify-content: center;
+}
+
+.room-middle-box {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1.5rem;
+    width: 600px;
+    height: 230px;
+    background-color: #f0f0f0;
+    gap: 50px;
+}
+
+.room-inform {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    color: black;
+    margin-left: 2.5rem;
+}
+
+.room-inform p {
+    font-size: 14pt;
+    margin-top: 2px;
+    font-weight: 530;
+}
+
+.room-line {
+    width: 1.5px;
+    height: 180px;
+    background-color: black;
+    align-self: center;
+    margin-left: 1.5rem;
+}
+
+.room-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.account-share {
+    width: 270px;
+    height: 80px;
+    font-size: 2rem;
+    font-weight: 550;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.account-share:hover {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.account-share.active {
+    cursor: pointer;
+}
+
+.account-share.shared {
+    background-color: #4DCE1E;
+    color: white;
+    cursor: not-allowed;
+}

@@ -7,27 +7,23 @@ public class Content {
     private Long contentId;         // 콘텐츠 ID
     private String title;          // 제목
     private String type;           // 타입 (드라마, TV프로그램)
-    private String genre;          // 장르 (초기값: 없음)
     private String image;          // 이미지 (URL 또는 Base64 인코딩 문자열)
     private Date publishDate;      // 출시 날짜
     private List<String> ottServices;
     private boolean isLiked = false;
     
-    // 기본 생성자 (genre를 "없음"으로 초기화)
-    public Content() {
-        this.genre = "없음";
-    }
 
+    public Content() {
+    	
+    }
     // 매개변수 생성자
-    public Content(Long contentId, String title, String type, String genre, String image, Date publishDate) {
+    public Content(Long contentId, String title, String type, String image, Date publishDate) {
         this.contentId = contentId;
         this.title = title;
         this.type = type;
-        this.genre = genre;
         this.image = image;
         this.publishDate = publishDate;
     }
-
 
 	// Getter and Setter
     public List<String> getOttServices() {
@@ -62,14 +58,6 @@ public class Content {
         this.type = type;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre == null || genre.isEmpty() ? "없음" : genre;
-    }
-
     public String getImage() {
         return image;
     }
@@ -100,7 +88,6 @@ public class Content {
                 "contentId=" + contentId +
                 ", title='" + title + '\'' +
                 ", type='" + type + '\'' +
-                ", genre='" + genre + '\'' +
                 ", image='" + image + '\'' +
                 ", publishDate=" + publishDate +
                 '}';

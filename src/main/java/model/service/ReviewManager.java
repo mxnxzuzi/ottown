@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import model.dao.content.ReviewDao;
+import model.dao.review.ReviewDao;
 import model.dto.Review;
 
 public class ReviewManager {

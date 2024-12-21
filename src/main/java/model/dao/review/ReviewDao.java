@@ -1,4 +1,4 @@
-package model.dao.content;
+package model.dao.review;
 
 import java.io.IOException;
 import java.io.InputStream;

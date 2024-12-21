@@ -1,5 +1,6 @@
-/* 모달 전체 배경 스타일 */
+
 .modal {
+    font-family: Arial, sans-serif;
     position: fixed;
     top: 0;
     right: 0;

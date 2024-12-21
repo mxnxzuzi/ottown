@@ -10,8 +10,8 @@ public class Main {
 
         // Selenium 크롤링 메서드 실행
     	// 3개 한꺼번에 돌리면 안돌아감
-        //contentController.crawlAndSaveMovies();
+        contentController.crawlAndSaveMovies();
         //contentController.crawlAndSaveDramas();
-        contentController.crawlAndSaveAnimations();
+        //contentController.crawlAndSaveAnimations();
     }
 }

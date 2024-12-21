@@ -171,7 +171,7 @@ public class ContentController {
 
 					//Content content = new Content(0L, title, "movie", "없음", imageUrl, formattedDate != null ? formattedDate : new Date());
 					Content content = new Content(0L, title, "movie", imageUrl, formattedDate != null ? formattedDate : new Date());
-					System.out.println("Content Created: " + content);
+					//System.out.println("Content Created: " + content);
 
 					
 					contentList.add(content);

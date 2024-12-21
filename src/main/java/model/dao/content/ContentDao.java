@@ -208,6 +208,7 @@ public class ContentDao {
                 // service_name을 기반으로 service_id를 조회
                 String englishServiceName = koreanToEnglishMap.getOrDefault(ottService, ottService);
                 int serviceId = getServiceIdByName(englishServiceName);
+            	System.out.println("서비스아이디" + serviceId);
                 if (serviceId != -1) { // 유효한 service_id인 경우에만 삽입
                     Object[] param = new Object[]{contentId, serviceId};
                     jdbcUtil.setSqlAndParameters(sql, param);
@@ -227,28 +228,42 @@ public class ContentDao {
     }
 
     private int getServiceIdByName(String serviceName) {
-        String sql = "SELECT SERVICE_ID FROM OTTSERVICE WHERE LOWER(SERVICE_NAME) = LOWER(?)";
-        Object[] param = new Object[] { serviceName.trim() };
+        // 공백 제거 및 소문자로 변환
+        serviceName = serviceName.trim().toLowerCase();
+        String sql = "SELECT SERVICE_ID FROM OTTSERVICE WHERE SERVICE_NAME = ?";
+        Object[] param = new Object[] { serviceName };
+
+        // 디버깅 로그
+        System.out.println("SQL: " + sql);
+        System.out.println("매개변수: [" + serviceName + "]");
+
         jdbcUtil.setSqlAndParameters(sql, param);
-        
+
         try {
-            System.out.println("매칭 시도 중 (쿼리 실행): " + serviceName); // 크롤링된 값 출력
             ResultSet rs = jdbcUtil.executeQuery();
+            if (rs == null) {
+                System.out.println("ResultSet이 null입니다. 쿼리 실행 실패.");
+                return -1;
+            }
             
-            if (rs != null && rs.next()) {
-                int serviceId = rs.getInt("service_id");
+            if (rs.next()) {
+                int serviceId = rs.getInt("SERVICE_ID");
                 System.out.println("매칭 성공: " + serviceName + " (서비스 ID: " + serviceId + ")");
                 return serviceId;
+            } else {
+                System.out.println("쿼리 결과 없음: " + serviceName);
             }
         } catch (SQLException e) {
-            System.err.println("service_name 조회 중 오류 발생: " + e.getMessage());
+            System.err.println("쿼리 실행 중 오류 발생: " + e.getMessage());
         } finally {
             jdbcUtil.close();
         }
-        
-        System.out.println("매칭 실패 (쿼리 실패): " + serviceName); // 매칭 실패한 값 출력
+
+        System.out.println("매칭 실패 (쿼리 실패): " + serviceName);
         return -1;
     }
+
+
 
 
     public int getContentIdByName(Content content) throws SQLException {

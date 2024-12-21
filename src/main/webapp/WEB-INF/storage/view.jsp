@@ -17,7 +17,7 @@
 	            <!-- 보관함 전체 조회 -->
 	            <a href="<c:url value='/storage/view' />" class="menu-link" style="color: #000000;">보관함</a>
 	            <!-- OTT 추천 -->
-	            <a href="<c:url value='/storage/recommend' />" class="menu-link">OTT 분석</a>
+	            <a href="<c:url value='/storage/recommend' />" class="menu-link">OTT 추천</a>
 	        </div>
             <!-- 필터 -->
             <form action="<c:url value='/storage/view/filter' />" method="get" class="filter-box">

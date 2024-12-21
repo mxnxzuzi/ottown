@@ -34,6 +34,10 @@ public class StorageOTTRecommendationController implements Controller{
         
         LinkedHashMap<Integer, Integer> recommendationList = recManager.getRecommendationsByOTT(consumerId);
         
+        if (recommendationList == null) {
+            recommendationList = new LinkedHashMap<>();
+        }
+        
         List<Map<String, Object>> detailedRecommendations = new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry : recommendationList.entrySet()) {
             int serviceId = entry.getKey();

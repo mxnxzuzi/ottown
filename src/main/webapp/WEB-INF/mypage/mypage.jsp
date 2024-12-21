@@ -92,6 +92,10 @@
         <p>이름: ${sessionScope['consumerName']}</p>
         <p>이메일: ${sessionScope['consumerEmail']}</p>
         <p>비밀번호: ${sessionScope['consumerPassword']}</p>
+        
+        <a href="<c:url value='/mypage/review/view' />">
+            <button>내가 남긴 리뷰</button>
+        </a>
 
         <!-- 회원 정보 수정 버튼 -->
         <button onclick="toggleUpdateForm()">회원 정보 수정</button>

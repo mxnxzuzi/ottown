@@ -19,8 +19,11 @@ public class DeleteReviewController implements Controller{
         
         String reviewId = request.getParameter("reviewId");
         
-        ReviewManager manager = ReviewManager.getInstance();
-        manager.deleteReview(reviewId);
+        // reviewId 유효성 확인
+        if (reviewId != null || !reviewId.trim().isEmpty()) {
+            ReviewManager manager = ReviewManager.getInstance();
+            manager.deleteReview(reviewId);
+        }     
         
         return "redirect:/mypage/review/view"; // 리뷰 페이지로 이동
     }

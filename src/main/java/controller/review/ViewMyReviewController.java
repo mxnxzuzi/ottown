@@ -26,11 +26,11 @@ public class ViewMyReviewController implements Controller {
         // 리뷰 목록 조회
         ReviewManager reviewManager = ReviewManager.getInstance();
         String consumerId = UserSessionUtils.getLoginUserId(session);
+        
         List<Review> reviewList = reviewManager.getReviewsByConsumerId(consumerId);
         String consumerName = consumerDao.getConsumerById(Long.parseLong(consumerId)).getConsumerName();
         
         request.setAttribute("consumerName", consumerName);
-        
         request.setAttribute("reviewList", reviewList);
         
         return "/review/myView.jsp";

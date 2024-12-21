@@ -14,7 +14,7 @@
    <main>
        <!-- 리뷰 섹션 -->
        <div class="review-section">
-           <h2>${consumerName}님의 리뷰</h2>
+           <h2><c:out value="${consumerName}" default="이름 없음" />님의 리뷰</h2>
    
            <!-- 리뷰 리스트 -->
            <c:forEach var="review" items="${reviewList}">

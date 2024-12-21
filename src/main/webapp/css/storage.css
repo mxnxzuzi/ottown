@@ -87,6 +87,16 @@ main {
     display: block; 
 }
 
-.nav-user li:nth-child(2) a {
+.nav-user li:nth-child(3) a {
     color: #000000 !important;
+}
+
+.storage p {
+    font-size: 16px; /* 텍스트 크기 */
+	font-weight: bold; /* 텍스트 강조 */
+	text-align: center; /* 텍스트 중앙 정렬 */
+	color: #727272; /* 텍스트 색상 */
+	margin: 20px 0; /* 상하 간격 */
+	white-space: normal; /* 텍스트 줄바꿈 허용 */
+	word-break: keep-all; /* 단어가 잘리지 않도록 유지 */
 }

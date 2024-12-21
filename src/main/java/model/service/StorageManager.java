@@ -30,21 +30,10 @@ public class StorageManager {
         return storageDao.deleteFav(Long.parseLong(contentId), Long.parseLong(consumerId));
     }
     
-    public List<Content> filterContent(String consumerId, String filter, String filterKey) throws SQLException{
-        if (filter.equals("genre")) {
-            return storageDao.getContentsByGenre(Long.parseLong(consumerId), filterKey);
-        }
-        else if (filter.equals("ott")) {
-            return storageDao.getContentsByOTTService(Long.parseLong(consumerId), filterKey);
-        }
-        return null;
+    public List<Content> getContentsByOTTService(String consumerId, String ottServiceName)throws SQLException{
+        return storageDao.getContentsByOTTService(Long.parseLong(consumerId), ottServiceName);
     }
-    /*public List<Content> getContentsByGenre(Long consumerId, String genre) throws SQLException{
-        return storageDao.getContentsByGenre(consumerId, genre);
-    }
-    public List<Content> getContentsByOTTService(Long consumerId, String ottServiceName)throws SQLException{
-        return storageDao.getContentsByOTTService(consumerId, ottServiceName);
-    }*/
+    
     public List<Content> showStorage(String consumerId) throws SQLException{
         return storageDao.showStorage(Long.parseLong(consumerId));
     }

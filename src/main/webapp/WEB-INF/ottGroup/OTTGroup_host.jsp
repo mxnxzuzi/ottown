@@ -19,9 +19,9 @@
     <main>
         <!-- 상단 정보 -->
         <div class="room-top">
-            <img src="<c:url value='${ottService.image}'  />" alt="${ottService.name} Logo">
+            <img src="<c:url value='/images/${ottService.image}' />" alt="${ottService.name} Logo">
             <div class="room-top-box">
-                <div class="room-top-name" style="display: flex">
+                <div class="room-top-name">
                     <p class="room-host-name">${host}</p>
                     <p>님의 공동구매방</p>
                 </div>
@@ -75,7 +75,8 @@
          
                      <!-- 삭제 버튼 -->
                      <form action="<c:url value='/ottGroup/removeMember' />" method="post">
-                         <input type="hidden" name="memberId" value="${member.consumerId}" />
+                         <input type="hidden" name="consumerId" value="${member.consumerId}" />
+                         <input type="hidden" name="groupId" value="${member.groupId}" />
                          <button type="submit" class="remove-button">-</button>
                      </form>
                 </div>

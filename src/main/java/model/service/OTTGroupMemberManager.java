@@ -57,8 +57,19 @@ public class OTTGroupMemberManager {
     }
     
     public int removeOTTGroupMember(long groupId, long consumerId) {
-       return ottGroupMemberDao.removeOTTGroupMember(groupId, consumerId);
-    }
+        OTTGroup group = ottGroupDao.getOTTGroupById(groupId);
+        int member = ottGroupMemberDao.removeOTTGroupMember(groupId, consumerId);
+        
+        if (member > 0) {
+             int currentCount = group.getCurrentMembers();
+              group.setCurrentMembers(currentCount - 1);
+              ottGroupDao.updateOTTGroup(group);
+              return 1;
+          }
+        
+        return 0;
+     }
+
     
     // 모든 멤버의 입금 상태 확인
     public boolean areAllMembersPaid(long groupId) {

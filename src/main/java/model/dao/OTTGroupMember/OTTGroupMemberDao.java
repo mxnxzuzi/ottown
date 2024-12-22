@@ -122,15 +122,26 @@ public class OTTGroupMemberDao {
         jdbcUtil.setSqlAndParameters(sql, new Object[]{groupId, consumerId});
 
         try {
+            // 1. GROUP_MEMBER에서 데이터 삭제
             int result = jdbcUtil.executeUpdate();
+
+            if (result > 0) {
+                // 2. currentMembers 값을 -1 감소
+                String updateSql = "UPDATE OTT_GROUP SET current_Members = current_Members - 1 WHERE group_id = ?";
+                jdbcUtil.setSqlAndParameters(updateSql, new Object[]{groupId});
+                jdbcUtil.executeUpdate();
+            }
+
+            // 3. 커밋
             jdbcUtil.commit();
             return result;
         } catch (Exception e) {
             jdbcUtil.rollback();
+            e.printStackTrace(); // 로그 기록
         } finally {
             jdbcUtil.close();
         }
-        
+
         return 0;
     }
 

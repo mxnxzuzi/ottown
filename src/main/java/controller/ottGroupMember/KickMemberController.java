@@ -35,7 +35,6 @@ public class KickMemberController implements Controller {
         } catch (NumberFormatException e) {
            return "redirect:/OTTs/view";
         }
-        
 
         // 멤버 강퇴
         boolean result = ottGroupMemberManager.removeOTTGroupMember(groupId, consumerId) > 0;
@@ -46,6 +45,6 @@ public class KickMemberController implements Controller {
         }
 
         // 성공 시 리디렉션
-        return "redirect:/ottGroup/host?groupId=" + groupId;
+        return "redirect:/ottGroup/OTTGroup_host?groupId=" + groupId;
     }
 }

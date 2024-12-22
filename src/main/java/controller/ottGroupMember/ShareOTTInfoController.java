@@ -39,13 +39,12 @@ public class ShareOTTInfoController implements Controller {
 
 
         if (!ottGroupMemberManager.areAllMembersPaid(groupId)) {
-            return "/ottGroup/OTTGroup_member.jsp";
+            return "/ottGroup/OTTGroup_host.jsp";
         }
 
         if (!ottGroupManager.activateOTTSharing(groupId)) {
-            return "/ottGroup/OTTGroup_member.jsp";
+            return "/ottGroup/OTTGroup_host.jsp";
         }
-
 
         return "/ottGroup/OTTGroup_host.jsp";
     }

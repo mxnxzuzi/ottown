@@ -35,7 +35,7 @@
             <div class="room-middle-box">
                 <div class="room-inform">
                     <p>계좌번호</p>
-                    <p>우리은행: ${ottGroup.account}</p>
+                    <p>${ottGroup.account}</p>
                 </div>
                 <div class="room-inform">
                     <p>카톡아이디</p>

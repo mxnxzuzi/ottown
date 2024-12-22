@@ -25,7 +25,7 @@
 	  					<p>선택한 작품 ${recommendation.count}개 </p>
 	                </div>
 	                <!-- 공동구매방 리스트 조회 uri 참고해서 수정하기 -->
-	                <input type="button" value="공동구매" onclick="location.href='<c:url value='/OTTGroupList/view?ottId=${recommendation.id}' />'">
+	                <input type="button" value="공동구매" onclick="location.href='<c:url value='/ottGroupList/OTTGroupList?ottId=${recommendation.id}' />'">
 	                <br>
 	            </div>
 	        </c:forEach>

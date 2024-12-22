@@ -1,8 +1,8 @@
 package controller.consumer;
 
 import controller.Controller;
-import model.dao.consumer.ConsumerDao;
 import model.domain.Consumer;
+import model.service.ConsumerManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class LoginController implements Controller {
-    private final ConsumerDao consumerDao = new ConsumerDao();
+    private final ConsumerManager consumerManager = new ConsumerManager(); // ConsumerManager 사용
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,15 +32,15 @@ public class LoginController implements Controller {
         String password = request.getParameter("password");
 
         try {
-            // 로그인 시, Consumer 객체를 찾고 이메일을 설정
-            Consumer consumer = consumerDao.findByLoginIdAndPassword(loginId, password);
+            // ConsumerManager를 사용하여 로그인 인증
+            Consumer consumer = consumerManager.authenticateConsumer(loginId, password);
 
             if (consumer != null) {
                 // 로그인 성공 처리
                 System.out.println("로그인 성공: " + loginId);
 
                 // 세션 객체를 요청에서 가져오기
-                HttpSession session = request.getSession(true);  // 세션이 없으면 새로 생성
+                HttpSession session = request.getSession(true); // 세션이 없으면 새로 생성
 
                 // 세션에 사용자 정보 저장
                 session.setAttribute(UserSessionUtils.USER_SESSION_KEY, consumer.getConsumerId());
@@ -66,8 +65,8 @@ public class LoginController implements Controller {
                 // 로그인 실패 처리
                 handleLoginError(request, response, loginId);
             }
-        } catch (SQLException e) {
-            throw new ServletException("Database error during login", e);
+        } catch (Exception e) {
+            throw new ServletException("Login error", e);
         }
     }
 

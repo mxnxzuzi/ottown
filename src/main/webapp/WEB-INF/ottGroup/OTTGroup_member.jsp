@@ -27,8 +27,9 @@
 
 		<!-- 상단 정보 -->
 		<div class="room-top">
-			<img src="<c:url value='${ottService.image}'  />"
-				alt="${ottService.name} Logo">
+<%-- 			<img src="<c:url value='${ottService.image}'  />"
+				alt="${ottService.name} Logo"> --%>
+				<h2>${ottService.name}</h2>
 			<div class="room-top-box">
 				<div class="room-top-name">
 					<p style="font-size: 20pt; color: #ED1C24; font-weight: bold;">${hostNames[room.groupId]}</p>
@@ -77,6 +78,7 @@
 		<div class="room-bottom">
 			<form action="<c:url value='/ottGroup/member/isPaid' />"
 				method="post">
+				<p>${isPaid}</p>
 				<input type="hidden" name="ottGroupMemberId"
 					value="${ottGroupMemberId}" /> <input type="hidden"
 					name="ottGroupId" value="${ottGroup.groupId}" />

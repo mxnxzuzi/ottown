@@ -31,6 +31,11 @@ public class JoinOTTGroupController implements Controller {
         String groupId = request.getParameter("groupId");
         String serviceId = request.getParameter("serviceId");
 
+        long consumerIdL = Long.parseLong(consumerId);
+        long groupIdL = Long.parseLong(groupId);
+
+        boolean t = ottGroupManager.joinGroup(consumerIdL, groupIdL);
+        
         // OTTGroup 정보 가져오기
         OTTGroup ottGroup = ottGroupManager.getOTTGroupById(groupId);
         if (ottGroup == null) {

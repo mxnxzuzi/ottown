@@ -36,22 +36,20 @@
 .room-middle-box {
     display: flex;
     justify-content: flex-start;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     margin-top: 1.5rem;
     width: 600px;
-    height: 230px;
     background-color: #f0f0f0;
-    gap: 50px;
+    gap: 30px;
+    padding: 3vh 0vw;
 }
 
 .room-inform {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: flex-start;
-    color: black;
-    margin-left: 2.5rem;
+	align-items: flex-start;
+	color: black;
+	justify-content: space-between;
+	margin: 0vh 3vw;
 }
 
 .room-inform p {

@@ -19,7 +19,7 @@
 	        <div class="group-list">
 	            <c:forEach var="group" items="${ottGroupList}">
 	                <div class="group-item">
-	                	<a href="<c:url value='mypage/ottGroup/view/group?groupId=${group.groupId}&serviceId=${group.serviceId }' />">
+	                	<a href="<c:url value='view/group?groupId=${group.groupId}&serviceId=${group.serviceId }' />">
 		                    <div class="group-info">
 		                        <span class="host-name">${hostNames[group.groupId]} 님의 공동구매방</span>
 		                        <span class="participant-count">${group.currentMembers} / 4</span>

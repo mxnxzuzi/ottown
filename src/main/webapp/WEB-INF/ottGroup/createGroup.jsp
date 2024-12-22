@@ -18,7 +18,7 @@
         <div class="container">
             <!-- OTT 로고 -->
             <div class="logo-container">
-                <img src="<c:url value='/images/${ottService.image}' />" alt="${ottService.name}">
+                <img src="<c:url value='${ottService.image}' />" alt="${ottService.name}" style="margin-top: 30px;">
             </div>
 
             <!-- 방 개설 폼 -->

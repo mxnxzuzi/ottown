@@ -19,7 +19,7 @@ public class ContentController {
 	private WebDriver driver;
 	private WebDriverWait wait;
 	private ContentManager contentManager = new ContentManager();
-	int maxMovies = 5;
+	int maxMovies = 50;
 
 	public ContentController() {
 		/*

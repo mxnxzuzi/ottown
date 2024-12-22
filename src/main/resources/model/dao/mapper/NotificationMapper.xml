@@ -60,7 +60,8 @@
 		resultType="int">
 		SELECT consumer_id
 		FROM group_member
-		WHERE group_id = #{groupId} AND is_removed = 0
+		WHERE group_id =
+		#{groupId} AND is_removed = 0
 	</select>
 
 
@@ -69,9 +70,9 @@
 
 	<!-- 알림 생성 -->
 	<insert id="insertNotification">
-		INSERT INTO notification (message, is_checked,
-		consumer_id)
-		VALUES (#{message}, 0, #{consumerId})
+		INSERT INTO notification (notification_id, message, is_checked, consumer_id)
+		VALUES (NOTIFICATION_SEQ.NEXTVAL, #{message}, 0, #{consumerId})
 	</insert>
+
 
 </mapper>

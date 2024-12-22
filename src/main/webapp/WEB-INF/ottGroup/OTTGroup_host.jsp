@@ -19,7 +19,8 @@
     <main>
         <!-- 상단 정보 -->
         <div class="room-top">
-            <img src="<c:url value='${ottService.image}'  />" alt="${ottService.name} Logo">
+            <%-- <img src="<c:url value='${ottService.image}'  />" alt="${ottService.name} Logo"> --%>
+            <h2>${ottService.name}</h2>
             <div class="room-top-box">
                 <div class="room-top-name" style="display: flex">
                     <p class="room-host-name">${host}</p>

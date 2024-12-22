@@ -32,7 +32,7 @@
 		<div class="group-room">
 			<c:forEach var="room" items="${ottGroupList}">
 				<div class="room"
-					 onclick="location.href='<c:url value='/ottGroup/joinGroup?groupId=${room.groupId}&serviceId=${ottService.id}' />';">
+					 onclick="location.href='<c:url value='/mypage/ottGroup/view/group?groupId=${room.groupId}&serviceId=${ottService.id}' />';">
 					<div>
 						<!-- 호스트 이름을 hostNames 맵에서 가져오기 -->
 						<span class="name">${hostNames[room.groupId]}</span> 님의 공동구매방

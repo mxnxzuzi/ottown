@@ -31,17 +31,18 @@ public class JoinOTTGroupController implements Controller {
         String groupId = request.getParameter("groupId");
         String serviceId = request.getParameter("serviceId");
 
-        long consumerIdL = Long.parseLong(consumerId);
-        long groupIdL = Long.parseLong(groupId);
-
-        boolean t = ottGroupManager.joinGroup(consumerIdL, groupIdL);
+        
+		 long consumerIdL = Long.parseLong(consumerId); 
+		 long groupIdL = Long.parseLong(groupId);
+		 
+		 boolean t = ottGroupManager.joinGroup(consumerIdL, groupIdL);
+		 
         
         // OTTGroup 정보 가져오기
         OTTGroup ottGroup = ottGroupManager.getOTTGroupById(groupId);
         if (ottGroup == null) {
             return "redirect:/ottGroupList/OTTGroupList?ottId=" + serviceId;
         }
-
      // 최대 인원 초과 여부 확인
         if (ottGroup.getCurrentMembers() >= 4) {
             request.setAttribute("errorMessage", "공동구매방 인원이 이미 꽉 찼습니다.");

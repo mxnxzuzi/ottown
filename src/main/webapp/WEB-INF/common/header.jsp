@@ -16,7 +16,7 @@
 			<!-- 로그인 상태일 때 보이는 항목 -->
 			<c:if test="${not empty sessionScope['userSessionKey']}">
 				<li><a href="<c:url value='/notification' />">알림</a></li>
-				<li><a href="<c:url value='/room/list' />">공동구매</a></li>
+				<li><a href="<c:url value='/OTTs/view' />">공동구매</a></li>
 				<li><a href="<c:url value='/storage/view' />">찜</a></li>
 				<li><a href="<c:url value='/consumer/mypage' />">마이페이지</a></li> <!-- 마이페이지 링크로 연결 -->
 				<li><a href="<c:url value='/consumer/logout' />">로그아웃</a></li>

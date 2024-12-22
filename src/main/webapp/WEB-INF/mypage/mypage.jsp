@@ -106,6 +106,10 @@
         <a href="<c:url value='/mypage/review/view' />">
             <button>내가 남긴 리뷰</button>
         </a>
+        
+        <a href="<c:url value='/mypage/ottGroup/view' />">
+            <button>내 공동구매방</button>
+        </a>
 
         <!-- 회원 정보 수정 버튼 -->
         <button onclick="toggleUpdateForm()">회원 정보 수정</button>

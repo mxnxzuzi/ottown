@@ -11,11 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e7abd98c-7668-4c4a-b081-63c3c7ddabc7" name="변경" comment="FIX : 회원 탈퇴 및 정보 수정 구현">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/consumer/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/consumer/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/service/ConsumerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/service/ConsumerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mypage/mypage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/mypage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/mypage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/loginForm/loginForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/loginForm/loginForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/signupForm/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/signupForm/signup.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +74,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Tomcat 서버.Tomcat 9.0.95.executor": "Run",
-    "git-widget-placeholder": "feature/mypage",
+    "git-widget-placeholder": "feature/login",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/kirby/Desktop/ottown",
     "list.type.of.created.stylesheet": "CSS",

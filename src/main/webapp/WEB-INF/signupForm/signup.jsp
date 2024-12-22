@@ -31,23 +31,23 @@
   <p>이미 가입하셨나요?<a href="<%= request.getContextPath() %>/consumer/login">로그인</a></p>
 </div>
 
-<div style="display: flex; align-items: center; justify-content: center;">
-  <hr style="flex: 1; margin: 0 10px;">
-  <span style="white-space: nowrap; font-weight: bold;">or</span>
-  <hr style="flex: 1; margin: 0 10px;">
-</div>
+<%--<div style="display: flex; align-items: center; justify-content: center;">--%>
+<%--  <hr style="flex: 1; margin: 0 10px;">--%>
+<%--  <span style="white-space: nowrap; font-weight: bold;">or</span>--%>
+<%--  <hr style="flex: 1; margin: 0 10px;">--%>
+<%--</div>--%>
 
-<div class="socialLogin" style="margin-top: 30px;">
-  <button type="submit">
-    <img src="../images/google.png" alt="Submit">
-  </button>
-  <button type="submit">
-    <img src="../images/kakao.png" alt="Submit">
-  </button>
-  <button type="submit">
-    <img src="../images/naver.png" alt="Submit">
-  </button>
-</div>
+<%--<div class="socialLogin" style="margin-top: 30px;">--%>
+<%--  <button type="submit">--%>
+<%--    <img src="../images/google.png" alt="Submit">--%>
+<%--  </button>--%>
+<%--  <button type="submit">--%>
+<%--    <img src="../images/kakao.png" alt="Submit">--%>
+<%--  </button>--%>
+<%--  <button type="submit">--%>
+<%--    <img src="../images/naver.png" alt="Submit">--%>
+<%--  </button>--%>
+<%--</div>--%>
 
 </body>
 </html>

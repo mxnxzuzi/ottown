@@ -35,7 +35,7 @@ public class JoinOTTGroupController implements Controller {
 		 long consumerIdL = Long.parseLong(consumerId); 
 		 long groupIdL = Long.parseLong(groupId);
 		 
-		 boolean t = ottGroupManager.joinGroup(consumerIdL, groupIdL);
+		 ottGroupManager.joinGroup(consumerIdL, groupIdL);
 		 
         
         // OTTGroup 정보 가져오기

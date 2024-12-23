@@ -27,12 +27,10 @@
 
 		<!-- 상단 정보 -->
 		<div class="room-top">
-<%-- 			<img src="<c:url value='${ottService.image}'  />"
-				alt="${ottService.name} Logo"> --%>
 				<h2>${ottService.name}</h2>
 			<div class="room-top-box">
 				<div class="room-top-name">
-					<p style="font-size: 20pt; color: #ED1C24; font-weight: bold;">${hostNames[room.groupId]}</p>
+					<p style="font-weight: bold;">${host}</p>
 					<p>님의 공동구매방</p>
 				</div>
 				<p style="margin: 0; font-size: 18pt;">${ottGroup.currentMembers}

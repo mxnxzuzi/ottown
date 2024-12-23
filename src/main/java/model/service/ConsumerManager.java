@@ -69,7 +69,15 @@ public class ConsumerManager {
         }
     }
 
-
-
+    public Consumer getConsumerById(long consumerId) {
+        try {
+            return consumerDao.getConsumerById(consumerId);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
 
 }

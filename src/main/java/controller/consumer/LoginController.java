@@ -37,7 +37,7 @@ public class LoginController implements Controller {
 
             if (consumer != null) {
                 // 로그인 성공 처리
-                System.out.println("로그인 성공: " + loginId);
+//                System.out.println("로그인 성공: " + loginId);
 
                 // 세션 객체를 요청에서 가져오기
                 HttpSession session = request.getSession(true); // 세션이 없으면 새로 생성
@@ -49,14 +49,14 @@ public class LoginController implements Controller {
                 session.setAttribute(UserSessionUtils.CONSUMER_PASSWORD_KEY, consumer.getPassword());
 
                 // 세션 상태 확인 (세션 객체가 제대로 생성되었는지 확인)
-                if (session == null) {
-                    System.out.println("세션이 존재하지 않습니다.");
-                } else {
-                    System.out.println("세션 ID: " + session.getId());
-                    System.out.println("세션에 저장된 userId: " + session.getAttribute(UserSessionUtils.USER_SESSION_KEY));
-                    System.out.println("세션에 저장된 이름: " + session.getAttribute(UserSessionUtils.CONSUMER_NAME_KEY));
-                    System.out.println("세션에 저장된 이메일: " + session.getAttribute(UserSessionUtils.CONSUMER_EMAIL_KEY));
-                }
+//                if (session == null) {
+//                    System.out.println("세션이 존재하지 않습니다.");
+//                } else {
+//                    System.out.println("세션 ID: " + session.getId());
+//                    System.out.println("세션에 저장된 userId: " + session.getAttribute(UserSessionUtils.USER_SESSION_KEY));
+//                    System.out.println("세션에 저장된 이름: " + session.getAttribute(UserSessionUtils.CONSUMER_NAME_KEY));
+//                    System.out.println("세션에 저장된 이메일: " + session.getAttribute(UserSessionUtils.CONSUMER_EMAIL_KEY));
+//                }
 
                 // 로그인 에러 메시지 제거
                 request.removeAttribute("loginError");
@@ -78,7 +78,7 @@ public class LoginController implements Controller {
 
     // 로그인 실패 처리
     private void handleLoginError(HttpServletRequest request, HttpServletResponse response, String loginId) throws ServletException, IOException {
-        System.out.println("로그인 실패: " + loginId);
+//        System.out.println("로그인 실패: " + loginId);
         request.setAttribute("loginError", true);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/loginForm/loginForm.jsp");
         dispatcher.forward(request, response);

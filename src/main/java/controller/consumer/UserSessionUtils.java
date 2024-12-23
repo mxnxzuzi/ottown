@@ -12,12 +12,12 @@ public class UserSessionUtils {
     /* 현재 로그인한 사용자의 ID를 구함 */
     public static String getLoginUserId(HttpSession session) {
         if (session == null) {
-            System.out.println("session is null");
+//            System.out.println("session is null");
             return null;
         }
         Object userId = session.getAttribute(USER_SESSION_KEY);
         if (userId == null) {
-            System.out.println("user id is null");
+//            System.out.println("user id is null");
             return null;  // 로그인하지 않은 상태
         }
         return userId.toString();  // 로그인한 사용자 ID를 문자열로 반환

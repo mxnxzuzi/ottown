@@ -13,9 +13,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import model.dto.Review;
 import model.dao.JDBCUtil;
 import model.dao.mapper.ReviewMapper;
+import model.domain.Review;
 
 public class ReviewDao {
     private SqlSessionFactory sqlSessionFactory;

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import model.dao.review.ReviewDao;
-import model.dto.Review;
+import model.domain.Review;
 
 public class ReviewManager {
     private static ReviewManager reviewMan = new ReviewManager();

@@ -14,7 +14,7 @@ public class LogoutController implements Controller {
         if (session != null) {
             session.invalidate(); // 세션 무효화
         }
-        System.out.println("로그아웃 성공");
+//        System.out.println("로그아웃 성공");
         response.sendRedirect(request.getContextPath() + "/mainpage"); // 로그아웃 후 메인 페이지로 리디렉션
         return null;
     }

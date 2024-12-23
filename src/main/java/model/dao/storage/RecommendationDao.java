@@ -92,33 +92,6 @@ public class RecommendationDao {
 
         return null;
     }
-    
-    public void printRecommend(LinkedHashMap<Integer, Integer> ranking) {
-        if (ranking == null || ranking.isEmpty()) {
-            System.out.println("No rankings available.");
-            return;
-        }
-
-        // rankMap을 순차적으로 출력하면서 각 서비스에 대한 세부 정보를 출력
-        System.out.println("OTT Service Rankings:");
-        for (Map.Entry<Integer, Integer> ottRank : ranking.entrySet()) {
-            int serviceId = ottRank.getKey();
-            int rank = ottRank.getValue();
-
-            // service_id를 이용해서 service_name과 image를 조회
-            OTTService service = getServiceDetailsByServiceId(serviceId);
-
-            if (service != null) {
-                System.out.println("Rank " + rank + ":");
-                System.out.println("Service ID: " + service.getId());
-                System.out.println("Service Name: " + service.getName());
-                System.out.println("Service Image: " + service.getImage());
-                System.out.println();
-            } else {
-                System.out.println("Rank " + rank + ": Service details not found.");
-            }
-        }
-    }
 
     // service_id로 OTTService의 세부 정보를 가져오는 메소드
     public OTTService getServiceDetailsByServiceId(int serviceId) {

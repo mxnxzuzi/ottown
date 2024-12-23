@@ -10,7 +10,7 @@
 	<typeAliases>
 		<typeAlias type="model.domain.Consumer" alias="Consumer" />
 		<typeAlias type="model.domain.Content" alias="Content" />
-		<typeAlias type="model.dto.Review" alias="Review" />
+		<typeAlias type="model.domain.Review" alias="Review" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

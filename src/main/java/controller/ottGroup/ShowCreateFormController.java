@@ -30,8 +30,7 @@ public class ShowCreateFormController implements Controller{
         try {
             ottId = Integer.parseInt(ottIdParam);
         } catch (NumberFormatException e) {
-            request.setAttribute("errorMessage", "잘못된 OTT ID 형식입니다.");
-            return "/errorPage.jsp";
+            return "redirect:/OTTs/view";
         }
 
         // ottId로 OTTService 찾기
@@ -45,7 +44,7 @@ public class ShowCreateFormController implements Controller{
 
         if (ottService == null) {
             request.setAttribute("errorMessage", "유효하지 않은 OTT 서비스 ID입니다.");
-            return "/errorPage.jsp";
+            return "redirect:/OTTs/view";
         }
         // JSP로 데이터 전달
         request.setAttribute("ottService", ottService);

@@ -42,8 +42,7 @@ public class SetPaidController implements Controller {
         boolean result = ottGroupMemberManager.setPaid(groupId, consumerId);
 
         if (!result) {
-            request.setAttribute("errorMessage", "입금에 실패했습니다.");
-            return "/errorPage.jsp";
+            return "redirect:/mypage/ottGroup/view";
         }
         
 

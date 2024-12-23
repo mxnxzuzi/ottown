@@ -29,15 +29,14 @@ public class ShowOTTGroupListController implements Controller {
         // ottId가 없거나 유효하지 않은 경우 처리
         if (ottIdParam == null || ottIdParam.isEmpty()) {
             request.setAttribute("errorMessage", "OTT ID가 없습니다.");
-            return "/errorPage.jsp";
+            return "redirect:/OTTs/view";
         }
 
         int ottId;
         try {
             ottId = Integer.parseInt(ottIdParam);
         } catch (NumberFormatException e) {
-            request.setAttribute("errorMessage", "잘못된 OTT ID 형식입니다.");
-            return "/errorPage.jsp";
+            return "redirect:/OTTs/view";
         }
 
         // ottId로 OTTService 찾기
@@ -50,8 +49,7 @@ public class ShowOTTGroupListController implements Controller {
         }
 
         if (ottService == null) {
-            request.setAttribute("errorMessage", "유효하지 않은 OTT 서비스 ID입니다.");
-            return "/errorPage.jsp";
+            return "redirect:/OTTs/view";
         }
 
         // DAO를 통해 OTT 그룹 목록 가져오기

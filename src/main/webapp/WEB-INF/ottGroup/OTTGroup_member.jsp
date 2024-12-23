@@ -53,7 +53,7 @@
 					<p>${ottGroup.kakaoId}</p>
 					<c:choose>
 						<c:when test="${ottGroup.isChecked == 1}">
-							<p>${ottGroup.groupId}</p>
+							<p>${ottGroup.ottId}</p>
 							<p>${ottGroup.ottPw}</p>
 						</c:when>
 						<c:otherwise>

@@ -58,7 +58,6 @@ public class PassToOTTGroupController implements Controller {
          // RecommendationManager를 사용해 OTTService 객체 가져오기
          RecommendationManager recManager = RecommendationManager.getInstance();
          int serviceId = Integer.parseInt(request.getParameter("serviceId"));
-         System.out.println("groupId " + request.getParameter("serviceId"));
 
          // ottId로 OTTService 찾기
          OTTService ottService = null;

@@ -35,7 +35,7 @@ public class JoinOTTGroupController implements Controller {
 		 long consumerIdL = Long.parseLong(consumerId); 
 		 long groupIdL = Long.parseLong(groupId);
 		 
-		 boolean t = ottGroupManager.joinGroup(consumerIdL, groupIdL);
+		 ottGroupManager.joinGroup(consumerIdL, groupIdL);
 		 
         
         // OTTGroup 정보 가져오기
@@ -70,7 +70,8 @@ public class JoinOTTGroupController implements Controller {
             request.setAttribute("account", ottGroup.getAccount()); // 계좌번호 전달
             request.setAttribute("kakaoId", ottGroup.getKakaoId()); // 카카오톡 ID 전달
             request.setAttribute("currentMembers", ottGroup.getCurrentMembers());
-            return "/ottGroup/OTTGroup_member.jsp";
+            //return "/ottGroup/OTTGroup_member.jsp";
+            return "redirect:/ottGroup/OTTGroup_member?groupId=" + groupId + "&serviceId=" + serviceId;
         } else {
             // 실패 시 오류 메시지 설정 후 방 목록 페이지로 리다이렉트
             return "redirect:/ottGroupList/OTTGroupList?ottId=" + serviceId;

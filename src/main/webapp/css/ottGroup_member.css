@@ -114,3 +114,6 @@
     color: white;
     cursor: not-allowed;
 }
+.room-top-name {
+	display: flex;
+}

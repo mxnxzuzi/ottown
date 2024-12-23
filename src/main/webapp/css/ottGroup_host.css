@@ -169,3 +169,6 @@
 .remove-button:hover {
     background-color: #E04949;
 }
+.room-top-name {
+	display: flex;
+}

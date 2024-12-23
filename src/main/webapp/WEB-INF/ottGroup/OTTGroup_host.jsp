@@ -22,7 +22,7 @@
             <%-- <img src="<c:url value='${ottService.image}'  />" alt="${ottService.name} Logo"> --%>
             <h2>${ottService.name}</h2>
             <div class="room-top-box">
-                <div class="room-top-name">
+                <div class="room-top-name" style="display: flex">
                     <p class="room-host-name">${host}</p>
                     <p>님의 공동구매방</p>
                 </div>
@@ -35,7 +35,7 @@
             <div class="room-middle-box">
                 <div class="room-inform">
                     <p>계좌번호</p>
-                    <p>우리은행: ${ottGroup.account}</p>
+                    <p>${ottGroup.account}</p>
                 </div>
                 <div class="room-inform">
                     <p>카톡아이디</p>

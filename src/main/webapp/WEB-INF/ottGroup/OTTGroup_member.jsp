@@ -27,7 +27,7 @@
 
 		<!-- 상단 정보 -->
 		<div class="room-top">
-				<h2>${ottService.name}</h2>
+			<h2>${ottService.name}</h2>
 			<div class="room-top-box">
 				<div class="room-top-name" style="display: flex">
 					<p style="font-weight: bold;">${host}</p>
@@ -65,7 +65,6 @@
 			</div>
 		</div>
 
-
 		<!-- 멤버 상태 -->
 		<div class="room-comment"
 			style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin-top: 3vh;">
@@ -76,13 +75,15 @@
 		<div class="room-bottom">
 			<form action="<c:url value='/ottGroup/member/isPaid' />"
 				method="post">
-				<p>${isPaid}</p>
-				<input type="hidden"
-					name="ottGroupId" value="${ottGroup.groupId}" />
+				<!-- 그룹 ID와 서비스 ID 전송 -->
+				<input type="hidden" name="ottGroupId" value="${ottGroup.groupId}" />
+				<input type="hidden" name="serviceId" value="${ottGroup.serviceId }" />
+				<!-- 입금 완료 버튼 -->
 				<button type="submit" class="payment-button ${isPaid ? 'paid' : ''}"
 					${isPaid ? 'disabled' : ''}>입금 완료</button>
 			</form>
 		</div>
+
 	</main>
 </body>
 </html>

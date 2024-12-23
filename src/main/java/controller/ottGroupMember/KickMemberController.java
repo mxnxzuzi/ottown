@@ -21,6 +21,7 @@ public class KickMemberController implements Controller {
 
         String groupIdParam = request.getParameter("groupId");
         String consumerIdParam = request.getParameter("consumerId");
+        String serviceIdParam = request.getParameter("serviceId");
         
         if (groupIdParam == null || consumerIdParam == null) {
             return "redirect:/OTTs/view";
@@ -28,10 +29,13 @@ public class KickMemberController implements Controller {
 
         long groupId = 0;
         long consumerId = 0;
+        long serviceId = 0;
+        
 
         try {
             groupId = Long.parseLong(groupIdParam);
             consumerId = Long.parseLong(consumerIdParam);
+            serviceId = Long.parseLong(serviceIdParam);
         } catch (NumberFormatException e) {
            return "redirect:/OTTs/view";
         }
@@ -45,6 +49,6 @@ public class KickMemberController implements Controller {
         }
 
         // 성공 시 리디렉션
-        return "redirect:/ottGroup/OTTGroup_host?groupId=" + groupId;
+        return "redirect:/ottGroup/OTTGroup_host?groupId=" + groupId + "&serviceId=" + serviceId;
     }
 }

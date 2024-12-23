@@ -29,12 +29,12 @@ public class SetPaidController implements Controller {
 
         long groupId = 0;
         long consumerId = 0;
-        //int serviceId = 0;
+        int serviceId = 0;
 
         try {
             groupId = Long.parseLong(groupIdParam);
             consumerId = Long.parseLong(consumerIdParam);
-            //serviceId = Integer.parseInt(serviceIdParam);
+            serviceId = Integer.parseInt(serviceIdParam);
         } catch (NumberFormatException e) {
            return "redirect:/OTTs/view";
         }
@@ -47,6 +47,6 @@ public class SetPaidController implements Controller {
         }
         
 
-        return "redirect:/ottGroup/OTTGroup_member?groupId=" + groupId;
+        return "redirect:/mypage/ottGroup/view/group?groupId=" + groupId + "&serviceId=" + serviceId;
     }
 }

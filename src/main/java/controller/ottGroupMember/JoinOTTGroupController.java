@@ -43,6 +43,10 @@ public class JoinOTTGroupController implements Controller {
         if (ottGroup == null) {
             return "redirect:/ottGroupList/OTTGroupList?ottId=" + serviceId;
         }
+        if (ottGroupMemberManager.isMemberInGroup(groupIdL, consumerIdL)) {
+            request.setAttribute("errorMessage", "이미 이 그룹에 가입되어 있습니다.");
+            return "redirect:/ottGroup/OTTGroup_member?groupId=" + groupIdL + "&serviceId=" + serviceId;
+        }
      // 최대 인원 초과 여부 확인
         if (ottGroup.getCurrentMembers() >= 4) {
             request.setAttribute("errorMessage", "공동구매방 인원이 이미 꽉 찼습니다.");
@@ -71,11 +75,11 @@ public class JoinOTTGroupController implements Controller {
             request.setAttribute("kakaoId", ottGroup.getKakaoId()); // 카카오톡 ID 전달
             request.setAttribute("currentMembers", ottGroup.getCurrentMembers());
             //return "/ottGroup/OTTGroup_member.jsp";
-            return "redirect:/ottGroup/OTTGroup_member?groupId=" + groupId + "&serviceId=" + serviceId;
+            return "redirect:/ottGroup/OTTGroup_member?groupId=" + groupIdL + "&serviceId=" + serviceId;
         } else {
             // 실패 시 오류 메시지 설정 후 방 목록 페이지로 리다이렉트
             return "redirect:/ottGroupList/OTTGroupList?ottId=" + serviceId;
         }
     }
 
-}
+} 

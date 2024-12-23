@@ -21,6 +21,11 @@ public class OTTGroupMemberManager {
         this.ottGroupMemberDao = new OTTGroupMemberDao();
         this.consumerDao = new ConsumerDao();
     }
+    public boolean isMemberInGroup(long groupId, long consumerId) {
+        // getMemberById를 사용하여 멤버 정보 확인
+        OTTGroupMember member = ottGroupMemberDao.getMemberById(groupId, consumerId);
+        return member != null; // 멤버가 존재하면 true, 그렇지 않으면 false
+    }
     
     // 새로운 OTTGroupMember 추가
     public int addOTTGroupMember(long groupId, long consumerId) {

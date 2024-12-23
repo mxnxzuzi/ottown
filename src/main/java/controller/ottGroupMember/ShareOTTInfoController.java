@@ -26,13 +26,16 @@ public class ShareOTTInfoController implements Controller {
         if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
 
         String groupIdParam = request.getParameter("groupId");
+        String serviceIdParam = request.getParameter("serviceId");
         if (groupIdParam == null || groupIdParam.isEmpty()) {
             return "redirect:/OTTs/view";
         }
 
         long groupId=0;
+        long serviceId=0;
         try {
             groupId = Long.parseLong(groupIdParam);
+            serviceId = Long.parseLong(serviceIdParam);
         } catch (NumberFormatException e) {
             return "redirect:/OTTs/view";
         }
@@ -46,6 +49,6 @@ public class ShareOTTInfoController implements Controller {
         	return "/ottGroup/OTTGroup_member.jsp";
         }
 
-        return "/ottGroup/OTTGroup_host.jsp";
+        return "redirect:/ottGroup/OTTGroup_host?groupId=" + groupId + "&serviceId=" + serviceId;
     }
 }

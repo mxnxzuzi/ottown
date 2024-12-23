@@ -58,6 +58,7 @@ public class OTTGroupManager {
         }
         return false;
     }
+
     
     public List<OTTGroup> getOTTGroupsByConsumerId(String consumerId){
         return ottGroupDao.getOTTGroupsByConsumerId(Long.parseLong(consumerId));

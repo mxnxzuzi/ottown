@@ -78,6 +78,7 @@
                      <form action="<c:url value='/ottGroup/removeMember' />" method="post">
                          <input type="hidden" name="consumerId" value="${member.consumerId}" />
                          <input type="hidden" name="groupId" value="${member.groupId}" />
+                         <input type="hidden" name="serviceId" value="${ottGroup.serviceId }" />
                          <button type="submit" class="remove-button">-</button>
                      </form>
                 </div>
@@ -93,6 +94,7 @@
                 <c:otherwise>
                     <form action="<c:url value='/ottGroup/share' />" method="post">
                         <input type="hidden" name="groupId" value="${ottGroup.groupId}" />
+                        <input type="hidden" name="serviceId" value="${ottGroup.serviceId }" />
                         <button type="submit" class="account-share active">계정 공유</button>
                     </form>
                 </c:otherwise>

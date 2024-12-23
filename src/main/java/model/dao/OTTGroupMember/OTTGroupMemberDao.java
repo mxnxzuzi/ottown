@@ -64,7 +64,24 @@ public class OTTGroupMemberDao {
         }
         return null;
     }
+    public boolean isMemberInGroup(long groupId, long consumerId) {
+        String sql = "SELECT COUNT(*) FROM GROUP_MEMBER WHERE GROUP_ID = ? AND CONSUMER_ID = ?";
+        jdbcUtil.setSqlAndParameters(sql, new Object[]{groupId, consumerId});
 
+        try {
+            ResultSet rs = jdbcUtil.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return count > 0; // 가입 여부 반환
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            jdbcUtil.close();
+        }
+        return false;
+    }
+    
     // OTTGroup의 member들 조회
     public List<OTTGroupMember> getMembersByGroupId(long groupId) {
         String sql = "SELECT * FROM GROUP_MEMBER WHERE GROUP_ID = ?";

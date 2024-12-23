@@ -208,7 +208,7 @@ public class ContentDao {
                 // service_name을 기반으로 service_id를 조회
                 String englishServiceName = koreanToEnglishMap.getOrDefault(ottService, ottService);
                 int serviceId = getServiceIdByName(englishServiceName);
-            	System.out.println("서비스아이디" + serviceId);
+                
                 if (serviceId != -1) { // 유효한 service_id인 경우에만 삽입
                     Object[] param = new Object[]{contentId, serviceId};
                     jdbcUtil.setSqlAndParameters(sql, param);

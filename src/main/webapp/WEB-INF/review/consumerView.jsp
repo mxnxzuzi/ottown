@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>콘텐츠 상세 페이지</title>
+    <title>OTTown</title>
     <link rel=stylesheet href="<c:url value='/css/base.css' />" type="text/css">
     <link rel="stylesheet" href="<c:url value='/css/review.css' />" type="text/css">
 </head>

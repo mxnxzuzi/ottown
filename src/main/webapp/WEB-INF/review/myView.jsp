@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>콘텐츠 상세 페이지</title>
+    <title>OTTown</title>
     <link rel=stylesheet href="<c:url value='/css/base.css' />" type="text/css">
     <link rel="stylesheet" href="<c:url value='/css/review.css' />" type="text/css">
 </head>
@@ -60,7 +60,6 @@
 	            const title = reviewBox.querySelector(".review-content-title").textContent.trim(); // 콘텐츠 제목 가져오기
 	            const rating = reviewBox.querySelector(".review-rating").textContent.replace('★', '').trim(); // 평점 가져오기
 	            const reviewText = reviewBox.querySelector(".review-text").textContent.trim(); // 리뷰 내용 가져오기
-	            console.log("title " + title);
 	
 	            const form = document.getElementById("reviewForm");
 	            form.classList.toggle("hidden-form");

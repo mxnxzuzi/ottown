@@ -82,26 +82,28 @@ cd OTTown
 ![회원가입 화면](https://github.com/user-attachments/assets/893ad6dc-89ef-4aaa-80b4-8c21776a2b5e)
 
 - **로그인**: 생성한 계정을 통해 로그인하고 기능을 이용합니다.
-![로그 화면](https://github.com/user-attachments/assets/80e33386-b3c4-481f-ab2b-594b760f248e)
+![로그인 화면](https://github.com/user-attachments/assets/80e33386-b3c4-481f-ab2b-594b760f248e)
 
 ---
 
 ### 2️⃣ 관심 콘텐츠 추가
 - 선호하는 콘텐츠를 관심 목록에 추가하여 나중에 쉽게 접근할 수 있습니다.
-
+![찜 화면](https://github.com/user-attachments/assets/ae6a0d8a-2508-4f00-a722-a312d31d9ede)
 ---
 
 ### 3️⃣ 콘텐츠 리뷰 작성
 - OTT 콘텐츠에 대한 리뷰를 작성하고 다른 사용자의 평점을 확인할 수 있습니다.
-
+![리뷰 화면](https://github.com/user-attachments/assets/baa192ff-95da-4476-a9b9-46685003b17d)
 ---
 
 ### 4️⃣ 공동 구매 방 생성 및 관리
 - 공동 구매 방을 생성하고 참여자를 초대하여 경제적으로 OTT를 이용할 수 있습니다.
-
+![공동구매 생 화면](https://github.com/user-attachments/assets/725cbca0-1f79-4bb7-a3fa-1a4b5ba8527a)
+![공동구매 관리 화면](https://github.com/user-attachments/assets/b28b0828-eda3-430b-a07a-96f8076f4c3a)
 ---
 
 ### 5️⃣ 알림 관리
 - 입금 완료 및 방 종료 알림을 통해 공동 구매 진행 상황을 효율적으로 관리합니다.
+![알림 화면](https://github.com/user-attachments/assets/a1c3c7b9-a396-4431-aeff-248cd828bbd2)
 
 ---

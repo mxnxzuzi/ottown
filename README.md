@@ -49,7 +49,7 @@ OTT 콘텐츠 검색, 리뷰 작성, 공동 구매 방 관리 등 다양한 기�
 - **Oracle 데이터베이스** 설정
 - **Eclipse IDE** 설치
 - **Git** 설치
-- **Selenium, ChromeDriver** 설치
+- **Selenium, ChromeDriver** 설치 ****(설치해야 OTT페이지를 보실 수 있습니다)****
 
 ## 🛠️ 프로젝트 실행
 

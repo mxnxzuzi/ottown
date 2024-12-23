@@ -19,8 +19,8 @@ public class SetPaidController implements Controller {
         if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
 
         String groupIdParam = request.getParameter("ottGroupId");
-        //String consumerIdParam = request.getParameter("ottGroupMemberId");
-        String consumerIdParam = UserSessionUtils.getLoginUserId(session);
+        String consumerIdParam = request.getParameter("ottGroupMemberId");
+        //String consumerIdParam = UserSessionUtils.getLoginUserId(session);
         String serviceIdParam = request.getParameter("serviceId");
 
         if (groupIdParam == null || consumerIdParam == null) {
@@ -29,12 +29,12 @@ public class SetPaidController implements Controller {
 
         long groupId = 0;
         long consumerId = 0;
-        int serviceId = 0;
+        //int serviceId = 0;
 
         try {
             groupId = Long.parseLong(groupIdParam);
             consumerId = Long.parseLong(consumerIdParam);
-            serviceId = Integer.parseInt(serviceIdParam);
+            //serviceId = Integer.parseInt(serviceIdParam);
         } catch (NumberFormatException e) {
            return "redirect:/OTTs/view";
         }
@@ -47,6 +47,6 @@ public class SetPaidController implements Controller {
         }
         
 
-        return "redirect:/mypage/ottGroup/view/group?groupId=" + groupId + "&serviceId=" + serviceId;
+        return "redirect:/ottGroup/OTTGroup_member?groupId=" + groupId;
     }
 }

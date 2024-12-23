@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
 import model.domain.Content;
-import model.dto.Review;
+import model.domain.Review;
 import model.service.ContentManager;
 import model.service.ReviewManager;
 

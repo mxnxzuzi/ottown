@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
-import model.dto.Review;
+import model.domain.Review;
 
 public interface ReviewMapper {
     // 리뷰 추가

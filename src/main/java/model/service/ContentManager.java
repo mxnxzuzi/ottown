@@ -20,7 +20,6 @@ public class ContentManager {
     }
     public void insertContent(Content content) {
         try {
-        	System.out.println("매니저" + content);
             contentDao.insertContent(content);
             System.out.println("영화 데이터가 성공적으로 저장되었습니다.");
         } catch (Exception e) {

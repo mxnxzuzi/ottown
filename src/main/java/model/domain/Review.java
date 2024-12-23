@@ -1,9 +1,6 @@
-package model.dto;
+package model.domain;
 
 import java.sql.Date;
-
-import model.domain.Consumer;
-import model.domain.Content;
 
 public class Review {
     private Long reviewId;

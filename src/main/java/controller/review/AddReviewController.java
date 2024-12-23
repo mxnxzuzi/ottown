@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import controller.Controller;
 import controller.consumer.UserSessionUtils;
-import model.dto.Review;
+import model.domain.Review;
 import model.service.ReviewManager;
 
 public class AddReviewController implements Controller{

@@ -44,8 +44,7 @@ public class KickMemberController implements Controller {
         boolean result = ottGroupMemberManager.removeOTTGroupMember(groupId, consumerId) > 0;
 
         if (!result) {
-            request.setAttribute("errorMessage", "멤버 퇴장에 실패했습니다.");
-            return "/errorPage.jsp";
+            return "redirect:/ottGroup/OTTGroup_host?groupId=" + groupId + "&serviceId=" + serviceId;
         }
 
         // 성공 시 리디렉션

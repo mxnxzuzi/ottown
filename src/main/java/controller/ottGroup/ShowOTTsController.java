@@ -30,7 +30,7 @@ public class ShowOTTsController implements Controller {
             if (detailedService != null) {
                 ottData.put("image", detailedService.getImage());
             } else {
-                ottData.put("image", "default.png"); // 기본 이미지 설정
+                ottData.put("image", "/images/default.jpg"); // 기본 이미지 설정
             }
 
             ottServiceList.add(ottData);

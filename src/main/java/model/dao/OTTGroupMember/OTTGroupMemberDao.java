@@ -21,10 +21,12 @@ public class OTTGroupMemberDao {
         String sql = "INSERT INTO GROUP_MEMBER (ROLE, IS_PAID, IS_REMOVED, CONSUMER_ID, GROUP_ID) "
                    + "VALUES (0, 0, 0, ?, ?)";
         jdbcUtil.setSqlAndParameters(sql, new Object[]{consumerId, groupId});
-        int result = 0;
+
         try {
-            result = jdbcUtil.executeUpdate();
+            int result = jdbcUtil.executeUpdate();
+            System.out.println("result " + result);
             jdbcUtil.commit();
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
             jdbcUtil.rollback();
@@ -32,7 +34,9 @@ public class OTTGroupMemberDao {
             jdbcUtil.close();
         }
         
-        return result;
+        System.out.println("return test");
+        
+        return 0;
     }
 
     // ottGroup의 한 member 조회

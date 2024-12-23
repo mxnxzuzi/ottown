@@ -19,7 +19,7 @@ public class SetPaidController implements Controller {
         if (!UserSessionUtils.hasLogined(session)) { return "redirect:/consumer/login"; }
 
         String groupIdParam = request.getParameter("ottGroupId");
-        String consumerIdParam = request.getParameter("ottGroupMemberId");
+        String consumerIdParam = UserSessionUtils.getLoginUserId(session);;
         //String consumerIdParam = UserSessionUtils.getLoginUserId(session);
         String serviceIdParam = request.getParameter("serviceId");
 

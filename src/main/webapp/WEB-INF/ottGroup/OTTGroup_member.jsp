@@ -77,8 +77,7 @@
 			<form action="<c:url value='/ottGroup/member/isPaid' />"
 				method="post">
 				<p>${isPaid}</p>
-				<input type="hidden" name="ottGroupMemberId"
-					value="${ottGroupMemberId}" /> <input type="hidden"
+				<input type="hidden"
 					name="ottGroupId" value="${ottGroup.groupId}" />
 				<button type="submit" class="payment-button ${isPaid ? 'paid' : ''}"
 					${isPaid ? 'disabled' : ''}>입금 완료</button>

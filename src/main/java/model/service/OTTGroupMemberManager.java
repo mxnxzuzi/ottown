@@ -47,7 +47,6 @@ public class OTTGroupMemberManager {
 
        try {
             Consumer hostConsumer = consumerDao.getConsumerById(host.getConsumerId());
-            System.out.println("hostConsumer " + hostConsumer.toString());
             return hostConsumer.getConsumerName();
         } catch (SQLException e) {
             // TODO Auto-generated catch block

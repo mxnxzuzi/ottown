@@ -22,17 +22,31 @@ public class OTTGroupMemberDao {
                    + "VALUES (0, 0, 0, ?, ?)";
         jdbcUtil.setSqlAndParameters(sql, new Object[]{consumerId, groupId});
         int result = 0;
+<<<<<<< HEAD
         try {
         	result = jdbcUtil.executeUpdate();
             jdbcUtil.commit();
         } catch (Exception e) {
         	e.printStackTrace();
+=======
+
+        try {
+            result = jdbcUtil.executeUpdate();
+            jdbcUtil.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+>>>>>>> 4ebe0b4d99d42503f2b24445980ebf162b7c73be
             jdbcUtil.rollback();
         } finally {
             jdbcUtil.close();
         }
+<<<<<<< HEAD
         
         return result;
+=======
+
+        return result; // 항상 최종 result 반환
+>>>>>>> 4ebe0b4d99d42503f2b24445980ebf162b7c73be
     }
 
     // ottGroup의 한 member 조회

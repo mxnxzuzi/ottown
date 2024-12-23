@@ -27,11 +27,13 @@
 
 		<!-- 상단 정보 -->
 		<div class="room-top">
-<%-- 			<img src="<c:url value='${ottService.image}'  />"
-				alt="${ottService.name} Logo"> --%>
 				<h2>${ottService.name}</h2>
 			<div class="room-top-box">
+<<<<<<< HEAD
 				<div class="room-top-name" style="display: flex">
+=======
+				<div class="room-top-name">
+>>>>>>> 4ebe0b4d99d42503f2b24445980ebf162b7c73be
 					<p style="font-weight: bold;">${host}</p>
 					<p>님의 공동구매방</p>
 				</div>
@@ -79,9 +81,8 @@
 			<form action="<c:url value='/ottGroup/member/isPaid' />"
 				method="post">
 				<p>${isPaid}</p>
-				<input type="hidden" name="ottGroupMemberId"
-					value="${ottGroupMemberId}" /> <input type="hidden"
-					name="ottGroupId" value="${ottGroup.groupId}" />
+				<input type="hidden" name="ottGroupId" value="${ottGroup.groupId}" />
+				<input type="hidden" name="serviceId" value="${ottGroup.serviceId }"/>
 				<button type="submit" class="payment-button ${isPaid ? 'paid' : ''}"
 					${isPaid ? 'disabled' : ''}>입금 완료</button>
 			</form>

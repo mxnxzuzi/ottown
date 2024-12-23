@@ -14,10 +14,10 @@ OTT 콘텐츠 검색, 리뷰 작성, 공동 구매 방 관리 등 다양한 기�
 ![메인 페이지](https://github.com/user-attachments/assets/9c9e15a4-0586-47bc-b867-0a8f934ee20d)
 
 #### 📋 콘텐츠 화면
-![콘텐츠 화면](https://via.placeholder.com/800x400)
+![콘텐츠 화면](https://github.com/user-attachments/assets/5e4b7b08-7815-4c83-b030-5cb637842414)
 
 #### 📋 공동 구매 방 관리
-![공동 구매 방 관리 화면](https://via.placeholder.com/800x400)
+![공동 구매 방 관리 화면](https://github.com/user-attachments/assets/3fb517f4-45e2-43b7-841f-100520683bc3)
 
 
 ### ✨ 주요 기능
